@@ -26,6 +26,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+### Gulp ###
+gulpfile.js
+
 ### Sass ###
 .sass-cache/
 *.css.map
