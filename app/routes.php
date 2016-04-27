@@ -15,3 +15,7 @@ Route::get('/', function()
 {
 	return View::make('index');
 });
+
+Route::resource('posts', 'PostsController');
+
+Route::resource('products', 'ProductsController');
