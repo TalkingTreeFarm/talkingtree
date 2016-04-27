@@ -9,9 +9,16 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
+		
+		DB::table('users')->delete();
+		DB::table('posts')->delete();
+		DB::table('products')->delete();
+
 		Eloquent::unguard();
 
-		// $this->call('UserTableSeeder');
+		$this->call('UserTableSeeder');
+		$this->call('PostTableSeeder');
+		$this->call('ProductTableSeeder');
 	}
 
 }
