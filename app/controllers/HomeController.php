@@ -22,7 +22,7 @@ class HomeController extends BaseController {
 
 	public function homePage()
 	{
-		return View::make('pages.home');
+		return View::make('main');
 	}
 
 }
