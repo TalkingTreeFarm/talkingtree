@@ -9,7 +9,7 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('posts.index')->with('posts', $posts);
+		return View::make('posts.main')->with('posts', $posts);
 	}
 
 
