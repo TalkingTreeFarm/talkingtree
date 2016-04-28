@@ -1,8 +1,8 @@
 <?php
 
-class Product extends BaseModel
+class Category extends BaseModel
 {
-	protected $table = 'products';
+	protected $table = 'categories';
 	// public $timestamps = false;
 
 	public static $rules = array(
