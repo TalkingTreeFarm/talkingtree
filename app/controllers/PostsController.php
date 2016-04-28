@@ -43,7 +43,12 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$post = Post::find($id);
+		if(!$post) {
+			App::abort(404);
+		}
+
+		return View::make('posts.show')->with('post', $post);
 	}
 
 
