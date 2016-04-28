@@ -9,7 +9,7 @@ class ProductsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('product.main')->with('products', $products);
 	}
 
 
@@ -43,7 +43,12 @@ class ProductsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$product = Product::find($id);
+		if(!$post) {
+			App::abort(404);
+		}
+
+		return View::make('product.show')->with('product', $product);
 	}
 
 
