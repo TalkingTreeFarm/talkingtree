@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('index');
+	return View::make('main');
 });
 
 Route::resource('posts', 'PostsController');

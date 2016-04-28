@@ -9,7 +9,7 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('posts.index')->with('posts', $posts);
+		return View::make('posts.main')->with('posts', $posts);
 	}
 
 
@@ -43,7 +43,12 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$post = Post::find($id);
+		if(!$post) {
+			App::abort(404);
+		}
+
+		return View::make('posts.show')->with('post', $post);
 	}
 
 
