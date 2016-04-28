@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header page-scroll">
             <a class="navbar-brand page-scroll" href="#page-top">
@@ -8,8 +8,8 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav">
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
@@ -20,10 +20,13 @@
                     <a class="page-scroll" href="#education">Education</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#tips">Tips & Tricks</a>
+                    <a class="page-scroll" href="#events">Events</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#basket">Order a Basket</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#basket">Contact</a>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->

@@ -4,6 +4,7 @@ class ProductTableSeeder extends Seeder
 {
         public function run()
         {
+<<<<<<< HEAD
 
 
             $product1 = new Product();
@@ -19,5 +20,22 @@ class ProductTableSeeder extends Seeder
             $product2->price = 20.00;
             $product2->amount = 1;
             $product2->save();
+=======
+            
+            
+            $product = new Product();
+            $product->name = 'ProductNameOne';
+            $product->description = 'Product Description One';
+            $product->price = 25;
+            $product->amount= 1;
+            $product->save();
+
+            $product = new Product();
+            $product->name = 'ProductNameTwo';
+            $product->description = 'Product Description Two';
+            $product->price = 20;
+            $product->amount= 1;
+            $product->save();
+>>>>>>> 2442019acd6012b3c6c4e37c083af6cde506d8f1
         }
 }

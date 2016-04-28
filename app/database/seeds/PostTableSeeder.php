@@ -3,6 +3,7 @@ class PostTableSeeder extends Seeder
 {
     public function run()
     {
+<<<<<<< HEAD
         $post1 = new Post();
         $post1->title = "Seeded Post 1";
         $post1->body = "This comes from the seed!";
@@ -26,5 +27,28 @@ class PostTableSeeder extends Seeder
         $post3->image = "http://www.fillmurray.com/300/300";
         $post3->user_id = User::first()->id;
         $post3->save();
+=======
+        $post = new Post();
+        $post->title = "Seeded Post 1";
+        $post->body = "This comes from the seed!";
+        $post->image = "http://www.fillmurray.com/300/300";
+        $post->user_id = User::first()->id;
+        $post->category_id = Category::all()->random()->id;
+        $post->save();
+        $post = new Post();
+        $post->title = "Seeded Post 2";
+        $post->body = "This comes from the seed!";
+        $post->image = "http://www.fillmurray.com/300/300";
+        $post->user_id = User::first()->id;
+        $post->category_id = Category::all()->random()->id;
+        $post->save();
+        $post = new Post();
+        $post->title = "Seeded Post 3";
+        $post->body = "This, too comes from the seed!";
+        $post->image = "http://www.fillmurray.com/300/300";
+        $post->user_id = User::first()->id;
+        $post->category_id = Category::all()->random()->id;
+        $post->save();
+>>>>>>> 2442019acd6012b3c6c4e37c083af6cde506d8f1
     }
 }

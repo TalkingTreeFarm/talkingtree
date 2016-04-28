@@ -17,12 +17,14 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
+		
 		return View::make('hello');
 	}
 
 	public function homePage()
 	{
-		return View::make('main');
+		$posts = Post::all();
+		return View::make('main')->with('posts', $posts);;
 	}
 
 }
