@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('main');
-});
+Route::get('/', 'HomeController@homePage');
 
 Route::resource('posts', 'PostsController');
 
