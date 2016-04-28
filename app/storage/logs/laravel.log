@@ -314,3 +314,43 @@ Stack trace:
 #16 /vagrant/sites/talkingtree.dev/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(641): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
 #17 /vagrant/sites/talkingtree.dev/public/index.php(49): Illuminate\Foundation\Application->run()
 #18 {main} [] []
+[2016-04-28 01:37:03] local.ERROR: exception 'InvalidArgumentException' with message 'View [index] not found.' in /vagrant/sites/talkingtree.dev/bootstrap/compiled.php:9584
+Stack trace:
+#0 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(9557): Illuminate\View\FileViewFinder->findInPaths('index', Array)
+#1 /vagrant/sites/talkingtree.dev/vendor/laravel/framework/src/Illuminate/View/Factory.php(124): Illuminate\View\FileViewFinder->find('index')
+#2 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(3267): Illuminate\View\Factory->make('index')
+#3 /vagrant/sites/talkingtree.dev/app/routes.php(16): Illuminate\Support\Facades\Facade::__callStatic('make', Array)
+#4 /vagrant/sites/talkingtree.dev/app/routes.php(16): Illuminate\Support\Facades\View::make('index')
+#5 [internal function]: {closure}()
+#6 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(5398): call_user_func_array(Object(Closure), Array)
+#7 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(5065): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#8 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#9 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#10 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#11 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#12 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#13 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#14 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(11123): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#15 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#16 /vagrant/sites/talkingtree.dev/public/index.php(49): Illuminate\Foundation\Application->run()
+#17 {main} [] []
+[2016-04-28 01:50:05] local.ERROR: exception 'InvalidArgumentException' with message 'View [index] not found.' in /vagrant/sites/talkingtree.dev/bootstrap/compiled.php:9584
+Stack trace:
+#0 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(9557): Illuminate\View\FileViewFinder->findInPaths('index', Array)
+#1 /vagrant/sites/talkingtree.dev/vendor/laravel/framework/src/Illuminate/View/Factory.php(124): Illuminate\View\FileViewFinder->find('index')
+#2 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(3267): Illuminate\View\Factory->make('index')
+#3 /vagrant/sites/talkingtree.dev/app/routes.php(16): Illuminate\Support\Facades\Facade::__callStatic('make', Array)
+#4 /vagrant/sites/talkingtree.dev/app/routes.php(16): Illuminate\Support\Facades\View::make('index')
+#5 [internal function]: {closure}()
+#6 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(5398): call_user_func_array(Object(Closure), Array)
+#7 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(5065): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#8 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#9 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#10 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#11 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#12 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#13 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#14 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(11123): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#15 /vagrant/sites/talkingtree.dev/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#16 /vagrant/sites/talkingtree.dev/public/index.php(49): Illuminate\Foundation\Application->run()
+#17 {main} [] []
