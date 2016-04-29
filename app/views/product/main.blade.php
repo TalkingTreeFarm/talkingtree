@@ -5,7 +5,9 @@
 @stop
 
 @section('content')
-    <input id="sm-baskets-available" type="hidden" value="{{{ $products['ProductNameOne']->amount }}}">
+    @foreach($products as $product)
+        <input id="{{{ $product['name'] }}}" type="hidden" value="{{{ $product['amount'] }}}">
+    @endforeach
     <div class="container">
 
         <div class="row">
@@ -30,8 +32,12 @@
                     <label for="size">Size*</label>
                     <select class="form-control">
                         <option value="0" selected>Select Size</option>
-                        <option value="1">Small - $12</option> <!-- Replace price with $price -->
-                        <option value="2">Large - $20</option> <!-- Replace price with $price -->
+
+                        @foreach($products as $product)
+                            @if($product->visible)
+                                <option value="{{{ $product->id }}}">{{{ $product->name }}} - ${{{ $product->price }}}</option>
+                            @endif
+                        @endforeach
                     </select>
 
                     <label for="quantity">Quantity*</label>
