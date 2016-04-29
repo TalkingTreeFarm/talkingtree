@@ -5,6 +5,7 @@
 @stop
 
 @section('content')
+    <input id="sm-baskets-available" type="hidden" value="{{{ $products['ProductNameOne']->amount }}}">
     <div class="container">
 
         <div class="row">
@@ -36,13 +37,13 @@
                     <label for="quantity">Quantity*</label>
                     <div class="input-group form-group-options quantity-wrapper">
                         <span  class="input-group-addon input-group-addon-remove quantity-remove btn">
-                            <span class="glyphicon glyphicon-minus"></span>
+                            <span id="basket-sub" class="glyphicon glyphicon-minus"></span>
                         </span>
 
-                        <input type="text" name="quantity" class="form-control quantity-count" placeholder="1">
+                        <input id="quantity-baskets" type="text" name="quantity" class="form-control quantity-count" placeholder="1">
 
                         <span class="input-group-addon input-group-addon-remove quantity-add btn">
-                            <span class="glyphicon glyphicon-plus"></span>
+                            <span id="basket-add" class="glyphicon glyphicon-plus"></span>
                         </span>
                     </div>
 
