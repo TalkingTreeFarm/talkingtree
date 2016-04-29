@@ -13,6 +13,7 @@ class ProductsController extends \BaseController {
 		return View::make('product.main')->with('products', $products);
 	}
 
+	
 
 	/**
 	 * Show the form for creating a new resource.
