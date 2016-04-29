@@ -9,11 +9,10 @@ class ProductsController extends \BaseController {
 	 */
 	public function index()
 	{
-        $products = Product::all;
+        $products = Product::all();
 		return View::make('product.main')->with('products', $products);
 	}
 
-	
 
 	/**
 	 * Show the form for creating a new resource.

@@ -11,7 +11,7 @@
     });
 
     $('#basket-add').on('click', function() {
-        if($baskets >= 0) {
+        if($baskets < $('#')) {
             $baskets += 1;
         }
     });
