@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', 'HomeController@homePage');
+
+Route::resource('posts', 'PostsController');
+
+Route::resource('products', 'ProductsController');
