@@ -8,4 +8,9 @@ class Category extends BaseModel
 	public static $rules = array(
     	
 	);
+
+	public function categories()
+	{
+		return $this->belongstoMany('Post');
+	}
 } 
