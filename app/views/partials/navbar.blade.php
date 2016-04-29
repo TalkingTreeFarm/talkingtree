@@ -1,14 +1,12 @@
 
-<nav class="navbar">
-    <div class="navbar-inner">
-        <div class="container">
-            <div class="navbar-header page-scroll chalkboardFont">
-                <a class="navbar-brand page-scroll" href="#page-top">
-                    Talking Tree Farm
-                </a>
-            </div>
+<div class="container">
+    <h1 class="header">Talking Tree Farm</h1>
+
 
             <!-- Collect the nav links, forms, and other content for toggling -->
+    
+    <nav class="navbar">
+        <div class="navbar-inner">        
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="hidden">
@@ -32,5 +30,6 @@
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
-    </div>
-</nav>
+    </nav>
+</div>
+

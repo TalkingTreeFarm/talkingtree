@@ -1,7 +1,7 @@
-@font-face {
+/*@font-face {
     font-family: tafelschrift;
     src: url('tafelschrift.TTF') format('truetype');
-}
+}*/
 
 body {
 	background-image: url("/images/Chalkboard-background.jpg");
@@ -11,6 +11,17 @@ body {
     background:transparent;
 }
 
-div.chalkboardFont {
-    font-family: tafelschrift, cursive;
+/*centering navbar*/
+.navbar-nav {
+  width: 100%;
+  text-align: center;
+}
+.navbar-nav > li {
+  float: none;
+  display: inline-block;
+}
+
+h1.header {
+    font-family: cursive;
+    color: white;
 }
