@@ -4,8 +4,6 @@ class ProductTableSeeder extends Seeder
 {
         public function run()
         {
-            
-            
             $product = new Product();
             $product->name = 'ProductNameOne';
             $product->description = 'Product Description One';
