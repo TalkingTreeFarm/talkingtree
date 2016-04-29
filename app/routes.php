@@ -19,4 +19,10 @@ Route::resource('products', 'ProductsController');
 
 Route::get('/login', 'UsersController@loginpage');
 Route::post('/login', 'UsersController@doLogin');
+Route::get('/logout', 'UsersController@getLogout');
+
+Route::get('/user/{id}', 'UsersController@show');
+
+
+
 

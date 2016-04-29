@@ -27,6 +27,13 @@
                     <li>
                         <a class="page-scroll" href="#basket">Contact</a>
                     </li>
+                    @if (Auth::check()) 
+                        <li><a href="{{{ action('UsersController@show', Auth::id()) }}}">User</a></li>
+                        <li><a href="{{{ action('PostsController@create') }}}">Create</a></li>
+                        <li><a href="{{{ action('UsersController@getLogout') }}}">Logout</a></li>
+                    @else
+                        <li><a href="{{{ action('UsersController@doLogin') }}}">Login</a></li>
+                    @endif
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
