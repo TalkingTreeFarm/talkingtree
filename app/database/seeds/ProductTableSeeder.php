@@ -5,15 +5,22 @@ class ProductTableSeeder extends Seeder
         public function run()
         {
             $product = new Product();
-            $product->name = 'ProductNameOne';
-            $product->description = 'Product Description One';
+            $product->name = 'Small_Basket';
+            $product->description = 'Small_Basket';
             $product->price = 25;
             $product->amount= 1;
             $product->save();
 
             $product = new Product();
-            $product->name = 'ProductNameTwo';
-            $product->description = 'Product Description Two';
+            $product->name = 'Large_Basket';
+            $product->description = 'Large_Basket';
+            $product->price = 20;
+            $product->amount= 1;
+            $product->save();
+
+            $product = new Product();
+            $product->name = 'Eggs';
+            $product->description = 'Eggs_by_the_dozen';
             $product->price = 20;
             $product->amount= 1;
             $product->save();
