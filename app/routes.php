@@ -16,3 +16,7 @@ Route::get('/', 'HomeController@homePage');
 Route::resource('posts', 'PostsController');
 
 Route::resource('products', 'ProductsController');
+
+Route::get('/login', 'UsersController@loginpage');
+Route::post('/login', 'UsersController@doLogin');
+
