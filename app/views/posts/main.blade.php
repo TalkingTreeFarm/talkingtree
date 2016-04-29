@@ -1,10 +1,18 @@
 @extends('layouts.master')
 
 @section('title')
-<h1>Main</h1>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Education and Training!</title>
+
 @stop
 
-    @section('content')
+@section('content')
 
 
-    @stop
+@stop
+
+
+@section('bottom-script')
+
+@stop
