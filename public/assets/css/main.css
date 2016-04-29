@@ -1,0 +1,16 @@
+@font-face {
+    font-family: tafelschrift;
+    src: url('tafelschrift.TTF') format('truetype');
+}
+
+body {
+	background-image: url("/images/Chalkboard-background.jpg");
+}
+
+.navbar-inner {
+    background:transparent;
+}
+
+div.chalkboardFont {
+    font-family: tafelschrift, cursive;
+}
