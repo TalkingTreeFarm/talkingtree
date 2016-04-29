@@ -21,7 +21,7 @@ class ProductTableSeeder extends Seeder
             $product->save();
 
             $product = new Product();
-            $product->visible = true;
+            $product->visible = false;
             $product->name = 'Eggs';
             $product->description = 'Eggs by the dozen';
             $product->price = 10;
