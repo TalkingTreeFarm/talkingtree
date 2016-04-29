@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-2 col-md-offset-8">
             
-            {{ Form::open(array('action' => 'UserController@postLogin')) }}
+            {{-- {{ Form::open(array('action' => 'UserController@postLogin')) }} --}}
                 <div class="row">
                     <div class="col-xs-12">
                         {{ $errors->first('email', '<span class="help-block">:message</span>') }}
