@@ -21,22 +21,10 @@ class UsersController extends \BaseController {
     }
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	public function getLogout()
+    {
+        Auth::logout();
+        return Redirect::action('PostsController@index');
+    }
 
 }
