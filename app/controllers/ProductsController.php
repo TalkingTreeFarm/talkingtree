@@ -9,6 +9,7 @@ class ProductsController extends \BaseController {
 	 */
 	public function index()
 	{
+        $products = Product::all;
 		return View::make('product.main')->with('products', $products);
 	}
 
