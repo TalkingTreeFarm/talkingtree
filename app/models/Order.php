@@ -1,8 +1,8 @@
 <?php
 
-class Product extends BaseModel
+class Order extends BaseModel
 {
-	protected $table = 'products';
+	protected $table = 'orders';
 	// public $timestamps = false;
 
 	public static $rules = array(
@@ -11,6 +11,6 @@ class Product extends BaseModel
 
 	public function orders()
 	{
-		return $this->belongstoMany('Order');
+		return $this->belongstoMany('Product');
 	}
 } 
