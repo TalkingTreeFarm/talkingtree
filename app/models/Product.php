@@ -8,4 +8,9 @@ class Product extends BaseModel
 	public static $rules = array(
     	
 	);
+
+	public function orders()
+	{
+		return $this->belongstoMany('Order');
+	}
 } 
