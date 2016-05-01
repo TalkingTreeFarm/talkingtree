@@ -22,6 +22,10 @@ Route::post('/login', 'UsersController@doLogin');
 Route::get('/logout', 'UsersController@getLogout');
 
 Route::get('/user/{id}', 'UsersController@show');
+Route::get('/user/{id}', 'UsersController@edit');
+
+Route::resource('orders', 'OrdersController');
+
 
 
 
