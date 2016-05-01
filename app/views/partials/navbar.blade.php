@@ -1,6 +1,6 @@
 
 <div class="container">
-    <h1 class="header">Talking Tree Farm</h1>
+    <h1 class="header"><a href="{{{action('HomeController@homePage')}}}">Talking Tree Farm</a></h1>
 
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -12,9 +12,9 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li><a href="{{{action('PostsController@show')}}}">Our Story</a></li>
+                    <li><a href="/our_story">Our Story</a></li>
                     <li><a href="{{{action('PostsController@index')}}}">Education</a></li>
-                    <li><a href="#events">Events</a></li>
+                    <li><a href="/events">Events</a></li>
                     <li><a href="{{{action('ProductsController@index')}}}">Order a Basket</a></li>
                     <li><a href="#footer">Contact</a></li>
                     @if (Auth::check()) 

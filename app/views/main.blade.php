@@ -2,15 +2,6 @@
 
 
 @section('content')
-    <div class="container">
-{{-- header --}}
-        <div class="row">
-            <div class="col-lg-12">
-{{--                 <h1 class="page-header">Page Heading
-                    <small>Secondary Text</small> --}}
-                </h1>
-            </div>
-        </div>
 
 {{-- about us --}}
         <div class="col-md-12 well">

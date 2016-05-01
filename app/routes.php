@@ -26,6 +26,21 @@ Route::get('/user/{id}', 'UsersController@edit');
 
 Route::resource('orders', 'OrdersController');
 
+Route::get('events', function()
+{
+    return View::make('events');
+});
+
+Route::get('posts.main', function()
+{
+    return View::make('posts.main');
+});
+
+Route::get('our_story', function()
+{
+    return View::make('our_story');
+});
+
 
 
 
