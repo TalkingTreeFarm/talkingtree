@@ -1,5 +1,9 @@
 # Created by https://www.gitignore.io/api/osx,sass,laravel,composer
 
+/useradmin
+
+/app/storage
+
 ### OSX ###
 .DS_Store
 .AppleDouble
