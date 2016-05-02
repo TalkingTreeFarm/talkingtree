@@ -8,27 +8,20 @@
 @stop
 
 @section('content')
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col sm12 md6 l4">
-                    <div class="card large">
-                        <p>First card</p>
-                    </div>
-                </div>
-                <div class="col sm12 md6 l4">
-                    <div class="card large">
-                        <p>Second card</p>
-                    </div>
-                </div>
-                <div class="col sm12 md6 l4">
-                    <div class="card large">
-                        <p>Third card</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+<div class="container">
+@foreach ($posts as $post)
+ <a href="{{{ action('PostsController@show', $post->id) }}}"><img src="http://www.fillmurray.com/300/300" alt=""></a>
+@endforeach
+
+
+
+
+
+
+
+
+
+</div>
 
 @stop
 
