@@ -11,6 +11,7 @@
 |
 */
 
+// Route::controller('/', 'HomeController');
 Route::get('/', 'HomeController@homePage');
 
 Route::resource('posts', 'PostsController');
