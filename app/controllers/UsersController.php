@@ -22,7 +22,7 @@ class UsersController extends \BaseController {
 	public function getLogout()
     {
         Auth::logout();
-        return Redirect::action('PostsController@index');
+        return Redirect::action('HomeController@homePage');
     }
 
     public function show($id)
@@ -37,6 +37,11 @@ class UsersController extends \BaseController {
 	{
 		return View::make('main');	
 	}
+
+        public function edit()
+    {
+        return View::make('users.edit');  
+    }
 
 
 }

@@ -9,7 +9,14 @@ class OrdersController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		
+		if(Auth::check())
+		{
+			$first_name = Auth::user()->first_name;
+			$userId = Auth::user()->id;
+			$orders = DB::table('orders') 
+		}
+		return View::make('orders.index', compact('first_name', 'orders', 'timestamp'));
 	}
 
 
