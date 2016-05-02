@@ -11,7 +11,6 @@
 |
 */
 
-// Route::controller('/', 'HomeController');
 Route::get('/', 'HomeController@homePage');
 
 Route::resource('posts', 'PostsController');
@@ -23,7 +22,8 @@ Route::post('/login', 'UsersController@doLogin');
 Route::get('/logout', 'UsersController@getLogout');
 
 Route::get('/user/{id}', 'UsersController@show');
-Route::get('/user/{id}', 'UsersController@edit');
+Route::get('/user/{id}/edit', 'UsersController@edit');
+Route::get('/user/{id}/posts', 'PostsController@userPosts');
 
 Route::resource('orders', 'OrdersController');
 
@@ -41,7 +41,10 @@ Route::get('our_story', function()
 {
     return View::make('our_story');
 });
-
+Route::get('orders.index', function()
+{
+    return View::make('orders.index');
+});
 
 
 

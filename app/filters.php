@@ -51,7 +51,7 @@ Route::filter('admin', function()
 {
 	if (!Auth::user()->isAdmin())
 	{
-		Session::flash('errorMessage', 'You are not authorized.');
+		Session::flash('Unauthorized', 401);
 		return Redirect::action('HomeController@homePage');
 	}
 });

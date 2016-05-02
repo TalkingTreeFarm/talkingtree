@@ -39,4 +39,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         'password_confirmation' => 'required|min:3'
     );
 
+    public function isAdmin()
+    {
+    	// constants are treated like they're static properties
+		return $this->role_id == self::ADMIN;
+    }
+
 }
