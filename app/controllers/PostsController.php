@@ -42,7 +42,8 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('posts.create');
+		$categories = Category::all();
+		return View::make('posts.create')->with('categories', $categories);
 	}
 
 
@@ -65,13 +66,14 @@ class PostsController extends \BaseController {
 		    if (Input::hasFile('image')) {
 		    	$image = Input::file('image');
 		    	$image->move(
-		    		public_path('/img'),
+		    		public_path('/images'),
 		    		$image->getClientOriginalName()
 		    	);
-		    	$post->image = "/img/{$image->getClientOriginalName()}";	
+		    	$post->image = "/images/{$image->getClientOriginalName()}";	
 		    }
 		$post->title=Input::get('title');
 		$post->body=Input::get('body');
+		$post->category_id=Input::get('category_id');
 		$post->user_id = Auth::id();
 		$post->save();
 		Log::info($post);
@@ -130,7 +132,16 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+	
+		$post = Post::find($id);
+		
+		if(!$post) {
+			return Redirect::action('PostsController@index');
+		}
+
+		$post->delete();
+		Session::flash('successMessage', 'This post was deleted successfully!!');
+		return Redirect::action('PostsController@index');
 	}
 
 
