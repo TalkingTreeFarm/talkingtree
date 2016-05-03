@@ -29,7 +29,7 @@ class PostsController extends \BaseController {
 			$posts=Post::where('category_id', '=', Input::get('category_id'))->get();
 		} else {
 
-			$posts = Post::all()->orderBy('created_at', 'desc');
+			$posts = Post::all()
 		}
 		return View::make('posts.main')->with('posts', $posts);
 	}
