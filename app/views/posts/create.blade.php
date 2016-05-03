@@ -21,7 +21,14 @@
 	{{ Form::label('body', 'Body') }}
 	{{ Form::textarea('body', null, ['placeholder'=>'Body', 'class'=>'hide', 'id' => 'body']) }}
 	{{ $errors->first('body', '<span class="help-block">:message</span>') }}
-
+	<select name="category_id">
+		<option disabled selected value="">Select Category</option>}
+		option
+		@foreach($categories as $category)
+		<option value="{{{$category->id}}}">{{{$category->name}}}</option>
+		@endforeach	
+	</select>
+	<hr>
 	<div class="form-group">
 		{{ Form::label('image', 'Image') }}
 		{{ Form::file('image') }}
