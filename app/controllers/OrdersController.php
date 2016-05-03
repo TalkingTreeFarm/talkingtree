@@ -13,7 +13,6 @@ class OrdersController extends \BaseController {
 		{
 			$orders = Order::all();
 		}
-
 		else
 		{
 			$user_id = Auth::id();

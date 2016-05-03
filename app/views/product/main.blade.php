@@ -29,7 +29,7 @@
             <div class="col-lg-3">
                 <form id="basket-order" class="form-group" action="{{{ action('OrdersController@store') }}}" method="post">
                     {{ Form::token() }}
-                    
+
                     <label for="size">Size*</label>
                     <select id="size" name="size" class="form-control">
                         <option value="0" selected>Select Size</option>
@@ -123,5 +123,5 @@
 @stop
 
 @section('bottom-script')
-    <script type="text/javascript" src="assets/js/products.js"></script>
+    <script type="text/javascript" src="/assets/js/products.js"></script>
 @stop

@@ -41,3 +41,7 @@
 
     </div>
 @stop
+
+@section('bottom-script')
+    <script type="text/javascript" src="/assets/js/confirm.js"></script>
+@stop
