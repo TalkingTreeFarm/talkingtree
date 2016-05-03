@@ -6,11 +6,16 @@ class Product extends BaseModel
 	// public $timestamps = false;
 
 	public static $rules = array(
-    	
+
 	);
 
 	public function orders()
 	{
-		return $this->belongstoMany('Order');
+		return $this->belongsToMany('Order');
 	}
-} 
+
+    public function orderProducts()
+    {
+        return $this->hasMany('OrderProduct');
+    }
+}
