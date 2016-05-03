@@ -24,7 +24,13 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$posts = Post::all();
+		if(Input::has('category_id'))
+		{
+			$posts=Post::where('category_id', '=', Input::get('category_id'))->get();
+		} else {
+
+			$posts = Post::all();
+		}
 		return View::make('posts.main')->with('posts', $posts);
 	}
 
