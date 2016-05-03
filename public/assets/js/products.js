@@ -17,17 +17,24 @@
         }
 
         $('#order-sum').text("$" + calculatePrice());
+        $('#total').val(calculatePrice());
     });
 
     // Set Delivery Method
     $('#delivery').change(function() {
         if($(this).val() == 1) {
-            $('#delivery-method').text("Pickup");
+            $('#delivery-method').text("Pickup - St. Pius");
 
             if(!$('#delivery-disclaimer').hasClass('text-hide')) {
                 $('#delivery-disclaimer').addClass('text-hide');
             }
         } else if($(this).val() == 2) {
+            $('#delivery-method').text("Pickup - Nite Market at La Villita");
+
+            if(!$('#delivery-disclaimer').hasClass('text-hide')) {
+                $('#delivery-disclaimer').addClass('text-hide');
+            }
+        } else if($(this).val() == 3) {
             $('#delivery-method').text("Home Delivery");
 
             if($('#delivery-disclaimer').hasClass('text-hide')) {
@@ -74,6 +81,7 @@
         $('#quantity-baskets').val($basketsAmount);
         $('#basket-sum').text($basketsAmount);
         $('#order-sum').text("$" + calculatePrice());
+        $('#total').val(calculatePrice());
     });
 
     $('#basket-add').on('click', function() {
@@ -86,6 +94,7 @@
         $('#quantity-baskets').val($basketsAmount);
         $('#basket-sum').text($basketsAmount);
         $('#order-sum').text("$" + calculatePrice());
+        $('#total').val(calculatePrice());
     });
 
     // Button Controls (Eggs)
@@ -97,6 +106,7 @@
         $('#quantity-eggs').val($eggsAmount);
         $('#egg-sum').text($eggsAmount);
         $('#order-sum').text("$" + calculatePrice());
+        $('#total').val(calculatePrice());
     });
 
     $('#egg-add').on('click', function() {
@@ -109,5 +119,6 @@
         $('#quantity-eggs').val($eggsAmount);
         $('#egg-sum').text($eggsAmount);
         $('#order-sum').text("$" + calculatePrice());
+        $('#total').val(calculatePrice());
     });
 }());

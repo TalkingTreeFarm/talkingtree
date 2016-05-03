@@ -27,14 +27,16 @@
             </div>
             <!-- Selection Dropdowns -->
             <div class="col-lg-3">
-                <form class="form-group" action="" method="post">
+                <form id="basket-order" class="form-group" action="{{{ action('OrdersController@store') }}}" method="post">
+                    {{ Form::token() }}
+                    
                     <label for="size">Size*</label>
                     <select id="size" name="size" class="form-control">
                         <option value="0" selected>Select Size</option>
 
                         @foreach($products as $product)
                             @if($product->visible)
-                                <option id="{{{ str_replace(" ", "-", $product->name) }}}" value="{{{ $product->id }}}" data-amount="{{{ $product->amount }}}" data-price="{{{ $product->price }}}">{{{ $product->name }}} - ${{{ $product->price }}}</option>
+                                <option id="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}" value="{{{ $product->id }}}" data-amount="{{{ $product->amount }}}" data-price="{{{ $product->price }}}">{{{ $product->name }}} - ${{{ $product->price }}}</option>
                             @endif
                         @endforeach
                     </select>
@@ -52,7 +54,7 @@
                             <span class="glyphicon glyphicon-minus"></span>
                         </span>
 
-                        <input id="quantity-baskets" type="text" name="quantity" class="form-control quantity-count" value="1">
+                        <input id="quantity-baskets" type="text" name="quantity-baskets" class="form-control quantity-count" value="0">
 
                         <span id="basket-add" class="input-group-addon input-group-addon-remove quantity-add btn">
                             <span class="glyphicon glyphicon-plus"></span>
@@ -65,7 +67,7 @@
                             <span class="glyphicon glyphicon-minus"></span>
                         </span>
 
-                        <input id="quantity-eggs" type="text" name="quantity" class="form-control quantity-count" value="0">
+                        <input id="quantity-eggs" type="text" name="quantity-eggs" class="form-control quantity-count" value="0">
 
                         <span id="egg-add" class="input-group-addon input-group-addon-remove quantity-add btn">
                             <span class="glyphicon glyphicon-plus"></span>
@@ -75,9 +77,12 @@
                     <label for="delivery">Delivery Method*</label>
                     <select id="delivery" name="delivery" class="form-control">
                         <option value="0" selected>Select Method</option>
-                        <option value="1">Pickup</option>
-                        <option value="2">Home Delivery</option> <!-- Add note to summary with Paypal disclaimer -->
+                        <option value="1">Pickup - St. Pius</option>
+                        <option value="2">Pickup - Nite Market at La Villita</option>
+                        <option value="3">Home Delivery</option> <!-- Add note to summary with Paypal disclaimer -->
                     </select>
+
+                    <input id="total" type="hidden" name="total" value="">
                 </form>
             </div>
             <!-- Order Summary -->
@@ -105,12 +110,12 @@
                         <li class="summary-item">
                             <span class="item-desc">Order Total:</span>
                             <span id="order-sum" class="item-amount">0</span><br>
-                            <span class="item-disclaimer">*Taxes may apply</span>
+                            <!-- <span class="item-disclaimer">*Taxes may apply</span> -->
                         </li>
                     </ul>
                 </div>
 
-                <button type="submit" name="checkout" class="btn btn-success col-lg-12">Proceed To Checkout</button>
+                <button type="submit" name="checkout" form="basket-order" class="btn btn-success col-lg-12">Proceed To Checkout</button>
             </div>
         </div>
 
