@@ -45,7 +45,7 @@ class ProductsController extends \BaseController {
 	public function show($id)
 	{
 		$product = Product::find($id);
-		if(!$post) {
+		if(!$product) {
 			App::abort(404);
 		}
 

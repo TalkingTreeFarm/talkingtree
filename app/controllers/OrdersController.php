@@ -41,7 +41,35 @@ class OrdersController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+        $validator = Validator::make(Input::all(), Order::$rules);
+
+        if($validator->fails())
+        {
+            Session::flash('errorMessage', "Failed to submit order: Please check all required fields");
+            Log::error('Created On: ' . date('m/d/Y h:i:s a'), ['order' => $data]);
+            return Redirect::back()->withErrors($validator)->withInput();
+        }
+
+        // Session::flash('successMessage', "Order submitted successfully!");
+
+        $order = new Order;
+        $order->user_id = Auth::id();
+        $order->total = Input::get('total');
+        $order->delivery_method = Input::get('delivery');
+        $order->pending = true;
+        $order->save();
+
+        if(Input::get('quantity-eggs') > 0)
+        {
+            $order->products()->attach([Input::get('size') => ['amount' => Input::get('quantity-baskets')], 3 => ['amount' => Input::get('quantity-eggs')]]);
+        }
+        else
+        {
+            $order->products->attach([Input::get('size') => ['amount' => Input::get('quantity-baskets')]]);
+        }
+
+        Log::info('Created On: ' . date('m/d/Y h:i:s a'), ['order' => $order]);
+        return Redirect::action('OrdersController@show', $order->id);
 	}
 
 
@@ -53,7 +81,14 @@ class OrdersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+        $order = Order::find($id);
+
+        if(!$order)
+        {
+            App::abort(404);
+        }
+
+        return View::make('orders.confirm')->with('order', $order);
 	}
 
 
