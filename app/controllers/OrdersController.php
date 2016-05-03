@@ -9,7 +9,7 @@ class OrdersController extends \BaseController {
 	 */
 	public function index()
 	{
-		if (Auth::user()->role_id==1) 
+		if (Auth::user()->isAdmin())
 		{
 			$orders = Order::all();
 		}
