@@ -29,7 +29,7 @@ class PostsController extends \BaseController {
 			$posts=Post::where('category_id', '=', Input::get('category_id'))->get();
 		} else {
 
-			$posts = Post::all();
+			$posts = Post::all()->orderBy('created_at', 'desc');
 		}
 		return View::make('posts.main')->with('posts', $posts);
 	}
@@ -132,7 +132,16 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+	
+		$post = Post::find($id);
+		
+		if(!$post) {
+			return Redirect::action('PostsController@index');
+		}
+
+		$post->delete();
+		Session::flash('successMessage', 'This post was deleted successfully!!');
+		return Redirect::action('PostsController@index');
 	}
 
 
