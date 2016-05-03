@@ -9,20 +9,12 @@
 
 @section('content')
 <div class="container">
-@foreach ($posts as $post)
- <a href="{{{ action('PostsController@show', $post->id) }}}"><img src="http://www.fillmurray.com/300/300" alt=""></a>
-@endforeach
-
-
-
-
-
-
-
-
-
+    <div class="col-lg-10 col-lg-offset-1">
+        @foreach ($posts as $post)
+            <a href="{{{ action('PostsController@show', $post->id) }}}"><img src="http://www.fillmurray.com/300/300" alt=""></a>
+        @endforeach
+    </div>
 </div>
-
 @stop
 
 
