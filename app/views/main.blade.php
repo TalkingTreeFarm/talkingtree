@@ -28,6 +28,7 @@
                     </div>
                 </div>
                 <div class="text-right text-no-wrap">
+                    
                     @foreach ($posts as $post)
                     <p>{{{$post->title}}}</p>
                     @endforeach
