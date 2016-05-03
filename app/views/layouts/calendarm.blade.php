@@ -9,11 +9,13 @@
 <script>gcal$perf$serverTime=8;gcal$perf$headStartTime=new Date().getTime()</script>
 <style type="text/css">body{margin:0;padding:0;overflow-y:hidden;}
         html{overflow-y:hidden;}</style>
-<link type="text/css" rel="stylesheet" href="https://www.google.com/calendar/static/6bf96ebea811c55ac1e69f46cd86b581embedcompiled_fastui.css">
 
 
 <script type="text/javascript" src="https://www.google.com/calendar//static/6bf96ebea811c55ac1e69f46cd86b581embedcompiled__en.js"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/pages/events.css">
 <script>function _onload() {window._init({"features":[1,1,1,1,1,1,0,1,1,0,0,0,1,0,1,1,0,1,1,0,1,1,0,1,0,0,1,0,0,0,1,0,0,1,1,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,0,1,1,0,0,1,1,0,0,1,0,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0],"loggedin":true,"cids":{},"view":"month","weekstart":0,"format24hour":false,"dateFieldOrder":0,"preloadStart":"20160430","preloadEnd":"20160607","container":"container","baseUrl":"/","imagePath":"images/","showNavigation":true,"showDateMarker":true,"showTabs":true,"showCalendarMenu":false,"showCurrentTime":false,"showTz":false,"showPrintButton":true,"showElementsLogo":false,"collapseAllday":false,"showSubscribeButton":true,"embedStyle":"","proxyUrl":"https://clients6.google.com","calendarApiVersion":"v3","developerKey":"AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs"});}</script>
+
+
 <script type="text/javascript">
       var pageLoaded_ = false;
       var clientLibraryLoaded_ = false;
@@ -37,7 +39,14 @@
 
 @section('content')
 
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <body onload="pageLoaded()" style="background-color:#fff">
 <span id="calendarTitle">Google Calendar</span>
