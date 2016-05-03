@@ -24,7 +24,13 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$posts = Post::all();
+		if(Input::has('category_id'))
+		{
+			$posts=Post::where('category_id', '=', Input::get('category_id'))->get();
+		} else {
+
+			$posts = Post::all();
+		}
 		return View::make('posts.main')->with('posts', $posts);
 	}
 
@@ -36,7 +42,7 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('posts.create');
 	}
 
 
@@ -47,7 +53,31 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$validator = Validator::make(Input::all(), Post::$rules);
+
+
+	    if ($validator->fails()) {
+	        Session::flash('errorMessage', 'This post was not created successfully!!');
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    } else {
+	    
+	    $post = new Post;
+		    if (Input::hasFile('image')) {
+		    	$image = Input::file('image');
+		    	$image->move(
+		    		public_path('/img'),
+		    		$image->getClientOriginalName()
+		    	);
+		    	$post->image = "/img/{$image->getClientOriginalName()}";	
+		    }
+		$post->title=Input::get('title');
+		$post->body=Input::get('body');
+		$post->user_id = Auth::id();
+		$post->save();
+		Log::info($post);
+		Session::flash('successMessage', 'This post was created successfully!!');
+		return Redirect::action('PostsController@index');
+	    }    
 	}
 
 
