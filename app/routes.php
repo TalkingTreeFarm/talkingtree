@@ -46,6 +46,4 @@ Route::get('orders.index', function()
     return View::make('orders.index');
 });
 
-
-
-
+Route::get('/test/{id}', 'OrdersController@confirm');

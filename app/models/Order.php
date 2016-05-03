@@ -18,16 +18,14 @@ class Order extends BaseModel
         return $this->hasMany('OrderProduct');
     }
 
-    public function getBasketType()
+    public function deliveryMethod()
     {
-        // $this->products()->where('')
+        return $this->belongsTo('DeliveryMethod');
     }
 
     public function queryProducts()
     {
-        $id = $this->id;
-
-        $orderProducts = OrderProduct::with('product')->where('order_id', $id)->get();
+        $orderProducts = OrderProduct::with('product')->where('order_id', $this->id)->get();
 
         return $orderProducts;
     }

@@ -7,6 +7,9 @@
     // Set Basket Size in Order Summary
     $('#size').change(function() {
         $('#quantity-baskets').val(0);
+        $('#basket-sum').text(0);
+
+        $basketsAmount = 0;
 
         if($(this).val() == 1) {
             $('#basket-type').text("Small Basket");
@@ -23,22 +26,22 @@
     // Set Delivery Method
     $('#delivery').change(function() {
         if($(this).val() == 1) {
+            $('#delivery-method').text("Home Delivery");
+
+            if($('#delivery-disclaimer').hasClass('text-hide')) {
+                $('#delivery-disclaimer').removeClass('text-hide');
+            }
+        } else if($(this).val() == 2) {
             $('#delivery-method').text("Pickup - St. Pius");
 
             if(!$('#delivery-disclaimer').hasClass('text-hide')) {
                 $('#delivery-disclaimer').addClass('text-hide');
             }
-        } else if($(this).val() == 2) {
+        } else if($(this).val() == 3) {
             $('#delivery-method').text("Pickup - Nite Market at La Villita");
 
             if(!$('#delivery-disclaimer').hasClass('text-hide')) {
                 $('#delivery-disclaimer').addClass('text-hide');
-            }
-        } else if($(this).val() == 3) {
-            $('#delivery-method').text("Home Delivery");
-
-            if($('#delivery-disclaimer').hasClass('text-hide')) {
-                $('#delivery-disclaimer').removeClass('text-hide');
             }
         } else {
             $('#delivery-method').text("Not Selected");

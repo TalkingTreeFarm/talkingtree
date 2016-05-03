@@ -10,7 +10,8 @@ class ProductsController extends \BaseController {
 	public function index()
 	{
         $products = Product::all();
-		return View::make('product.main')->with('products', $products);
+        $deliveryMethod = DeliveryMethod::all();
+		return View::make('product.main', compact('products', 'deliveryMethod'));
 	}
 
 
