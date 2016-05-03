@@ -40,13 +40,6 @@
 @section('content')
 
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 
 <body onload="pageLoaded()" style="background-color:#fff">
 <span id="calendarTitle">Google Calendar</span>
@@ -57,7 +50,7 @@
 Your browser does not appear to support JavaScript, but this page needs to use JavaScript to display correctly.
 You can visit the HTML-only version of this page at:
 <a href="https://calendar.google.com/calendar/htmlembed?showCalendars=0&amp;amp;height=600&amp;amp;wkst=2&amp;amp;bgcolor=%23FFFFFF&amp;amp;src=servingwater01%40googlemail.com&amp;amp;color=%2329527A&amp;amp;ctz=America%2FChicago">https://calendar.google.com/calendar/htmlembed?showCalendars=0&amp;amp;height=600&amp;amp;wkst=2&amp;amp;bgcolor=%23FFFFFF&amp;amp;src=servingwater01%40googlemail.com&amp;amp;color=%2329527A&amp;amp;ctz=America%2FChicago</a></noscript>
-<div id="container" style="width:100%" class="locale-en "></div></body>
+<div id="container" style="width:80%" class="locale-en "></div></body>
 	
 @stop
 

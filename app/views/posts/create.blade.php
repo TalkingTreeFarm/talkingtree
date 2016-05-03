@@ -6,6 +6,8 @@
 
 @section('top-script')
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+	<link rel="stylesheet" href="/assets/css/pages/post-create.css">
+
 @stop
 
 @section('content')
@@ -50,8 +52,3 @@
 		});
 	</script>
 @stop 
-
-@section('content')
-
-
-@stop

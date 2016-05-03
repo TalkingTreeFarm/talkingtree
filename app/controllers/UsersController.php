@@ -25,12 +25,26 @@ class UsersController extends \BaseController {
         return Redirect::action('HomeController@homePage');
     }
 
-    public function show($id)
-    {
-        // $user = $this->userNotFound($id);
+    // public function show($id)
+    // {
+    //     // $user = $this->userNotFound($id);
 
-        // return an entry from the db of that page with the id
-        return View::make('profile.user')->with('user', $user); 
+    //     // return an entry from the db of that page with the id
+    //     return View::make('.user')->with('user', $user); 
+    // }
+
+    /*
+    * Limit show view to the user_id's
+    */
+
+    public function userShow($id)
+    {
+        if (Auth::user()->id == $id)
+        {
+            $user = User::find($id);
+            return View::make('user.profile')->with('user', $user);
+        }
+        
     }
 
     public function showLogin()

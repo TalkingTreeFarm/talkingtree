@@ -22,8 +22,8 @@
                             <ul id="menu" class="dropdown-menu" aria-labelledby="drop">
                                 <li><a href="{{{ action('ProductsController@index')}}}"><i class="fa fa-leaf" aria-hidden="true"></i></i>&nbsp;Manage Inventory</a></li>
                                 <li><a href="{{{ action('OrdersController@index')}}}"><i class="fa fa-shopping-cart"></i>&nbsp;View Orders</a></li>
-                                <li><a href="{{{ action('PostsController@userPosts', Auth::user()->id)}}}"><i class="fa fa-rss" aria-hidden="true"></i>&nbsp;Manage Blog</a></li>
-                                <li><a href="{{{ action('UsersController@show', Auth::user()->id) }}}"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;My Profile</a></li>
+                                <li><a href="{{{ action('PostsController@index', Auth::user()->id)}}}"><i class="fa fa-rss" aria-hidden="true"></i>&nbsp;Manage Blog</a></li>
+                                <li><a href="{{{ action('UsersController@userShow', Auth::user()->id) }}}"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;My Profile</a></li>
                                 <li><a href="{{{ action('UsersController@edit', Auth::user()->id) }}}"><i class="fa fa-pencil" aria-hidden="true"></i></i>&nbsp;Edit Profile</a></li>
                                 <li><a href="{{{ action('UsersController@getLogout', Auth::user()->id) }}}"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout</a></li>
                             </ul> 
@@ -31,7 +31,7 @@
                             <a id="drop" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{{ Auth::user()->first_name . '\'s Profile' }}}<span class="caret"></span></a>
                             <ul id="menu" class="dropdown-menu pull-right" aria-labelledby="drop">
                                 <li><a href="{{{ action('OrdersController@index', Auth::user()->id) }}}"><i class="fa fa-shopping-cart"></i>&nbsp;My Orders</a></li>
-                                <li><a href="{{{ action('UsersController@show', Auth::user()->id) }}}"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;My Profile</a></li>
+                                <li><a href="{{{ action('UsersController@userShow', Auth::user()->id) }}}"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;My Profile</a></li>
                                 <li><a href="{{{ action('UsersController@edit', Auth::user()->id) }}}"><i class="fa fa-pencil" aria-hidden="true"></i></i>&nbsp;Edit Profile</a></li>
                                 <li><a href="{{{ action('UsersController@getLogout', Auth::user()->id) }}}"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout</a></li>
                             </ul> 
