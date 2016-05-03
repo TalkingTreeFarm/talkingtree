@@ -19,5 +19,13 @@ class UserTableSeeder extends Seeder
             $user->password= 'qwerty321';
             $user->role_id = User::ADMIN;
             $user->save();
+
+            $user = new User();
+            $user->first_name = 'Testuser';
+            $user->last_name = 'Holzendorf';
+            $user->email = 'Testh@gmail.com';
+            $user->password= 'testuser';
+            $user->role_id = User::STANDARD;
+            $user->save();
         }
 }
