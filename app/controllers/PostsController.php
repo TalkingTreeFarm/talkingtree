@@ -42,7 +42,7 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('posts.create');
 	}
 
 
@@ -53,7 +53,31 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$validator = Validator::make(Input::all(), Post::$rules);
+
+
+	    if ($validator->fails()) {
+	        Session::flash('errorMessage', 'This post was not created successfully!!');
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    } else {
+	    
+	    $post = new Post;
+		    if (Input::hasFile('image')) {
+		    	$image = Input::file('image');
+		    	$image->move(
+		    		public_path('/img'),
+		    		$image->getClientOriginalName()
+		    	);
+		    	$post->image = "/img/{$image->getClientOriginalName()}";	
+		    }
+		$post->title=Input::get('title');
+		$post->body=Input::get('body');
+		$post->user_id = Auth::id();
+		$post->save();
+		Log::info($post);
+		Session::flash('successMessage', 'This post was created successfully!!');
+		return Redirect::action('PostsController@index');
+	    }    
 	}
 
 
