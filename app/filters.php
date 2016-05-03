@@ -47,6 +47,14 @@ Route::filter('auth', function()
 		}
 	}
 });
+Route::filter('admin', function()
+{
+	if (!Auth::user()->isAdmin())
+	{
+		Session::flash('Unauthorized', 401);
+		return Redirect::action('HomeController@homePage');
+	}
+});
 
 
 Route::filter('auth.basic', function()

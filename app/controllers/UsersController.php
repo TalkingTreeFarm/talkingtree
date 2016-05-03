@@ -27,10 +27,10 @@ class UsersController extends \BaseController {
 
     public function show($id)
     {
-        $user = $this->userNotFound($id);
+        // $user = $this->userNotFound($id);
 
         // return an entry from the db of that page with the id
-        return View::make('users.user')->with('user', $user); 
+        return View::make('profile.user')->with('user', $user); 
     }
 
     public function showLogin()
@@ -38,7 +38,7 @@ class UsersController extends \BaseController {
 		return View::make('main');	
 	}
 
-        public function edit()
+    public function edit()
     {
         return View::make('users.edit');  
     }

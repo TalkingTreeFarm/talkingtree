@@ -2,6 +2,21 @@
 
 class PostsController extends \BaseController {
 
+	public function __construct()
+	{
+		$this->beforeFilter('admin', array('except' => array('index', 'show')));
+	}
+
+	/*
+	* Limit post view to the user_id's
+	*/
+
+	public function userPosts($id)
+	{
+		$posts = Post::where('user_id', $id)->get();
+		return View::make('posts.main')->with('posts', $posts);
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *

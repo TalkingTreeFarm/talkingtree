@@ -9,12 +9,15 @@ class OrdersController extends \BaseController {
 	 */
 	public function index()
 	{
-
-		if(Auth::check())
+		if (Auth::user()->role_id==1)
 		{
-			$first_name = Auth::user()->first_name;
-			$userId = Auth::user()->id;
-			$orders = DB::table('orders');
+			$orders = Order::all();
+		}
+
+		else
+		{
+			$user_id = Auth::id();
+			$orders = Order::where('user_id',$user_id)->get();
 		}
 		return View::make('orders.index', compact('first_name', 'orders', 'timestamp'));
 	}
