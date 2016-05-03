@@ -4,9 +4,12 @@
 }*/
 
 body {
-	background-image: url("/images/Chalkboard-background.jpg");
+	background-image: url("/images/blackboard.jpg");
   background-size: cover;
+  color: #FFFFFF;
 }
+/*"Creative Commons The Convergence of Digital Publishing and the Web" by Ivan Herman, W3C is licensed under CC BY 3.0
+*/
 
 .navbar-inner {
     background:transparent;
@@ -25,4 +28,8 @@ body {
 h1.header {
     font-family: cursive;
     color: white;
+}
+
+.well {
+  color: #000000;
 }
