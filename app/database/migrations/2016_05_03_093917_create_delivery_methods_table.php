@@ -15,9 +15,9 @@ class CreateDeliveryMethodsTable extends Migration {
 		Schema::create('delivery_methods', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('location', 100):
+			$table->string('method', 100);
 			$table->timestamps();
-		}	
+		});	
 	}
 
 	/**
@@ -26,8 +26,10 @@ class CreateDeliveryMethodsTable extends Migration {
 	 * @return void
 	 */
 	public function down()
+	
 	{
-		Schema::drop('deliverymethods');
+		Schema::drop('delivery_methods');
+
 	}
 
 }
