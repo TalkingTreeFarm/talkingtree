@@ -51,7 +51,7 @@
 @section('bottom-script')
 	<script src="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+     {{--including two bootstraps disables the dropdown <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> --}}
 
 	<script>
 		var simplemde = new SimpleMDE({
