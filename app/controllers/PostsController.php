@@ -26,10 +26,11 @@ class PostsController extends \BaseController {
 	{
 		if(Input::has('category_id'))
 		{
-			$posts=Post::where('category_id', '=', Input::get('category_id'))->get();
+			// $posts=Post::where('category_id', '=', Input::get('category_id'))->get();
+			$posts = Post::orderBy('id', 'DESC')->where('category_id', '=', Input::get('category_id'))->get();
 		} else {
 
-			$posts = Post::all();
+			$posts = Post::orderBy('id', 'DESC')->get();
 		}
 		return View::make('posts.main')->with('posts', $posts);
 	}

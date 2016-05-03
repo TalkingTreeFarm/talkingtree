@@ -15,4 +15,9 @@ class Post extends BaseModel
 	{
 		return $this->belongstoMany('Category');
 	}
+
+	public function user()
+	{
+    	return $this->belongsTo('User');
+	}
 } 

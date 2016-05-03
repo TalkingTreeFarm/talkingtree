@@ -14,8 +14,8 @@
   <span class="caret"></span></button>
   <ul class="dropdown-menu">
     <li><a href="{{{ action('PostsController@index') }}}?category_id=1">Composting</a></li>
-    <li><a href="{{{ action('PostsController@index') }}}?category_id=2">Experiements</a></li>
-    <li><a href="{{{ action('PostsController@index') }}}?category_id=3">General Farming</a></li>
+    <li><a href="{{{ action('PostsController@index') }}}?category_id=2">General Farming</a></li>
+    <li><a href="{{{ action('PostsController@index') }}}?category_id=3">Experiments</a></li>
     <li><a href="{{{ action('PostsController@index') }}}">All</a></li>
   </ul>
 </div>
