@@ -77,9 +77,10 @@
                     <label for="delivery">Delivery Method*</label>
                     <select id="delivery" name="delivery" class="form-control">
                         <option value="0" selected>Select Method</option>
-                        <option value="1">Pickup - St. Pius</option>
-                        <option value="2">Pickup - Nite Market at La Villita</option>
-                        <option value="3">Home Delivery</option> <!-- Add note to summary with Paypal disclaimer -->
+
+                        @foreach($deliveryMethod as $delivery)
+                            <option id="delivery{{{ $delivery->id }}}" value="{{{ $delivery->id }}}">{{{ $delivery->method }}}</option>
+                        @endforeach
                     </select>
 
                     <input id="total" type="hidden" name="total" value="">
@@ -95,7 +96,7 @@
                         </li>
                         <li class="summary-item">
                             <span class="item-desc">Quantity:</span>
-                            <span id="basket-sum" class="item-amount">1</span>
+                            <span id="basket-sum" class="item-amount">0</span>
                         </li>
                         <li class="summary-item">
                             <span class="item-desc">Eggs:</span>

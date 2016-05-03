@@ -26,7 +26,7 @@
                         @endforeach
                         <li class="summary-item">
                             <span class="item-desc">Delivery Method:</span>
-                            <span id="delivery-method" class="item-amount">{{{ $order->delivery_method }}}</span><br>
+                            <span id="delivery-method" class="item-amount">{{{ $order->delivery_method->method }}}</span><br>
                             <span id="delivery-disclaimer" class="item-disclaimer text-hide">*This delivery method requires Paypal</span>
                         </li>
                         <li class="summary-item">
@@ -36,6 +36,11 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+
+            <div class="btn-group-vertical col-lg-4">
+                <a id="reserve-button" name="reserve-button" href="{{{ action('OrdersController@confirm', $order->id) }}}" class="btn btn-success checkout-button">Reserve For Pickup</a>
+                <a id="paypal-button" name="paypal-button" class="btn btn-warning checkout-button">Checkout With Paypal</a>
             </div>
         </div>
 

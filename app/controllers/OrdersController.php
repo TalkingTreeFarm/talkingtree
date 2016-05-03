@@ -54,7 +54,7 @@ class OrdersController extends \BaseController {
         $order = new Order;
         $order->user_id = Auth::id();
         $order->total = Input::get('total');
-        $order->delivery_method = Input::get('delivery');
+        $order->delivery_method_id = Input::get('delivery');
         $order->pending = true;
         $order->save();
 
@@ -64,7 +64,7 @@ class OrdersController extends \BaseController {
         }
         else
         {
-            $order->products->attach([Input::get('size') => ['amount' => Input::get('quantity-baskets')]]);
+            $order->products()->attach([Input::get('size') => ['amount' => Input::get('quantity-baskets')]]);
         }
 
         Log::info('Created On: ' . date('m/d/Y h:i:s a'), ['order' => $order]);
@@ -126,5 +126,22 @@ class OrdersController extends \BaseController {
 		//
 	}
 
+    public function confirm($id)
+    {
+        $passed = true;
+        $order = Order::find($id);
 
+        // Check Order Against Inventory
+        foreach($order->products as $product)
+        {
+            $amountOrdered = DB::table('order_product')->where('order_id', $order->id)->where('product_id', $product->id)->pluck('amount');
+
+            if(Product::checkInventory($product) < $amountOrdered)
+            {
+                $passed = false;
+            }
+        }
+
+        
+    }
 }

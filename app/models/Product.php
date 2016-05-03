@@ -3,7 +3,6 @@
 class Product extends BaseModel
 {
 	protected $table = 'products';
-	// public $timestamps = false;
 
 	public static $rules = array(
 
@@ -17,5 +16,10 @@ class Product extends BaseModel
     public function orderProducts()
     {
         return $this->hasMany('OrderProduct');
+    }
+
+    public static function checkInventory($product)
+    {
+        return DB::table('products')->where('name', $product->name)->pluck('amount');
     }
 }
