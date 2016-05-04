@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'HomeController@homePage');
+Route::get('contact', 'HomeController@contact');
+Route::post('contact', 'UsersController@getContact');
 
 Route::resource('posts', 'PostsController');
 

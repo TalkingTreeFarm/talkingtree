@@ -25,6 +25,29 @@ class UsersController extends \BaseController {
         return Redirect::action('HomeController@homePage');
     }
 
+    public function getContact()
+    {
+        $from = Input::get('from');
+        $email = Input::get('email');
+        $subject = Input::get('subject');
+        $body = Input::get('body');
+
+        $data = [
+            'from'=>$from,
+            'email'=>$email,
+            'subject'=>$subject,
+            'body'=>$body
+        ];
+
+        Mail::send('emails.contact', $data, function($message) use ($data)
+        {
+            $message->from($data['email'], $data['from']);
+            $message->to('Sylvain@gmail.com', 'Talking Tree')->subject($data['subject']);
+        });
+        Session::flash('successMessage', 'Your email is now sent');
+        return Redirect::action('UsersController@index');
+    }
+
     // public function show($id)
     // {
     //     // $user = $this->userNotFound($id);

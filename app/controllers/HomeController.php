@@ -27,6 +27,7 @@ class HomeController extends BaseController {
 		return View::make('main')->with('posts', $posts);;
 	}
 
+
 	public function ourStory()
 	{
 		return View::make('our_story');
@@ -35,6 +36,11 @@ class HomeController extends BaseController {
 	public function events()
 	{
 		return View::make('events');
+
+	public function contact()
+	{
+		return View::make('contact');
+
 	}
 
 }
