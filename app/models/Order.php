@@ -13,6 +13,11 @@ class Order extends BaseModel
         return $this->belongsToMany('Product');
     }
 
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
+
     public function orderProducts()
     {
         return $this->hasMany('OrderProduct');
