@@ -4,7 +4,7 @@
 @section('content')
 
 {{-- about us --}}
-        <div class="col-md-12 well">
+        <div class="col-md-12 well well-sm">
             <h2 class="text-center">Our Story</h2>
             <div class="col-md-4">
                 <a href="#">
@@ -18,7 +18,7 @@
             </div>
         </div>
     <div>
-        <div class="col-md-12 well">
+        <div class="col-md-12 well-sm">
             <h2 class="text-center">Education</h2>
                 <div class="container">
                     <div class="row">
