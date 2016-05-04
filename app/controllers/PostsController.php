@@ -109,7 +109,11 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$post = Post::find($id);
+		// return View::make('posts.edit')->with('post', $post);
+
+		$categories = Category::find($id);
+		return View::make('posts.edit')->with('post', $post);
 	}
 
 
@@ -121,7 +125,30 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$validator = Validator::make(Input::all(), Post::$rules);
+		if ($validator->fails()) {
+
+			Session::flash('errorMessage', 'This post was not edited successfully!!');
+	        return Redirect::back()->withInput()->withErrors($validator);
+		} else {
+
+		if (Input::hasFile('image')) {
+		    	$image = Input::file('image');
+		    	$image->move(
+		    		public_path('/images'),
+		    		$image->getClientOriginalName()
+		    	);
+		    	$post->image = "/images/{$image->getClientOriginalName()}";	
+		    }	
+
+		$post = Post::find($id);
+	    $post->title=Input::get('title');
+		$post->body=Input::get('body');
+		$post->category_id=Input::get('category_id');
+		$post->save();
+		Session::flash('successMessage', 'This post was updated successfully!!');
+		return Redirect::action('PostsController@index');
+		}
 	}
 
 
