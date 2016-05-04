@@ -58,7 +58,7 @@
                     {{-- <p>{{{$product->description}}}</p> --}}
                     {{-- @endforeach --}}
                 </div>
-                <button type="button" color="purple" class="btn-lg btn btn-success .active">Order Your Basket</button>
+                <a href="{{{ action('ProductsController@index') }}}" role="button" color="purple" class="btn-lg btn btn-success .active">Order your basket</a>
         </div>
     </div>
         {{-- close container --}}
