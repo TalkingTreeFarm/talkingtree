@@ -20,20 +20,24 @@
     <div>
         <div class="col-md-12 well">
             <h2 class="text-center">Education</h2>
-                <div class="carousel slide">
-                    <div class="col-md-4">
-                        <a href="#">
-                            <img class="img" src="http://placehold.it/300x200" alt="">
+                <div class="container">
+                    <div class="row">
+                         @foreach ($posts as $post)
+                        <div class="col-xs-4">
+                        <p >{{{$post->title}}}</p>
+                        <a href="{{{ action('PostsController@show', $post->id) }}}">
+                            <img src="{{{$post->image}}}" alt="" width="300" height="300">
                         </a>
+                        <p>{{{ substr($post->body, 0, 100) }}}</p>
+                        </div> 
+                        @endforeach
+                        
                     </div>
                 </div>
-                <div class="text-right text-no-wrap">
-                    
-                    @foreach ($posts as $post)
-                    <p>{{{$post->title}}}</p>
-                    @endforeach
+                <hr>
+                <div class="text-center">
+                <a href="{{{ action('PostsController@index') }}}" role="button" color="purple" class="btn-lg btn btn-success .active">Tips & Tricks</a>
                 </div>
-                <button type="button" color="purple" class="btn-lg btn btn-success .active">Tips & Tricks</button>
         </div>
     </div>
 
