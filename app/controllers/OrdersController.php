@@ -154,7 +154,6 @@ class OrdersController extends \BaseController {
             Product::updateInventory($order);
 
             Session::flash('successMessage', "Order placed successfully");
-
             return Redirect::action('OrdersController@index');
         }
     }

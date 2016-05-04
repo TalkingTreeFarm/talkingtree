@@ -28,7 +28,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public function setPasswordAttribute($value)
 	{
-    $this->attributes['password'] = Hash::make($value);
+        $this->attributes['password'] = Hash::make($value);
 	}
 
 	public static $rules = array(
@@ -45,9 +45,18 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->role_id == self::ADMIN;
     }
 
+    public function fullName()
+    {
+        return $this->first_name . " " . $this->last_name;
+    }
+
     public function posts()
 	{
     	return $this->hasMany('Post');
 	}
 
+    public function orders()
+    {
+        return $this->hasMany('Order');
+    }
 }
