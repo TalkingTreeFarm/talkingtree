@@ -126,22 +126,36 @@ class OrdersController extends \BaseController {
 		//
 	}
 
+    /**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
     public function confirm($id)
     {
         $passed = true;
         $order = Order::find($id);
 
         // Check Order Against Inventory
-        foreach($order->products as $product)
+        foreach($order->order_products as $order_product)
         {
-            $amountOrdered = DB::table('order_product')->where('order_id', $order->id)->where('product_id', $product->id)->pluck('amount');
+            $product = $order_product->product;
 
-            if(Product::checkInventory($product) < $amountOrdered)
+            if($product->checkInventory($order_product))
             {
                 $passed = false;
             }
         }
 
-        
+        if($passed)
+        {
+            $order->pending = false;
+            Product::updateInventory($order);
+
+            Session::flash('successMessage', "Order placed successfully");
+
+            return Redirect::action('OrdersController@index');
+        }
     }
 }
