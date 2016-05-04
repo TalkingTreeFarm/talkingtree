@@ -40,7 +40,7 @@
 
             <div class="btn-group-vertical col-lg-4">
                 <a id="reserve-button" name="reserve-button" href="{{{ action('OrdersController@confirm', $order->id) }}}" class="btn btn-success checkout-button">Reserve For Pickup</a>
-                <a id="paypal-button" name="paypal-button" class="btn btn-warning checkout-button">Checkout With Paypal</a>
+                {{-- <a id="paypal-button" name="paypal-button" class="btn btn-warning checkout-button">Checkout With Paypal</a> --}}
             </div>
         </div>
 

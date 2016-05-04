@@ -127,7 +127,8 @@ class OrdersController extends \BaseController {
 	}
 
     /**
-	 * Remove the specified resource from storage.
+	 * Confirms the order against inventory
+	 * Confirms the payment method against delivery method
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -148,13 +149,23 @@ class OrdersController extends \BaseController {
             }
         }
 
-        if($passed)
+        if($passed && $order->isVerified())
         {
             $order->pending = false;
             Product::updateInventory($order);
 
-            Session::flash('successMessage', "Order placed successfully");
+            Session::flash('successMessage', "Order reserved successfully!");
             return Redirect::action('OrdersController@index');
+        }
+        else if(!$order->isVerified())
+        {
+            Session::Flash('errorMessage', "This delivery method requires online payment");
+            return Redirect::action('OrdersController@show', $order->id);
+        }
+        else if(!$passed)
+        {
+            Session::flash('errorMessage', "Not enough inventory to fill your order");
+            return Redirect::action('ProductsController@index');
         }
     }
 }

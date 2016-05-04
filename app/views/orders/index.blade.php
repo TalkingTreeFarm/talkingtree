@@ -9,7 +9,7 @@
 
         <div class="row">
             <div class="well col-lg-12">
-                <table class="table table-hover">
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>Order Placed</th>
@@ -27,27 +27,18 @@
 
                     <tbody>
                         @foreach($orders as $order)
-                            <tbody class="order">
-                                <tr>
-                                    <td>{{{ $order->created_at }}}</td>
-                                    <td>${{{ $order->total }}}</td>
+                            <tr>
+                                <td>{{{ $order->created_at }}}</td>
+                                <td>${{{ $order->total }}}</td>
 
-                                    @if(Auth::user()->isAdmin())
-                                        <td>{{{ $order->user->fullName() }}}
-                                    @endif
+                                @if(Auth::user()->isAdmin())
+                                    <td><a href="{{{ action('UsersController@userShow', $order->user->id) }}}">{{{ $order->user->fullName() }}}
+                                @endif
 
-                                    {{-- <td>{{{ $order->payment_method }}}</td> --}}
-                                    <td>{{{ $order->delivery_method->method }}}</td>
-                                    <td>{{{ $order->id }}}</td>
-                                </tr>
-                            </tbody>
-                            <tbody class="order-information">
-                                <tr>
-                                    <td colspan="2"><img src="http://fillmurray.com/80/80" alt="Product Ordered" /></td>
-                                    <td>Quantity: {{{ $order->products->amount }}}</td>
-                                    <td>Price: {{{ $order->products->price }}}</td>
-                                </tr>
-                            </tbody>
+                                {{-- <td>{{{ $order->payment_method }}}</td> --}}
+                                <td>{{{ $order->delivery_method->method }}}</td>
+                                <td>{{{ $order->id }}}</td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

@@ -3,6 +3,10 @@
     var $basketsAmount = Number($('#quantity-baskets').val());
     var $eggsAmount    = Number($('#quantity-eggs').val());
 
+    var $eggsInInventory = (Number($('#Eggs').data('amount')) % 12);
+    // Set Quantities for Labels
+    $('#eggs-label').text("Eggs (By Dozen) -- " + $eggsInInventory + " dozen left");
+
     // Reset Quantities on Size Change
     // Set Basket Size in Order Summary
     $('#size').change(function() {
@@ -115,7 +119,7 @@
     $('#egg-add').on('click', function() {
         var $selected = $('#Eggs').data('amount');
 
-        if($eggsAmount < $selected) {
+        if($eggsAmount < $eggsInInventory) {
             $eggsAmount += 1;
         }
 

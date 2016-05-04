@@ -34,6 +34,15 @@ h1.header {
   color: #000000;
 }
 
-.table-hover > tbody > tr:hover {
+.table-striped > tbody > tr:nth-of-type(even) {
     background-color: #D2D2D2;
+}
+
+.table > tbody > tr > td > a {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.table > tbody > tr > td > a:hover {
+    color: rgba(0, 0, 0, 1);
+    text-decoration: none
 }
