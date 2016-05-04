@@ -28,7 +28,7 @@
                         <a href="{{{ action('PostsController@show', $post->id) }}}">
                             <img src="{{{$post->image}}}" alt="" width="300" height="300">
                         </a>
-                        <p>{{{ substr($post->body, 0, 100) }}}</p>
+                        <!-- <p>{{{ substr($post->body, 0, 15) }}}</p> -->
                         </div> 
                         @endforeach
                         
