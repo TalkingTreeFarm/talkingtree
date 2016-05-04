@@ -27,4 +27,9 @@ class HomeController extends BaseController {
 		return View::make('main')->with('posts', $posts);;
 	}
 
+	public function contact()
+	{
+		return View::make('contact');
+	}
+
 }
