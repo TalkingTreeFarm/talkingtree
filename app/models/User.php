@@ -28,11 +28,35 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public function setPasswordAttribute($value)
 	{
-    $this->attributes['password'] = Hash::make($value);
+        $this->attributes['password'] = Hash::make($value);
 	}
 
 	public static $rules = array(
-        
+        'first_name' => 'required|alpha_num|min:3|max:32',
+        'last_name' => 'required|alpha_num|min:3|max:32',
+        'email' => 'required|email',
+        'password' => 'required|min:3|confirmed',
+        'password_confirmation' => 'required|min:3'
     );
 
+    public function isAdmin()
+    {
+    	// constants are treated like they're static properties
+		return $this->role_id == self::ADMIN;
+    }
+
+    public function fullName()
+    {
+        return $this->first_name . " " . $this->last_name;
+    }
+
+    public function posts()
+	{
+    	return $this->hasMany('Post');
+	}
+
+    public function orders()
+    {
+        return $this->hasMany('Order');
+    }
 }

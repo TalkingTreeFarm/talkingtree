@@ -9,7 +9,9 @@ class ProductsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('product.main')->with('products', $products);
+        $products = Product::all();
+        $deliveryMethod = DeliveryMethod::all();
+		return View::make('product.main', compact('products', 'deliveryMethod'));
 	}
 
 
@@ -44,7 +46,7 @@ class ProductsController extends \BaseController {
 	public function show($id)
 	{
 		$product = Product::find($id);
-		if(!$post) {
+		if(!$product) {
 			App::abort(404);
 		}
 
