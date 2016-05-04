@@ -35,6 +35,8 @@ Route::get('/events', 'HomeController@events');
 
 
 
+
+
 Route::get('orders.index', function()
 {
     return View::make('orders.index');

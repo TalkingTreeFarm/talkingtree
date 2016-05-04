@@ -37,6 +37,7 @@ class HomeController extends BaseController {
 	{
 		return View::make('events');
 
+	}
 	public function contact()
 	{
 		return View::make('contact');
