@@ -34,4 +34,14 @@ class Order extends BaseModel
 
         return $orderProducts;
     }
+
+    public function isVerified()
+    {
+        if($this->delivery_method_id == 1)
+        {
+            return false;
+        }
+
+        return true;
+    }
 }

@@ -24,8 +24,7 @@
 	{{ Form::textarea('body', null, ['placeholder'=>'Body', 'class'=>'hide', 'id' => 'body']) }}
 	{{ $errors->first('body', '<span class="help-block">:message</span>') }}
 	<select name="category_id">
-		<option disabled selected value="">Select Category</option>}
-		option
+		<option disabled selected value="">Select Category</option>
 		@foreach($categories as $category)
 		<option value="{{{$category->id}}}">{{{$category->name}}}</option>
 		@endforeach	

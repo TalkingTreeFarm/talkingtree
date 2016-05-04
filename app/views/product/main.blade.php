@@ -36,7 +36,7 @@
 
                         @foreach($products as $product)
                             @if($product->visible)
-                                <option id="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}" value="{{{ $product->id }}}" data-amount="{{{ $product->amount }}}" data-price="{{{ $product->price }}}">{{{ $product->name }}} - ${{{ $product->price }}}</option>
+                                <option id="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}" value="{{{ $product->id }}}" data-amount="{{{ $product->amount }}}" data-price="{{{ $product->price }}}">{{{ $product->name }}} - {{{ $product->amount }}} left - ${{{ $product->price }}}</option>
                             @endif
                         @endforeach
                     </select>
@@ -61,7 +61,7 @@
                         </span>
                     </div>
 
-                    <label for="eggs">Eggs (By Dozen)</label>
+                    <label id="eggs-label" for="eggs">Eggs (By Dozen)</label>
                     <div class="input-group form-group-options quantity-wrapper">
                         <span id="egg-sub" class="input-group-addon input-group-addon-remove quantity-remove btn">
                             <span class="glyphicon glyphicon-minus"></span>
