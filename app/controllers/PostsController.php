@@ -71,7 +71,10 @@ class PostsController extends \BaseController {
 		    		$image->getClientOriginalName()
 		    	);
 		    	$post->image = "/images/{$image->getClientOriginalName()}";	
-		    }
+		    	} else {
+		    		$post->image = "/images/sample basket.jpg";
+				 }
+		    
 		$post->title=Input::get('title');
 		$post->body=Input::get('body');
 		$post->category_id=Input::get('category_id');
@@ -112,8 +115,8 @@ class PostsController extends \BaseController {
 		$post = Post::find($id);
 		// return View::make('posts.edit')->with('post', $post);
 
-		$categories = Category::find($id);
-		return View::make('posts.edit')->with('post', $post);
+		$categories = Category::all();
+		return View::make('posts.edit')->with('post', $post)->with('categories', $categories);
 	}
 
 
