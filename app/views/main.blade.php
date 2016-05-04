@@ -28,7 +28,7 @@
                         <a href="{{{ action('PostsController@show', $post->id) }}}">
                             <img src="{{{$post->image}}}" alt="" width="300" height="300">
                         </a>
-                        <!-- <p>{{{ substr($post->body, 0, 15) }}}</p> -->
+                        <!-- <p>{{{ substr($post->body, 0, 60) }}}</p> -->
                         </div> 
                         @endforeach
                         
@@ -58,7 +58,7 @@
                     {{-- <p>{{{$product->description}}}</p> --}}
                     {{-- @endforeach --}}
                 </div>
-                <button type="button" color="purple" class="btn-lg btn btn-success .active">Order Your Basket</button>
+                <a href="{{{ action('ProductsController@index') }}}" role="button" color="purple" class="btn-lg btn btn-success .active">Order your basket</a>
         </div>
     </div>
         {{-- close container --}}

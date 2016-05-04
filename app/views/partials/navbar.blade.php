@@ -17,7 +17,7 @@
                     <li><a href="{{{action('ProductsController@index')}}}">Order a Basket</a></li>
                     <li><a href="{{{action('HomeController@contact')}}}">Contact</a></li>
                     <li>
-                    @if (Auth::check() && Auth::user()->isAdmin())
+                    @if (Auth::check()&& Auth::user()->isAdmin())
                             <a id="drop" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{{ Auth::user()->first_name . '\'s Profile' }}}<span class="caret"></span></a>
                             <ul id="menu" class="dropdown-menu" aria-labelledby="drop">
                                 <li><a href="{{{ action('ProductsController@index')}}}"><i class="fa fa-leaf" aria-hidden="true"></i></i>&nbsp;Manage Inventory</a></li>
