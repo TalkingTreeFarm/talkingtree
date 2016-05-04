@@ -15,7 +15,7 @@
                     <li><a href="{{{action('PostsController@index')}}}">Education</a></li>
                     <li><a href="/events">Events</a></li>
                     <li><a href="{{{action('ProductsController@index')}}}">Order a Basket</a></li>
-                    <li><a href="#footer">Contact</a></li>
+                    <li><a href="{{{action('HomeController@contact')}}}">Contact</a></li>
                     <li>
                     @if (Auth::check() && Auth::user()->isAdmin())
                             <a id="drop" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{{ Auth::user()->first_name . '\'s Profile' }}}<span class="caret"></span></a>

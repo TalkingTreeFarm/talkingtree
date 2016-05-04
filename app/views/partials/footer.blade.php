@@ -1,3 +1,4 @@
+<br>
 <footer class="page-footer text-center">
   <div class="footer-copyright">
     <div class="container">
