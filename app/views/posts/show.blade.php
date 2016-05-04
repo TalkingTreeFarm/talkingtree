@@ -10,10 +10,10 @@
 @section('content')
 <div class="text-center">
 	<h1>{{{$post->title}}}</h1>
-	<img src="http://www.fillmurray.com/300/300" alt="">
+	<img src="{{{$post->image}}}" alt="" width="300" height="300">
 	<p>{{{$post->body}}}</p>
 	
-	<span class="meta">Updated on {{{$post->updated_at->diffForHumans()}}}</span>
+	<span class="meta">Updated {{{$post->updated_at->diffForHumans()}}}</span>
 </div>
 <hr>
 <hr>

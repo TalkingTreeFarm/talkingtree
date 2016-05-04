@@ -23,7 +23,7 @@ class HomeController extends BaseController {
 
 	public function homePage()
 	{
-		$posts = Post::all();
+		$posts = Post::orderBy('id', 'DESC')->limit(3)->get();
 		return View::make('main')->with('posts', $posts);;
 	}
 

@@ -22,7 +22,7 @@
 <hr>
 <div class="text-center">
 @foreach ($posts as $post)
- <a href="{{{ action('PostsController@show', $post->id) }}}"><img src="http://www.fillmurray.com/300/300" alt=""></a>
+ <a href="{{{ action('PostsController@show', $post->id) }}}"><img src="{{{$post->image}}}" alt="" width="300" height="300"></a>
 @endforeach
 
 
