@@ -18,8 +18,18 @@ class Product extends BaseModel
         return $this->hasMany('OrderProduct');
     }
 
-    public static function checkInventory($product)
+    public function checkInventory($order_product)
     {
-        return DB::table('products')->where('name', $product->name)->pluck('amount');
+        return ($this->amount < $order_product->amount);
+    }
+
+    public static function updateInventory($order)
+    {
+        foreach($order->order_products as $order_product)
+        {
+            $product = $order_product->product;
+            $product->amount = $product->amount - $order_product->amount;
+            $product->save();
+        }
     }
 }
