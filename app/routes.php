@@ -29,20 +29,14 @@ Route::get('/user/{id}/posts', 'PostsController@userPosts');
 
 Route::resource('orders', 'OrdersController');
 
-Route::get('events', function()
-{
-    return View::make('events');
-});
+Route::get('/ourstory', 'HomeController@ourStory');
 
-Route::get('posts.main', function()
-{
-    return View::make('posts.main');
-});
+Route::get('/events', 'HomeController@events');
 
-Route::get('our_story', function()
-{
-    return View::make('our_story');
-});
+
+
+
+
 Route::get('orders.index', function()
 {
     return View::make('orders.index');
