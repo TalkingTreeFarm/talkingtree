@@ -115,8 +115,8 @@ class PostsController extends \BaseController {
 		$post = Post::find($id);
 		// return View::make('posts.edit')->with('post', $post);
 
-		// $categories = Category::find($id);
-		return View::make('posts.edit')->with('post', $post);
+		$categories = Category::all();
+		return View::make('posts.edit')->with('post', $post)->with('categories', $categories);
 	}
 
 

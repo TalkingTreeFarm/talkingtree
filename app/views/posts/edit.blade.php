@@ -6,17 +6,9 @@
 
 @section('top-script')
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+	<link rel="stylesheet" href="/assets/css/pages/post-create.css">
 @stop
 
-@section('bottom-script')
-	<script src="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-
-	<script>
-		var simplemde = new SimpleMDE({
-			element: document.getElementById("body")
-		});
-	</script>
-@stop 
 
 @section('content')
 	{{ Form::model($post, array('action' => array('PostsController@update', $post->id), 'method' => 'PUT', 'files' => true)) }}
@@ -29,11 +21,16 @@
 	{{ Form::textarea('body', $post->body, ['placeholder'=>'Body']) }}
 	{{ $errors->first('body', '<span class="help-block">:message</span>') }}
 
-	@if($post->image)
-    	<img src="{{{$post->image}}}">
-    @endif 
-
-   	<div class="form-group">
+    <img src="{{{$post->image}}}" alt="" width="300" height="300">
+    <hr>
+ 	<select name="category_id">
+		<option disabled selected value="">Select Category</option>
+		@foreach($categories as $category)
+		<option value="{{{$category->id}}}">{{{$category->name}}}</option>
+		@endforeach	
+	</select>
+	<hr>
+    <div class="form-group">
 		{{ Form::label('image', 'Attach image') }}
 		{{ Form::file('image') }}
 	</div>
@@ -51,3 +48,14 @@
     {{ Form::submit('Delete post', ['class' => 'btn btn-danger']) }}
 	{{ Form::close() }}
 @stop
+
+@section('bottom-script')
+	<script src="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+	<script>
+		var simplemde = new SimpleMDE({
+			element: document.getElementById("body")
+		});
+	</script>
+@stop 
