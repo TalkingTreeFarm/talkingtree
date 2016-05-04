@@ -9,6 +9,9 @@
 
 @section('content')
 <div class="container">
+@if (Auth::check()&& Auth::user()->isAdmin())
+<a href="{{{action('PostsController@create')}}}" class="btn btn-info" role="button">Create New Posts</a>
+@endif
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Categories
   <span class="caret"></span></button>
