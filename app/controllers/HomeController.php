@@ -27,4 +27,14 @@ class HomeController extends BaseController {
 		return View::make('main')->with('posts', $posts);;
 	}
 
+	public function ourStory()
+	{
+		return View::make('our_story');
+	}
+
+	public function events()
+	{
+		return View::make('events');
+	}
+
 }

@@ -11,7 +11,7 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li><a href="/our_story">Our Story</a></li>
+                    <li><a href="{{{ action('HomeController@ourStory') }}}">Our Story</a></li>
                     <li><a href="{{{action('PostsController@index')}}}">Education</a></li>
                     <li><a href="/events">Events</a></li>
                     <li><a href="{{{action('ProductsController@index')}}}">Order a Basket</a></li>
