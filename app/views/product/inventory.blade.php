@@ -44,7 +44,9 @@
             </div>
 
             <!-- Change Current Inventory -->
-            <form id="update-inventory" class="form-group" action="" method="post">
+            <form id="update-inventory" class="form-group" action="{{{ action('ProductsController@updateAll') }}}" method="post">
+                {{ Form::token() }}
+
                 <div class="col-lg-3 col-lg-offset-1">
                     @foreach ($products as $product)
                         @if($product->name == "Eggs")
@@ -58,7 +60,8 @@
                                 <span class="glyphicon glyphicon-minus"></span>
                             </span>
 
-                            <input id="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}-amount" type="number" min="0" step="1" name="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}" class="form-control quantity-count text-center" value="{{{ $product->amount }}}">
+                            <input id="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}-amount" type="number" min="0" step="1" name="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}-amount" class="form-control quantity-count text-center" placeholder="{{{ $product->amount }}}">
+                            <input type="hidden" name="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}-id" value="{{{ $product->id }}}">
 
                             <span id="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}-add" class="input-group-addon input-group-addon-remove quantity-add btn">
                                 <span class="glyphicon glyphicon-plus"></span>
@@ -69,21 +72,19 @@
 
             <!-- Set Prices -->
                 <div class="col-lg-3 col-lg-offset-1">
-                    <form class="form-group" action="" method="post">
-                        @foreach ($products as $product)
-                            @if($product->name == "Eggs")
-                                <label for="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}">{{{ $product->name }}} (By Dozen)</label>
-                            @else
-                                <label for="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}">{{{ $product->name }}}</label>
-                            @endif
+                    @foreach ($products as $product)
+                        @if($product->name == "Eggs")
+                            <label for="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}">{{{ $product->name }}} (By Dozen)</label>
+                        @else
+                            <label for="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}">{{{ $product->name }}}</label>
+                        @endif
 
-                            <div class="input-group">
-                                <span class="input-group-addon">$</span>
-                                <input type="number" min="0.00" step="1" name="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}" class="form-control text-center" aria-label="Amount (to the nearest dollar)" placeholder="{{{ $product->price }}}">
-                                <span class="input-group-addon">.00</span>
-                            </div>
-                        @endforeach
-                    </form>
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="number" min="0.00" step="1" name="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}-price" class="form-control text-center" aria-label="Amount (to the nearest dollar)" placeholder="{{{ $product->price }}}">
+                            <span class="input-group-addon">.00</span>
+                        </div>
+                    @endforeach
                 </div>
             </form>
         </div>
