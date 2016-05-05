@@ -24,6 +24,8 @@
                 </div>       
                 
                 <button class="btn btn-default" type="submit">Log In</button>
+                <a href="{{{action('UsersController@createUser')}}}" class="btn btn-default" role="button">Sign Up</a>
+
             {{ Form::close() }}
 
         </div> <!-- end col-md-2 -->
