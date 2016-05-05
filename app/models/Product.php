@@ -28,7 +28,7 @@ class Product extends BaseModel
         foreach($order->order_products as $order_product)
         {
             $product = $order_product->product;
-            $product->amount = $product->amount - $order_product->amount;
+            $product->amount = ($product->amount - $order_product->amount);
             $product->save();
         }
     }

@@ -1,8 +1,8 @@
 <?php
 // use Stripe;
 
-class OrdersController extends \BaseController {
-
+class OrdersController extends \BaseController
+{
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -22,7 +22,6 @@ class OrdersController extends \BaseController {
 		return View::make('orders.index', compact('first_name', 'orders', 'timestamp'));
 	}
 
-
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -33,14 +32,14 @@ class OrdersController extends \BaseController {
 		//
 	}
 
-
 	/**
-	 * Store a newly created resource in storage.
+	 * Store a newly created order in storage.
 	 *
 	 * @return Response
 	 */
 	public function store()
 	{
+        // dd(Input::all());
         $validator = Validator::make(Input::all(), Order::$rules);
 
         if($validator->fails())
@@ -49,8 +48,6 @@ class OrdersController extends \BaseController {
             Log::error('Created On: ' . date('m/d/Y h:i:s a'), ['order' => $data]);
             return Redirect::back()->withErrors($validator)->withInput();
         }
-
-        // Session::flash('successMessage', "Order submitted successfully!");
 
         $order = new Order;
         $order->user_id = Auth::id();
@@ -72,7 +69,6 @@ class OrdersController extends \BaseController {
         return Redirect::action('OrdersController@show', $order->id);
 	}
 
-
 	/**
 	 * Display the specified resource.
 	 *
@@ -91,7 +87,6 @@ class OrdersController extends \BaseController {
         return View::make('orders.confirm')->with('order', $order);
 	}
 
-
 	/**
 	 * Show the form for editing the specified resource.
 	 *
@@ -103,7 +98,6 @@ class OrdersController extends \BaseController {
 		//
 	}
 
-
 	/**
 	 * Update the specified resource in storage.
 	 *
@@ -114,7 +108,6 @@ class OrdersController extends \BaseController {
 	{
 		//
 	}
-
 
 	/**
 	 * Remove the specified resource from storage.
@@ -147,6 +140,7 @@ class OrdersController extends \BaseController {
 		}
 
 	}
+    
     /**
 	 * Confirms the order against inventory
 	 * Confirms the payment method against delivery method
