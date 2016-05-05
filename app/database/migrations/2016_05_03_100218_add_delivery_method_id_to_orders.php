@@ -15,7 +15,7 @@ class AddDeliveryMethodIdToOrders extends Migration {
 		Schema::table('orders', function($table)
 		{
     		$table->integer('delivery_method_id')->unsigned();
-    		$table->foreign('delivery_method_id')->references('id')->on('orders');
+    		$table->foreign('delivery_method_id')->references('id')->on('delivery_methods');
 		});
 	}
 
