@@ -2,7 +2,6 @@
 
 @section('title')
     <h1>Order Summary</h1>
-    {{{ $order }}}
 @stop
 
 @section('content')
@@ -42,7 +41,7 @@
             <div class="btn-group-vertical col-lg-4">
                 <a id="reserve-button" name="reserve-button" href="{{{ action('OrdersController@confirm', $order->id) }}}" class="btn btn-success checkout-button">Reserve For Pickup</a>
                 <form action="{{action('OrdersController@test')}}" method="POST">
-              
+
               <script
                 src="https://checkout.stripe.com/checkout.js" class="stripe-button col-md-12"
                 data-key="pk_test_P7veIbiSGJu3ivKPbWivMYcn"
