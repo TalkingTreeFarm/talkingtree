@@ -115,10 +115,10 @@
                         </li>
                     </ul>
                 </div>
-                <form action="" method="POST">
+                <form action="{{action('OrdersController@test')}}" method="POST">
                   <script
                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="pk_live_s1cUH3NSqNHOXBT2MP02y6Ll"
+                    data-key="pk_test_P7veIbiSGJu3ivKPbWivMYcn"
                     data-amount="2500"
                     data-name="Talking Tree Farm"
                     data-description="Large Basket"
