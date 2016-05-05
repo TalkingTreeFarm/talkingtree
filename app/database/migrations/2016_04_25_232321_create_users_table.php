@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration {
 			$table->string('password', 255);
 			$table->integer('phone_number')->unsigend();
 			$table->string('address');
+			$table->string('city');
 			$table->integer('zip_code')->unsigned();
 			$table->integer('role_id')->unsigned();
 			$table->timestamps();
