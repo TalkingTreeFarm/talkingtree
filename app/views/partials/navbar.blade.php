@@ -1,6 +1,7 @@
-
 <div class="container">
-    <h1 class="header"><a href="{{{action('HomeController@homePage')}}}">Talking Tree Farm</a></h1>
+      <div>
+            <a href="{{{action('HomeController@homePage')}}}"><img src="/images/logo.svg" class="img-responsive center-block" alt="Talking Tree Farm" height="auto" width="100"></a>
+      </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
 
