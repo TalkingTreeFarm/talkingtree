@@ -49,7 +49,7 @@ class UsersController extends \BaseController {
     }
 
 
-    public function userShow($id)
+    public function userProfile($id)
     {
         if (Auth::user()->id == $id)
         {
@@ -84,6 +84,7 @@ class UsersController extends \BaseController {
             return Redirect::back()->withInput()->withErrors($validator);
         } else {
 
+        $user = new User;    
         $user->first_name=Input::get('first_name');
         $user->last_name=Input::get('last_name');
         $user->phone_number=Input::get('phone_number');
