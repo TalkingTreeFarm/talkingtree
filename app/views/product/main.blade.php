@@ -54,7 +54,7 @@
                             <span class="glyphicon glyphicon-minus"></span>
                         </span>
 
-                        <input id="quantity-baskets" type="text" name="quantity-baskets" class="form-control quantity-count" value="0">
+                        <input id="quantity-baskets" type="text" name="quantity-baskets" class="form-control quantity-count text-center" value="0">
 
                         <span id="basket-add" class="input-group-addon input-group-addon-remove quantity-add btn">
                             <span class="glyphicon glyphicon-plus"></span>
@@ -67,7 +67,7 @@
                             <span class="glyphicon glyphicon-minus"></span>
                         </span>
 
-                        <input id="quantity-eggs" type="text" name="quantity-eggs" class="form-control quantity-count" value="0">
+                        <input id="quantity-eggs" type="text" name="quantity-eggs" class="form-control quantity-count text-center" value="0">
 
                         <span id="egg-add" class="input-group-addon input-group-addon-remove quantity-add btn">
                             <span class="glyphicon glyphicon-plus"></span>
