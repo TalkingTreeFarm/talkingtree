@@ -20,6 +20,7 @@ Route::resource('posts', 'PostsController');
 
 Route::resource('products', 'ProductsController');
 Route::get('inventory', 'ProductsController@inventory');
+Route::post('inventory', 'ProductsController@updateAll');
 
 Route::get('/login', 'UsersController@loginpage');
 Route::post('/login', 'UsersController@doLogin');
@@ -39,3 +40,5 @@ Route::get('/ourstory', 'HomeController@ourStory');
 Route::get('/events', 'HomeController@events');
 
 Route::post('/order', 'OrdersController@test');
+
+Route::get('/ajax/product-list', 'ProductsController@getProducts');
