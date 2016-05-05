@@ -39,10 +39,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface, Billa
 	public static $rules = array(
         'first_name' => 'required|alpha_num|min:3|max:32',
         'last_name' => 'required|alpha_num|min:3|max:32',
-        'email' => 'required|email',
+        'email' => 'required|email|unique:users',
         'password' => 'required|min:3|confirmed',
-        'password_confirmation' => 'required|min:3'
+        'password_confirmation' => 'required|min:3',
+        'address' => 'required|min:3|max:32'
     );
+
+    
 
     public function isAdmin()
     {

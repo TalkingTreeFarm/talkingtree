@@ -22,26 +22,29 @@
                 {{ Form::label('phone_number', 'Phone Number') }}
                 {{ Form::text('phone_number', null, ['class' => 'form-control']) }}
 
-                {{ $errors->first('email', '<span class="help-block">:message</span>') }}
-                {{ Form::label('email', 'Email') }}
-                {{ Form::text('email', null, ['class' => 'form-control', 'autofocus' => 'autofocus']) }}
-
                 {{ $errors->first('password', '<span class="help-block">:message</span>') }}    
                 {{ Form::label('password', 'Password') }}
                 {{ Form::password('password', ['class' => 'form-control']) }}
 
-                {{ $errors->first('password_confirmation', '<span class="help-block">:message</span>') }}    
-                {{ Form::label('password_confirmation', 'Password Confirm') }}
+                {{ $errors->first('password_confirmation', '<span class="help-block">:message</span>') }}{{ Form::label('password_confirmation', 'Password Confirm') }}
                 {{ Form::password('password_confirmation', ['class' => 'form-control']) }}
+
                 </div>
                 <div class="col-md-4">
                 {{ $errors->first('address', '<span class="help-block">:message</span>') }}    
                 {{ Form::label('address', 'Address') }}
-                {{ Form::textarea('address', null, ['class' => 'form-control']) }}
-                <br>
+                {{ Form::text('address', null, ['class' => 'form-control']) }}
+                
+                {{ $errors->first('city', '<span class="help-block">:message</span>') }}    
+                {{ Form::label('city', 'City') }}
+                {{ Form::text('city', null, ['class' => 'form-control']) }}
+
                 {{ $errors->first('zip_code', '<span class="help-block">:message</span>') }}
                 {{ Form::label('zip_code', 'Zip Code') }}
-                {{ Form::text('zip_code', null, ['class' => 'form-control', 'autofocus' => 'autofocus']) }}
+                {{ Form::number('zip_code', null, ['class' => 'form-control', 'autofocus' => 'autofocus']) }}
+                {{ $errors->first('email', '<span class="help-block">:message</span>') }}
+                {{ Form::label('email', 'Email') }}
+                {{ Form::email('email', null, ['class' => 'form-control', 'autofocus' => 'autofocus']) }}
 
                 <button class="btn btn-default" type="submit">Submit</button>
                 </div>
