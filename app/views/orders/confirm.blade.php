@@ -49,7 +49,7 @@
                 data-amount="2500"
                 data-name="Talking Tree Farm"
                 data-description="Large Basket"
-                data-image="/img/documentation/checkout/marketplace.png"
+                data-image="/images/logo.svg"
                 data-locale="auto">
               </script>
                 </form>
