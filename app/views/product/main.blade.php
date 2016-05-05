@@ -115,17 +115,6 @@
                         </li>
                     </ul>
                 </div>
-                <form action="{{action('OrdersController@test')}}" method="POST">
-                  <script
-                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="pk_test_P7veIbiSGJu3ivKPbWivMYcn"
-                    data-amount="2500"
-                    data-name="Talking Tree Farm"
-                    data-description="Large Basket"
-                    data-image="/img/documentation/checkout/marketplace.png"
-                    data-locale="auto">
-                  </script>
-                </form>
                 <button type="submit" name="checkout" form="basket-order" class="btn btn-success col-lg-12">Proceed To Checkout</button>
             </div>
         </div>

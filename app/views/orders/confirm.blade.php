@@ -41,7 +41,19 @@
 
             <div class="btn-group-vertical col-lg-4">
                 <a id="reserve-button" name="reserve-button" href="{{{ action('OrdersController@confirm', $order->id) }}}" class="btn btn-success checkout-button">Reserve For Pickup</a>
-                {{-- <a id="paypal-button" name="paypal-button" class="btn btn-warning checkout-button">Checkout With Paypal</a> --}}
+                <form action="{{action('OrdersController@test')}}" method="POST">
+              
+              <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button col-md-12"
+                data-key="pk_test_P7veIbiSGJu3ivKPbWivMYcn"
+                data-amount="2500"
+                data-name="Talking Tree Farm"
+                data-description="Large Basket"
+                data-image="/img/documentation/checkout/marketplace.png"
+                data-locale="auto">
+              </script>
+                </form>
+
             </div>
         </div>
 
