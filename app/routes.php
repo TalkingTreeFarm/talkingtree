@@ -35,7 +35,7 @@ Route::get('/ourstory', 'HomeController@ourStory');
 
 Route::get('/events', 'HomeController@events');
 
-
+Route::post('/order', 'OrdersController@test');
 
 
 
