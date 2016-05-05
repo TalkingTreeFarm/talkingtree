@@ -119,6 +119,11 @@ class OrdersController extends \BaseController
 		//
 	}
 
+	public function test()
+	{
+		dd(Input::all());
+	}
+    
     /**
 	 * Confirms the order against inventory
 	 * Confirms the payment method against delivery method

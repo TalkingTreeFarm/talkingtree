@@ -6,6 +6,11 @@
 
 
 @section('content')
-    <h1>{{{$user->first_name}}}</h1>
+    <h1>{{{$user->first_name}}}'s Profile Page</h1>
+
+@stop
+
+
+@section('bottom-script')
 
 @stop

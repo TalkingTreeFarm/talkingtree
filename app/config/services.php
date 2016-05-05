@@ -15,8 +15,8 @@ return array(
 	*/
 
 	'mailgun' => array(
-		'domain' => '',
-		'secret' => '',
+		'domain' => 'talkingtree.dev',
+		'secret' => 'key-93a4c92e915c2d9afb4f205f9c255a7c',
 	),
 
 	'mandrill' => array(
@@ -25,7 +25,7 @@ return array(
 
 	'stripe' => array(
 		'model'  => 'User',
-		'secret' => '',
+		'secret' => $_ENV['STRIPE_SECRET'],
 	),
 
 );

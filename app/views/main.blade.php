@@ -18,7 +18,7 @@
             </div>
         </div>
     <div>
-        <div class="col-md-12 well">
+        <div class="col-md-12 well-sm">
             <h2 class="text-center">Education</h2>
                 <div class="container">
                     <div class="row">
@@ -65,3 +65,4 @@
     </div>  
     
 @stop
+

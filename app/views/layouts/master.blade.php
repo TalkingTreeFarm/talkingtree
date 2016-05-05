@@ -11,7 +11,7 @@
 
 <body>
 	@include('partials.navbar')
-	<div class="container">
+	<div class="container-fluid">
 	@yield('title')
 
 
@@ -23,8 +23,6 @@
     	{{{ Session::get('successMessage') }}}</div>
 	@endif
 </div>
-
-
 
 	@if (Session::has('errorMessage'))
 		<div class="col-md-4"></div>

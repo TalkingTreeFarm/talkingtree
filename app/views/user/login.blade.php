@@ -12,20 +12,20 @@
             {{ Form::open(array('action' => 'UsersController@doLogin')) }}
                 <div class="row">
                     <div class="col-xs-12">
-                        {{ $errors->first('email', '<span class="help-block">:message</span>') }}
                         
                         {{ Form::label('email', 'Email') }}
                         {{ Form::text('email', null, ['class' => 'form-control', 'autofocus' => 'autofocus']) }}
-                                  
-                        {{ $errors->first('password', '<span class="help-block">:message</span>') }}    
-
+                        {{ $errors->first('email', '<span class="help-block">:message</span>') }}          
+                        
                         {{ Form::label('password', 'Password') }}
                         {{ Form::password('password', ['class' => 'form-control']) }}
+                        {{ $errors->first('password', '<span class="help-block">:message</span>') }}    
                     </div>
-                </div>
-                
+                </div>       
                 
                 <button class="btn btn-default" type="submit">Log In</button>
+                <a href="{{{action('UsersController@createUser')}}}" class="btn btn-default" role="button">Sign Up</a>
+
             {{ Form::close() }}
 
         </div> <!-- end col-md-2 -->
