@@ -39,7 +39,6 @@ class OrdersController extends \BaseController
 	 */
 	public function store()
 	{
-        // dd(Input::all());
         $validator = Validator::make(Input::all(), Order::$rules);
 
         if($validator->fails())
@@ -140,7 +139,7 @@ class OrdersController extends \BaseController
 		}
 
 	}
-    
+
     /**
 	 * Confirms the order against inventory
 	 * Confirms the payment method against delivery method
@@ -152,6 +151,8 @@ class OrdersController extends \BaseController
     {
         $passed = true;
         $order = Order::find($id);
+
+        dd($order);
 
         // Check Order Against Inventory
         foreach($order->order_products as $order_product)

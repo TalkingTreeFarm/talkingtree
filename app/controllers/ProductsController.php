@@ -59,6 +59,11 @@ class ProductsController extends \BaseController
 		return View::make('product.show')->with('product', $product);
 	}
 
+    public function getProducts()
+    {
+        return Product::all();
+    }
+
 	/**
 	 * Show the form for editing the specified resource.
 	 *
@@ -80,6 +85,23 @@ class ProductsController extends \BaseController
 	{
 		//
 	}
+
+    public function updateAll()
+    {
+        $products = Product::all();
+
+        foreach($products as $product)
+        {
+            if (Input::get(strtolower(str_replace(" ", "-", $product->name)) . '-amount') != '') {
+                $product->amount = Input::get(strtolower(str_replace(" ", "-", $product->name)) . '-amount');
+            }
+            if (Input::get(strtolower(str_replace(" ", "-", $product->name)) . '-price') != '') {
+                $product->price = Input::get(strtolower(str_replace(" ", "-", $product->name)) . '-price');
+            }
+
+            $product->save();
+        }
+    }
 
 	/**
 	 * Remove the specified resource from storage.
