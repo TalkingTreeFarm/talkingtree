@@ -152,8 +152,6 @@ class OrdersController extends \BaseController
         $passed = true;
         $order = Order::find($id);
 
-        dd($order);
-
         // Check Order Against Inventory
         foreach($order->order_products as $order_product)
         {
