@@ -96,7 +96,7 @@
   </div>
  <a href="{{{ action('PostsController@show', $post->id) }}}"><img src="{{{$post->image}}}" alt="" width="300" height="300"></a>
   </div>
- </div> 
+ </div>
 @endforeach
 </div>
 </div>
