@@ -43,24 +43,24 @@
                 <button type="submit" name="update" form="update-inventory" class="col-md-12 btn btn-success">Update Inventory</button>
             </div>
 
-            <!-- Add New Inventory -->
+            <!-- Change Current Inventory -->
             <form id="update-inventory" class="form-group" action="" method="post">
                 <div class="col-lg-3 col-lg-offset-1">
                     @foreach ($products as $product)
                         @if($product->name == "Eggs")
-                            <label for="{{{ strtolower($product->name) }}}">{{{ $product->name }}} (By Dozen)</label>
+                            <label for="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}">{{{ $product->name }}} (By Dozen)</label>
                         @else
-                            <label for="{{{ strtolower($product->name) }}}">{{{ $product->name }}}</label>
+                            <label for="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}">{{{ $product->name }}}</label>
                         @endif
 
                         <div class="input-group form-group-options quantity-wrapper">
-                            <span id="" class="input-group-addon input-group-addon-remove quantity-remove btn">
+                            <span id="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}-remove" class="input-group-addon input-group-addon-remove quantity-remove btn">
                                 <span class="glyphicon glyphicon-minus"></span>
                             </span>
 
-                            <input id="" type="number" min="0" step="1" name="" class="form-control quantity-count" value="0">
+                            <input id="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}-amount" type="number" min="0" step="1" name="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}" class="form-control quantity-count text-center" value="{{{ $product->amount }}}">
 
-                            <span id="" class="input-group-addon input-group-addon-remove quantity-add btn">
+                            <span id="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}-add" class="input-group-addon input-group-addon-remove quantity-add btn">
                                 <span class="glyphicon glyphicon-plus"></span>
                             </span>
                         </div>
@@ -72,14 +72,14 @@
                     <form class="form-group" action="" method="post">
                         @foreach ($products as $product)
                             @if($product->name == "Eggs")
-                                <label for="{{{ strtolower($product->name) }}}">{{{ $product->name }}} (By Dozen)</label>
+                                <label for="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}">{{{ $product->name }}} (By Dozen)</label>
                             @else
-                                <label for="{{{ strtolower($product->name) }}}">{{{ $product->name }}}</label>
+                                <label for="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}">{{{ $product->name }}}</label>
                             @endif
 
                             <div class="input-group">
                                 <span class="input-group-addon">$</span>
-                                <input type="number" min="0.00" step="1" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                <input type="number" min="0.00" step="1" name="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}" class="form-control text-center" aria-label="Amount (to the nearest dollar)" placeholder="{{{ $product->price }}}">
                                 <span class="input-group-addon">.00</span>
                             </div>
                         @endforeach
@@ -92,5 +92,5 @@
 @stop
 
 @section('bottom-script')
-    {{-- <script type="text/javascript" src="/assets/js/products.js"></script> --}}
+    <script type="text/javascript" src="/assets/js/inventory.js"></script>
 @stop

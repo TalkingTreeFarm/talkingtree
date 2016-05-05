@@ -2,7 +2,6 @@
 
 @section('title')
     <h1>Order Summary</h1>
-    {{{ $order }}}
 @stop
 
 @section('content')
