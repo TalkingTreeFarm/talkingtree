@@ -11,7 +11,7 @@
  <div class="container">
 	        <div class="row well">
 	            <div class="col-lg-4">
-	            	<img class="img-responsive" src="/images/logo.svg" alt="Sarah and Sylvain" width="200" height="100">
+	            	<img class="img-responsive" src="/images/logo-profile.svg" alt="Sarah and Sylvain" width="200" height="100">
 	            </div>
 	            <div class="col-lg-8">
 	            	<h4>First Name - {{{$user->first_name}}}</h4>
@@ -52,7 +52,7 @@
                             <tr>
                                 <td>{{{ $order->created_at }}}</td>
                                 <td>${{{ $order->total }}}</td>
-                                
+
                                 <td>{{{ $order->delivery_method->method }}}</td>
                                 <td>{{{ $order->id }}}</td>
                             </tr>
