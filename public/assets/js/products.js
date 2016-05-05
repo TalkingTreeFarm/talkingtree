@@ -3,9 +3,12 @@
     var $basketsAmount = Number($('#quantity-baskets').val());
     var $eggsAmount    = Number($('#quantity-eggs').val());
 
-    var $eggsInInventory = (Number($('#Eggs').data('amount')) % 12);
+    // var $eggsInInventory = parseInt(Number($('#Eggs').data('amount')) / 12);
+    var $eggsInInventory = Number($('#Eggs').data('amount'));
+    var $eggsPrice       = $('#Eggs').data('price');
+
     // Set Quantities for Labels
-    $('#eggs-label').text("Eggs (By Dozen) -- " + $eggsInInventory + " dozen left");
+    $('#eggs-label').text("Eggs (By Dozen) - $" + $eggsPrice + " - " + $eggsInInventory + " dozen left");
 
     // Reset Quantities on Size Change
     // Set Basket Size in Order Summary

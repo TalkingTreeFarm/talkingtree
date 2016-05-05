@@ -17,7 +17,7 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		
+
 		return View::make('hello');
 	}
 
@@ -26,7 +26,6 @@ class HomeController extends BaseController {
 		$posts = Post::orderBy('id', 'DESC')->limit(3)->get();
 		return View::make('main')->with('posts', $posts);;
 	}
-
 
 	public function ourStory()
 	{
@@ -43,5 +42,4 @@ class HomeController extends BaseController {
 		return View::make('contact');
 
 	}
-
 }
