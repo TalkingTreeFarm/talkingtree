@@ -3,22 +3,23 @@
 
 @section('content')
 
-{{-- about us --}}
+{{-- about us --}}    
+
         <div class="col-md-12 well">
             <h2 class="text-center">Our Story</h2>
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <a href="#">
                     <img class="img-responsive" src="/images/sarah_sylvain.jpg" alt="Sarah and Sylvain" width="300" height="200">
                 </a>
             </div>
-            <div class="col-md-6">
+            <div class="col-sm-6">
                 {{-- <h4>Subheading</h4> --}}
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
                 <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde. </p>
             </div>
         </div>
     <div>
-        <div class="col-md-12 well-sm">
+        <div class="col-md-12 well">
             <h2 class="text-center">Education</h2>
                 <div class="container">
                     <div class="row">
