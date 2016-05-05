@@ -106,7 +106,7 @@
                         <li class="summary-item">
                             <span class="item-desc">Delivery Method:</span>
                             <span id="delivery-method" class="item-amount">Not Selected</span><br>
-                            <span id="delivery-disclaimer" class="item-disclaimer text-hide">*This delivery method requires Paypal</span>
+                            <span id="delivery-disclaimer" class="item-disclaimer text-hide">*This delivery method requires advanced payment</span>
                         </li>
                         <li class="summary-item">
                             <span class="item-desc">Order Total:</span>
@@ -115,7 +115,17 @@
                         </li>
                     </ul>
                 </div>
-
+                <form action="" method="POST">
+                  <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="pk_live_s1cUH3NSqNHOXBT2MP02y6Ll"
+                    data-amount="2500"
+                    data-name="Talking Tree Farm"
+                    data-description="Large Basket"
+                    data-image="/img/documentation/checkout/marketplace.png"
+                    data-locale="auto">
+                  </script>
+                </form>
                 <button type="submit" name="checkout" form="basket-order" class="btn btn-success col-lg-12">Proceed To Checkout</button>
             </div>
         </div>

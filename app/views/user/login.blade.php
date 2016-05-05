@@ -21,8 +21,7 @@
                         {{ Form::password('password', ['class' => 'form-control']) }}
                         {{ $errors->first('password', '<span class="help-block">:message</span>') }}    
                     </div>
-                </div>
-                
+                </div>       
                 
                 <button class="btn btn-default" type="submit">Log In</button>
             {{ Form::close() }}

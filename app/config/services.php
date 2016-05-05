@@ -25,7 +25,7 @@ return array(
 
 	'stripe' => array(
 		'model'  => 'User',
-		'secret' => '',
+		'secret' => $_ENV['STRIPE_SECRET'],
 	),
 
 );
