@@ -54,7 +54,9 @@ class UsersController extends \BaseController {
         if (Auth::user()->id == $id)
         {
             $user = User::find($id);
-            return View::make('user.profile')->with('user', $user);
+            $user_id = Auth::id();
+            $orders = Order::where('user_id',$user_id)->get();
+            return View::make('user.profile')->with('user', $user)->with('orders', $orders);
         }
         
     }
@@ -90,6 +92,7 @@ class UsersController extends \BaseController {
         $user->phone_number=Input::get('phone_number');
         $user->email=Input::get('email');
         $user->address=Input::get('address');
+        $user->city=Input::get('city');
         $user->zip_code=Input::get('zip_code');
         $user->password=Input::get('password');
         $user->role_id=User::STANDARD;
