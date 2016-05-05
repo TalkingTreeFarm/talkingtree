@@ -1,6 +1,6 @@
 <div class="container">
       <div>
-            <a href="{{{action('HomeController@homePage')}}}"><img src="/images/logo.svg" class="img-responsive center-block" alt="Talking Tree Farm" height="auto" width="100"></a>
+            <a href="{{{action('HomeController@homePage')}}}"><img src="/images/logo-navbar.svg" class="img-responsive center-block" alt="Talking Tree Farm" height="auto" width="100"></a>
       </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
