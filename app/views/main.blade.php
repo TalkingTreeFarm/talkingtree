@@ -25,7 +25,6 @@
                     <div class="row">
                          @foreach ($posts as $post)
                         <div class="col-xs-4">
-                        <p >{{{$post->title}}}</p>
                         <a href="{{{ action('PostsController@show', $post->id) }}}">
                             <img src="{{{$post->image}}}" alt="" width="300" height="300">
                         </a>
