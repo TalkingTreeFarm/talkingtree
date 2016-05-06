@@ -1,5 +1,11 @@
 <?php
-class UsersController extends \BaseController {
+class UsersController extends \BaseController
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->beforeFilter('auth', array('only' => ['userProfile']));
+    }
 
 	public function loginpage()
 	{
@@ -10,6 +16,7 @@ class UsersController extends \BaseController {
 	{
 		$email = Input::get('email');
         $password = Input::get('password');
+
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
             return Redirect::intended('/');
         } else {
@@ -58,17 +65,16 @@ class UsersController extends \BaseController {
             $orders = Order::where('user_id',$user_id)->get();
             return View::make('user.profile')->with('user', $user)->with('orders', $orders);
         }
-        
     }
 
     public function showLogin()
 	{
-		return View::make('main');	
+		return View::make('main');
 	}
 
     public function edit()
     {
-        return View::make('user.edit');  
+        return View::make('user.edit');
     }
 
     public function createUser()
@@ -81,12 +87,12 @@ class UsersController extends \BaseController {
         $validator = Validator::make(Input::all(), User::$rules);
 
         if ($validator->fails()) {
-        
+
             Session::flash('errorMessage', 'User could not be created!!');
             return Redirect::back()->withInput()->withErrors($validator);
         } else {
 
-        $user = new User;    
+        $user = new User;
         $user->first_name=Input::get('first_name');
         $user->last_name=Input::get('last_name');
         $user->phone_number=Input::get('phone_number');

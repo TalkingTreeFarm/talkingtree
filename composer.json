@@ -7,7 +7,7 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"laravel/cashier": "~2.0",
-		 "stripe/stripe-php": "^3.12"
+		"cartalyst/stripe-laravel": "1.0.*"
 	},
 	"autoload": {
 		"classmap": [

@@ -3,7 +3,13 @@
 
 class OrdersController extends \BaseController
 {
-	/**
+    public function __construct()
+    {
+        parent::__construct();
+        $this->beforeFilter('auth', array('only' => ['store']));
+    }
+
+    /**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
@@ -55,13 +61,19 @@ class OrdersController extends \BaseController
         $order->pending = true;
         $order->save();
 
-        if(Input::get('quantity-eggs') > 0)
+        $eggsId = DB::table('products')->where('name', "Eggs")->pluck('id');
+
+        if(Input::get('quantity-eggs') > 0 && Input::get('size') != 1)
         {
-            $order->products()->attach([Input::get('size') => ['amount' => Input::get('quantity-baskets')], 3 => ['amount' => Input::get('quantity-eggs')]]);
+            $order->products()->attach([Input::get('size') => ['amount' => Input::get('quantity-baskets')], $eggsId => ['amount' => Input::get('quantity-eggs')]]);
         }
-        else
+        else if(Input::get('size') != 1)
         {
             $order->products()->attach([Input::get('size') => ['amount' => Input::get('quantity-baskets')]]);
+        }
+        else if(Input::get('quantity-eggs') > 0)
+        {
+            $order->products()->attach([$eggsId => ['amount' => Input::get('quantity-eggs')]]);
         }
 
         Log::info('Created On: ' . date('m/d/Y h:i:s a'), ['order' => $order]);
@@ -119,27 +131,6 @@ class OrdersController extends \BaseController
 		//
 	}
 
-	public function test()
-	{
-		Stripe::setApiKey("sk_test_fjJ5GqtIkE5GpGMKvr9Gu5A4");
-
-		// Get the credit card details submitted by the form
-		$token = $_POST['stripeToken'];
-
-		// Create the charge on Stripe's servers - this will charge the user's card
-		try {
-		  $charge = Stripe_Charge::create(array(
-		    "amount" => 1000, // amount in cents, again
-		    "currency" => "usd",
-		    "source" => $token,
-		    "description" => "Example charge"
-		    ));
-		} catch(\Stripe\Error\Card $e) {
-		  // The card has been declined
-		}
-
-	}
-
     /**
 	 * Confirms the order against inventory
 	 * Confirms the payment method against delivery method
@@ -163,17 +154,44 @@ class OrdersController extends \BaseController
             }
         }
 
+        if($passed && isset($_POST['stripe-token']))
+        {
+            // Get the credit card details submitted by the form
+    		$token = $_POST['stripe-token'];
+
+            try
+            {
+                $order->prePay($token);
+            }
+            catch(Cartalyst\Stripe\Exception\CardErrorException $e)
+            {
+    		  // Get the status code
+              $code = $e->getCode();
+
+              // Get the error message from Stripe
+              $message = $e->getMessage();
+
+              // Get the error type from Stripe
+              $type = $e->getErrorType();
+
+              // Echo out the error and redirect
+              Session::flash('errorMessage', "Error {$code}: {$message}");
+              Redirect::back();
+    		}
+        }
+
         if($passed && $order->isVerified())
         {
             $order->pending = false;
             Product::updateInventory($order);
+            $order->save();
 
-            Session::flash('successMessage', "Order reserved successfully!");
+            Session::flash('successMessage', "Order placed successfully!");
             return Redirect::action('OrdersController@index');
         }
         else if(!$order->isVerified())
         {
-            Session::Flash('errorMessage', "This delivery method requires online payment");
+            Session::flash('errorMessage', "This delivery method requires online payment");
             return Redirect::action('OrdersController@show', $order->id);
         }
         else if(!$passed)
