@@ -71,17 +71,27 @@ class UsersController extends \BaseController {
         return View::make('user.edit');  
     }
 
+    public function account($id)
+    {
+        if (Auth::user()->id == $id)
+        {
+            $user = User::find($id);
+            $user_id = Auth::id();
+            return View::make('user.account')->with('user', $user);
+         }   
+    }
+
     public function userUpdate($id)
     {
         $validator = Validator::make(Input::all(), User::$rules);
 
         if ($validator->fails()) {
         
-            Session::flash('errorMessage', 'User could not be created!!');
+            Session::flash('errorMessage', 'User could not be updated!!');
             return Redirect::back()->withInput()->withErrors($validator);
         } else {
 
-        $user = User::find($id);   
+        $user = User::find($id); 
         $user->first_name=Input::get('first_name');
         $user->last_name=Input::get('last_name');
         $user->phone_number=Input::get('phone_number');
@@ -91,8 +101,7 @@ class UsersController extends \BaseController {
         $user->zip_code=Input::get('zip_code');
         $user->role_id=User::STANDARD;
         $user->save();
-
-        return View::make('user.profile')->with('user', $user)->with('orders', $orders);    
+        return Redirect::action('UsersController@userProfile')->with(['user' => $user, 'orders' => $orders]);   
         }
      }
 
@@ -102,16 +111,15 @@ class UsersController extends \BaseController {
 
         if ($validator->fails()) {
         
-            Session::flash('errorMessage', 'User could not be created!!');
+            Session::flash('errorMessage', 'Password could not be updated!!');
             return Redirect::back()->withInput()->withErrors($validator);
         } else {
-
+         $orders = Order::where('user_id',$id)->get();  
          $user = User::find($id);
-         $user->password=Input::get('password');
+         $user->password=Input::get('new_password');
          $user->save();
 
-         return View::make('user.profile')->with('user', $user)->with('orders', $orders); 
-
+         return Redirect::action('UsersController@userProfile')->with('user', $user);
         } 
       }   
 
