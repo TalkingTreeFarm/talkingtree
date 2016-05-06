@@ -4,6 +4,7 @@ class PostsController extends \BaseController {
 
 	public function __construct()
 	{
+        parent::__construct();
 		$this->beforeFilter('admin', array('except' => array('index', 'show')));
 	}
 
@@ -62,7 +63,7 @@ class PostsController extends \BaseController {
 	        Session::flash('errorMessage', 'This post was not created successfully!!');
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
-	    
+
 	    $post = new Post;
 		    if (Input::hasFile('image')) {
 		    	$image = Input::file('image');
@@ -70,11 +71,11 @@ class PostsController extends \BaseController {
 		    		public_path('/images'),
 		    		$image->getClientOriginalName()
 		    	);
-		    	$post->image = "/images/{$image->getClientOriginalName()}";	
+		    	$post->image = "/images/{$image->getClientOriginalName()}";
 		    	} else {
 		    		$post->image = "/images/sample basket.jpg";
 				 }
-		    
+
 		$post->title=Input::get('title');
 		$post->body=Input::get('body');
 		$post->category_id=Input::get('category_id');
@@ -83,7 +84,7 @@ class PostsController extends \BaseController {
 		Log::info($post);
 		Session::flash('successMessage', 'This post was created successfully!!');
 		return Redirect::action('PostsController@index');
-	    }    
+	    }
 	}
 
 
@@ -142,8 +143,8 @@ class PostsController extends \BaseController {
 		    		public_path('/images'),
 		    		$image->getClientOriginalName()
 		    	);
-		    	$post->image = "/images/{$image->getClientOriginalName()}";	
-		    }	
+		    	$post->image = "/images/{$image->getClientOriginalName()}";
+		    }
 
 		
 	    $post->title=Input::get('title');
@@ -164,9 +165,9 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-	
+
 		$post = Post::find($id);
-		
+
 		if(!$post) {
 			return Redirect::action('PostsController@index');
 		}

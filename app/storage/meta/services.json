@@ -26,7 +26,8 @@
         "Illuminate\\Validation\\ValidationServiceProvider",
         "Illuminate\\View\\ViewServiceProvider",
         "Illuminate\\Workbench\\WorkbenchServiceProvider",
-        "Laravel\\Cashier\\CashierServiceProvider"
+        "Laravel\\Cashier\\CashierServiceProvider",
+        "Cartalyst\\Stripe\\Laravel\\StripeServiceProvider"
     ],
     "eager": [
         "Illuminate\\Cookie\\CookieServiceProvider",
@@ -36,7 +37,8 @@
         "Illuminate\\Session\\SessionServiceProvider",
         "Illuminate\\View\\ViewServiceProvider",
         "Illuminate\\Workbench\\WorkbenchServiceProvider",
-        "Laravel\\Cashier\\CashierServiceProvider"
+        "Laravel\\Cashier\\CashierServiceProvider",
+        "Cartalyst\\Stripe\\Laravel\\StripeServiceProvider"
     ],
     "deferred": {
         "artisan": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",

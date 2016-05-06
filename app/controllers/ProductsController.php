@@ -2,6 +2,13 @@
 
 class ProductsController extends \BaseController
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->beforeFilter('auth', array('only' => ['index']));
+        $this->beforeFilter('admin', array('except' => ['index']));
+    }
+
 	/**
 	 * Display a listing of the resource.
 	 *
