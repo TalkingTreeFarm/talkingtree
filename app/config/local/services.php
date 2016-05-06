@@ -1,6 +1,8 @@
 <?php
 
-	return [
-		'stripe' => [
-		'secret' => $_ENV['STRIPE_SECRET']
-	];
+	return array(
+        'stripe' => array(
+    		'model'  => 'User',
+    		'secret' => $_ENV['STRIPE_SECRET'],
+    	),
+	);
