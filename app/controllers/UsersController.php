@@ -58,13 +58,17 @@ class UsersController extends \BaseController
 
     public function userProfile($id)
     {
-        if (Auth::user()->id == $id)
+        $user = User::find($id);
+        $user_id = Auth::id();
+        $orders = Order::where('user_id',$user_id)->get();
+
+        if(Auth::user()->isAdmin())
         {
-            $user = User::find($id);
-            $user_id = Auth::id();
-            $orders = Order::where('user_id',$user_id)->get();
-            return View::make('user.profile')->with(['user' => $user, 'orders' => $orders]);
+            $orders = Order::where('user_id', $user->id)->get();
+            return View::make('user.info')->with(['user' => $user, 'orders' => $orders]);
         }
+
+        return View::make('user.profile')->with(['user' => $user, 'orders' => $orders]);
     }
 
     public function showLogin()
@@ -82,12 +86,12 @@ class UsersController extends \BaseController
         $validator = Validator::make(Input::all(), User::$rules);
 
         if ($validator->fails()) {
-        
+
             Session::flash('errorMessage', 'User could not be created!!');
             return Redirect::back()->withInput()->withErrors($validator);
         } else {
 
-        $user = User::find($id);   
+        $user = User::find($id);
         $user->first_name=Input::get('first_name');
         $user->last_name=Input::get('last_name');
         $user->phone_number=Input::get('phone_number');
@@ -98,7 +102,7 @@ class UsersController extends \BaseController
         $user->role_id=User::STANDARD;
         $user->save();
 
-        return View::make('user.profile')->with('user', $user)->with('orders', $orders);    
+        return View::make('user.profile')->with('user', $user)->with('orders', $orders);
         }
      }
 
@@ -107,7 +111,7 @@ class UsersController extends \BaseController
         $validator = Validator::make(Input::all(), User::$passwordchange);
 
         if ($validator->fails()) {
-        
+
             Session::flash('errorMessage', 'User could not be created!!');
             return Redirect::back()->withInput()->withErrors($validator);
         } else {
@@ -116,10 +120,10 @@ class UsersController extends \BaseController
          $user->password=Input::get('password');
          $user->save();
 
-         return View::make('user.profile')->with('user', $user)->with('orders', $orders); 
+         return View::make('user.profile')->with('user', $user)->with('orders', $orders);
 
-        } 
-      }   
+        }
+      }
 
     public function createUser()
     {

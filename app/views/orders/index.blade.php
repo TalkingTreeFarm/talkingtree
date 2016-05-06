@@ -19,6 +19,7 @@
                                 <th>Ordered By</th>
                             @endif
 
+                            <th>Description</th>
                             <th>Total</th>
                             <th>Delivery Method</th>
                             <th>Prepaid</th>
@@ -35,6 +36,7 @@
                                     <td><a href="{{{ action('UsersController@userProfile', $order->user->id) }}}">{{{ $order->user->fullName() }}}
                                 @endif
 
+                                <td>{{{ $order->makeDescription() }}}</td>
                                 <td>${{{ $order->total }}}</td>
                                 <td>{{{ $order->delivery_method->method }}}</td>
 

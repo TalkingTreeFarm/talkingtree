@@ -35,8 +35,8 @@ class Order extends BaseModel
         return $orderProducts;
     }
 
-    public function prePay($token)
-	{
+    public function makeDescription()
+    {
         // Assemble order description
         $description = "";
 
@@ -75,6 +75,14 @@ class Order extends BaseModel
                 }
             }
         }
+
+        return $description;
+    }
+
+    public function prePay($token)
+	{
+        // Get order description
+        $description = $this->makeDescription();
 
 		// Create the charge on Stripe's servers - this will charge the user's card
 		$charge = Stripe::charges()->create(array(

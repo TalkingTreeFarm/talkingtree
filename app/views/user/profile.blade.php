@@ -1,12 +1,11 @@
 @extends('layouts.master')
 
 @section('title')
-
+    <h1>{{{$user->first_name}}}'s Profile Page</h1>
 @stop
 
 
 @section('content')
- <h1>{{{$user->first_name}}}'s Profile Page</h1>
 
  <div class="container">
 	        <div class="row well">
@@ -18,10 +17,10 @@
 	            	{{ $errors->first('first_name', '<span class="help-block">:message</span>') }}
                     {{ Form::label('first_name', 'First Name', ['style' => 'float: left']) }}
                     {{ Form::text('first_name', null, ['class' => 'form-control', 'autofocus' => 'autofocus']) }}
-	            	{{ $errors->first('last_name', '<span class="help-block">:message</span>') }}    
+	            	{{ $errors->first('last_name', '<span class="help-block">:message</span>') }}
                     {{ Form::label('last_name', 'Last Name') }}
                     {{ Form::text('last_name', null, ['class' => 'form-control']) }}
-	            	{{ $errors->first('phone_number', '<span class="help-block">:message</span>') }}    
+	            	{{ $errors->first('phone_number', '<span class="help-block">:message</span>') }}
                     {{ Form::label('phone_number', 'Phone Number') }}
                     {{ Form::text('phone_number', null, ['class' => 'form-control']) }}
 	            	{{ Form::label('email', 'Email') }}
@@ -29,13 +28,13 @@
 	            	<br>
 	            	<br>
 	            	<br>
-	            	
+
 				</div>
                 <div class="col-md-4">
-                    {{ $errors->first('address', '<span class="help-block">:message</span>') }}    
+                    {{ $errors->first('address', '<span class="help-block">:message</span>') }}
                     {{ Form::label('address', 'Address') }}
                     {{ Form::text('address', null, ['class' => 'form-control']) }}
-                    {{ $errors->first('city', '<span class="help-block">:message</span>') }}    
+                    {{ $errors->first('city', '<span class="help-block">:message</span>') }}
                     {{ Form::label('city', 'City') }}
                     {{ Form::text('city', null, ['class' => 'form-control']) }}
                     {{ $errors->first('zip_code', '<span class="help-block">:message</span>') }}
@@ -45,7 +44,7 @@
                     <a href="{{{ action('UsersController@userUpdate') }}}" role="button" color="purple" class="btn-lg btn btn-success .active">Update Profile</a>
 
                     {{ Form::close() }}
-                    
+
                 </div>
 	            </div>
 	        </div>
@@ -54,23 +53,23 @@
 <div class="container">
             <div class="row well">
                 <div class="col-md-3">
-                    {{ Form::open(array('action' => 'UsersController@changePassword')) }}  
-                    {{ $errors->first('current password', '<span class="help-block">:message</span>') }}    
+                    {{ Form::open(array('action' => 'UsersController@changePassword')) }}
+                    {{ $errors->first('current password', '<span class="help-block">:message</span>') }}
                     {{ Form::label('password', 'Current Password') }}
-                    {{ Form::password('password', ['class' => 'form-control']) }} 
-                    
+                    {{ Form::password('password', ['class' => 'form-control']) }}
+
                 </div>
                 <div class="col-md-3">
-                    
-                    {{ $errors->first('new password', '<span class="help-block">:message</span>') }}    
+
+                    {{ $errors->first('new password', '<span class="help-block">:message</span>') }}
                     {{ Form::label('password', 'New Password') }}
                     {{ Form::password('password', ['class' => 'form-control']) }}
 
                 </div>
 
                 <div class="col-md-3">
-                    
-                    {{ $errors->first('password_confirmation', '<span class="help-block">:message</span>') }}    
+
+                    {{ $errors->first('password_confirmation', '<span class="help-block">:message</span>') }}
                     {{ Form::label('password', 'Confirm Password') }}
                     {{ Form::password('password', ['class' => 'form-control']) }}
 
@@ -80,7 +79,7 @@
 
                 <a href="{{{ action('UsersController@changePassword') }}}" role="button" color="purple" class="btn-lg btn btn-success .active">Update Password</a>
 
-                </div>    
+                </div>
 
                 </div>
             </div>
@@ -88,39 +87,55 @@
 
 
 
- <h1>{{{ Auth::user()->first_name }}}'s Order History</h1>
- <div class="container">
+            <div class="container">
+            <h1>{{{ $user->first_name }}}'s Order Summary</h1>
 
-        <div class="row">
-            <div class="well col-lg-12">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Order Placed</th>
-                            <th>Total</th>
+                <div class="row">
+                    <div class="well col-lg-12">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Order #</th>
+                                    <th>Order Placed</th>
 
-                            {{-- <th>Payment Method</th> --}}
-                            <th>Delivery Method</th>
-                            <th>Order #</th>
-                        </tr>
-                    </thead>
+                                    @if(Auth::user()->isAdmin())
+                                        <th>Ordered By</th>
+                                    @endif
 
-                    <tbody>
-                        @foreach($orders as $order)
-                            <tr>
-                                <td>{{{ $order->created_at }}}</td>
-                                <td>${{{ $order->total }}}</td>
+                                    <th>Description</th>
+                                    <th>Total</th>
+                                    <th>Delivery Method</th>
+                                    <th>Prepaid</th>
+                                </tr>
+                            </thead>
 
-                                <td>{{{ $order->delivery_method->method }}}</td>
-                                <td>{{{ $order->id }}}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                            <tbody>
+                                @foreach($orders as $order)
+                                    <tr>
+                                        <td>{{{ $order->id }}}</td>
+                                        <td>{{{ $order->created_at }}}</td>
+
+                                        @if(Auth::user()->isAdmin())
+                                            <td><a href="{{{ action('UsersController@userProfile', $order->user->id) }}}">{{{ $order->user->fullName() }}}
+                                        @endif
+
+                                        <td>{{{ $order->makeDescription() }}}</td>
+                                        <td>${{{ $order->total }}}</td>
+                                        <td>{{{ $order->delivery_method->method }}}</td>
+
+                                        @if($order->prepaid)
+                                            <td>Yes</td>
+                                        @else
+                                            <td>No</td>
+                                        @endif
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
             </div>
-        </div>
-
-    </div>
 
 @stop
 
