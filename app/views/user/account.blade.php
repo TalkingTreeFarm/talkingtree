@@ -28,8 +28,8 @@
                 <div class="col-md-3">
                     
                     {{ $errors->first('password_confirmation', '<span class="help-block">:message</span>') }}    
-                    {{ Form::label('password_confirmation', 'Confirm Password') }}
-                    {{ Form::password('password_confirmation', ['class' => 'form-control']) }}
+                    {{ Form::label('new_password_confirmation', 'Confirm Password') }}
+                    {{ Form::password('new_password_confirmation', ['class' => 'form-control']) }}
 
                 </div>
 

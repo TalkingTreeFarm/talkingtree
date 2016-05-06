@@ -11,9 +11,8 @@
 
 @section('content')
 <div class="container">
-@if (Auth::check()&& Auth::user()->isAdmin())
-<a href="{{{action('PostsController@create')}}}" class="btn btn-info" role="button">Create New Posts</a>
-@endif
+<div class="row">
+<div class="col-md-6">
 <div class="dropdown">
   <button class="btn-lg btn btn-success .active dropdown-toggle" color="purple" type="button" data-toggle="dropdown">Categories
   <span class="caret"></span></button>
@@ -23,6 +22,13 @@
     <li><a href="{{{ action('PostsController@index') }}}?category_id=3">Experiments</a></li>
     <li><a href="{{{ action('PostsController@index') }}}">All</a></li>
   </ul>
+</div>
+</div>
+<div class="col-md-6">
+@if (Auth::check()&& Auth::user()->isAdmin())
+<a href="{{{action('PostsController@create')}}}" class="btn-lg btn btn-success .active" style="float:right;"role="button">Create New Posts</a>
+@endif
+</div>
 </div>
 <hr>
 <div align="center">

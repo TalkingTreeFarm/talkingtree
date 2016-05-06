@@ -139,7 +139,7 @@ class UsersController extends \BaseController
          $user->save();
 
 
-         return Redirect::action('UsersController@userProfile')->with('user', $user);
+         return Redirect::action('UsersController@userProfile')->with(['user' => $user, 'orders' => $orders]);
         } 
       }   
 

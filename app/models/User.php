@@ -50,7 +50,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface, Billa
 
         'current_password' => 'required|min:3',
         'new_password' => 'required|min:3|confirmed',
-        'password_confirmation' => 'required|min:3'
+        'new_password_confirmation' => 'required|min:3'
     
         );
 
