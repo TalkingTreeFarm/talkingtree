@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder {
 	{
 
 		DB::table('users')->delete();
+		DB::table('categories')->delete();
 		DB::table('posts')->delete();
 		DB::table('products')->delete();
 
