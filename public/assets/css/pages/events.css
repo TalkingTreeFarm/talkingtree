@@ -1,6 +1,16 @@
 
-
+/* google calendar iframe */
 .view-cap, .view-container-border {
     background-color: #000000;
 }
+
+/* google maps */
+
+#map-canvas {
+        width: 500px;
+        height: 500px;
+        color: #000000;
+    }
+
+
 
