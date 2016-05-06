@@ -4,7 +4,7 @@
 }*/
 
 body {
-    background-image: url("/images/blackboard.jpg");
+  background-image: url("/images/blackboard.jpg");
   background-size: cover;
   color: #FFFFFF;
 }
@@ -20,7 +20,6 @@ body {
   width: 100%;
   text-align: center;
 }
-
 .navbar-nav > li {
   float: none;
   display: inline-block;
