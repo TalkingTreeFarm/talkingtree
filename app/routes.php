@@ -27,6 +27,8 @@ Route::post('/login', 'UsersController@doLogin');
 Route::get('/logout', 'UsersController@getLogout');
 Route::get('/user/create', 'UsersController@createUser');
 Route::post('/user/create', 'UsersController@userStore');
+Route::post('/user/{id}', 'UsersController@userUpdate');
+Route::post('/user/{id}', 'UsersController@changePassword');
 
 Route::get('/user/{id}', 'UsersController@userProfile');
 Route::get('/user/{id}/edit', 'UsersController@edit');
