@@ -12,32 +12,39 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th>Order #</th>
                             <th>Order Placed</th>
-                            <th>Total</th>
 
                             @if(Auth::user()->isAdmin())
                                 <th>Ordered By</th>
                             @endif
 
-                            {{-- <th>Payment Method</th> --}}
+                            <th>Description</th>
+                            <th>Total</th>
                             <th>Delivery Method</th>
-                            <th>Order #</th>
+                            <th>Prepaid</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         @foreach($orders as $order)
                             <tr>
+                                <td>{{{ $order->id }}}</td>
                                 <td>{{{ $order->created_at }}}</td>
-                                <td>${{{ $order->total }}}</td>
 
                                 @if(Auth::user()->isAdmin())
-                                    <td><a href="{{{ action('UsersController@userShow', $order->user->id) }}}">{{{ $order->user->fullName() }}}
+                                    <td><a href="{{{ action('UsersController@userProfile', $order->user->id) }}}">{{{ $order->user->fullName() }}}
                                 @endif
 
-                                {{-- <td>{{{ $order->payment_method }}}</td> --}}
+                                <td>{{{ $order->makeDescription() }}}</td>
+                                <td>${{{ $order->total }}}</td>
                                 <td>{{{ $order->delivery_method->method }}}</td>
-                                <td>{{{ $order->id }}}</td>
+
+                                @if($order->prepaid)
+                                    <td>Yes</td>
+                                @else
+                                    <td>No</td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>

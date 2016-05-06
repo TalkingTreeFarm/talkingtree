@@ -47,6 +47,7 @@ Route::filter('auth', function()
 		}
 	}
 });
+
 Route::filter('admin', function()
 {
 	if (!Auth::user()->isAdmin())
@@ -75,7 +76,10 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if(Auth::check())
+    {
+        return Redirect::intended('/');
+    }
 });
 
 /*
@@ -89,10 +93,10 @@ Route::filter('guest', function()
 |
 */
 
-Route::filter('csrf', function()
-{
-	if (Session::token() !== Input::get('_token'))
-	{
-		throw new Illuminate\Session\TokenMismatchException;
-	}
-});
+// Route::filter('csrf', function()
+// {
+// 	if (Session::token() !== Input::get('_token'))
+// 	{
+// 		throw new Illuminate\Session\TokenMismatchException;
+// 	}
+// });

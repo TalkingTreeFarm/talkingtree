@@ -1,5 +1,11 @@
 <?php
-class UsersController extends \BaseController {
+class UsersController extends \BaseController
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->beforeFilter('auth', array('only' => ['userProfile']));
+    }
 
 	public function loginpage()
 	{
@@ -10,6 +16,7 @@ class UsersController extends \BaseController {
 	{
 		$email = Input::get('email');
         $password = Input::get('password');
+
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
             return Redirect::intended('/');
         } else {
@@ -48,37 +55,104 @@ class UsersController extends \BaseController {
         return Redirect::action('HomeController@homePage');
     }
 
-    // public function show($id)
-    // {
-    //     // $user = $this->userNotFound($id);
 
-    //     // return an entry from the db of that page with the id
-    //     return View::make('.user')->with('user', $user); 
-    // }
-
-    /*
-    * Limit show view to the user_id's
-    */
-
-    public function userShow($id)
+    public function userProfile($id)
     {
-        if (Auth::user()->id == $id)
+        $user = User::find($id);
+        $user_id = Auth::id();
+        $orders = Order::where('user_id',$user_id)->get();
+
+        if(Auth::user()->isAdmin())
         {
-            $user = User::find($id);
-            return View::make('user.profile')->with('user', $user);
+            $orders = Order::where('user_id', $user->id)->get();
+            return View::make('user.info')->with(['user' => $user, 'orders' => $orders]);
         }
-        
+
+        return View::make('user.profile')->with(['user' => $user, 'orders' => $orders]);
     }
 
     public function showLogin()
 	{
-		return View::make('main');	
+		return View::make('main');
 	}
 
     public function edit()
     {
-        return View::make('users.edit');  
+        return View::make('user.edit');
     }
 
+    public function userUpdate($id)
+    {
+        $validator = Validator::make(Input::all(), User::$rules);
 
+        if ($validator->fails()) {
+
+            Session::flash('errorMessage', 'User could not be created!!');
+            return Redirect::back()->withInput()->withErrors($validator);
+        } else {
+
+        $user = User::find($id);
+        $user->first_name=Input::get('first_name');
+        $user->last_name=Input::get('last_name');
+        $user->phone_number=Input::get('phone_number');
+        $user->email=Input::get('email');
+        $user->address=Input::get('address');
+        $user->city=Input::get('city');
+        $user->zip_code=Input::get('zip_code');
+        $user->role_id=User::STANDARD;
+        $user->save();
+
+        return View::make('user.profile')->with('user', $user)->with('orders', $orders);
+        }
+     }
+
+    public function  changePassword($id)
+    {
+        $validator = Validator::make(Input::all(), User::$passwordchange);
+
+        if ($validator->fails()) {
+
+            Session::flash('errorMessage', 'User could not be created!!');
+            return Redirect::back()->withInput()->withErrors($validator);
+        } else {
+
+         $user = User::find($id);
+         $user->password=Input::get('password');
+         $user->save();
+
+         return View::make('user.profile')->with('user', $user)->with('orders', $orders);
+
+        }
+      }
+
+    public function createUser()
+    {
+        return View::make('user.create');
+    }
+
+    public function userStore()
+    {
+        $validator = Validator::make(Input::all(), User::$rules);
+
+        if ($validator->fails()) {
+
+            Session::flash('errorMessage', 'User could not be created!!');
+            return Redirect::back()->withInput()->withErrors($validator);
+        } else {
+
+        $user = new User;
+        $user->first_name=Input::get('first_name');
+        $user->last_name=Input::get('last_name');
+        $user->phone_number=Input::get('phone_number');
+        $user->email=Input::get('email');
+        $user->address=Input::get('address');
+        $user->city=Input::get('city');
+        $user->zip_code=Input::get('zip_code');
+        $user->password=Input::get('password');
+        $user->role_id=User::STANDARD;
+        $user->save();
+
+        return Redirect::action('UsersController@loginpage');
+        }
+    }
 }

@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Education and Training!</title>
+<link rel="stylesheet" type="text/css" href="/assets/css/postslabels.css">
+
 
 @stop
 
@@ -13,7 +15,7 @@
 <a href="{{{action('PostsController@create')}}}" class="btn btn-info" role="button">Create New Posts</a>
 @endif
 <div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Categories
+  <button class="btn-lg btn btn-success .active dropdown-toggle" color="purple" type="button" data-toggle="dropdown">Categories
   <span class="caret"></span></button>
   <ul class="dropdown-menu">
     <li><a href="{{{ action('PostsController@index') }}}?category_id=1">Composting</a></li>
@@ -23,18 +25,21 @@
   </ul>
 </div>
 <hr>
-<div class="text-center">
+<div align="center">
 @foreach ($posts as $post)
- <a href="{{{ action('PostsController@show', $post->id) }}}"><img src="{{{$post->image}}}" alt="" width="300" height="300"></a>
+<div class="grid-block-container">
+ <div class="grid-block slide">
+  <div class="caption">
+   
+   		<a class="caption-link" href="{{{ action('PostsController@show', $post->id) }}}">
+   			{{{$post->title}}}
+   		</a>
+	
+  </div>
+  <img src="{{{$post->image}}}" alt="" width="300" height="300">
+  </div>
+ </div>
 @endforeach
-
-
-
-
-
-
-
-
 </div>
 </div>
 
@@ -42,5 +47,8 @@
 
 
 @section('bottom-script')
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/postslabels.js"></script>
+
 
 @stop

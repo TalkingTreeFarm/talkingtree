@@ -18,10 +18,8 @@
 
         <div class="row">
             <!-- Produce Icons -->
-            <div class="col-lg-3">
-                @for($i = 0; $i < 9; $i++)
-                    <img src="http://fillmurray.com/80/80" alt="Produce Image" />
-                @endfor
+            <div class="col-md-4">
+                <img src="images/basket.jpg" alt="Basket Image" width="100%" height="100%"/>
 
                 <p>*Required</p>
             </div>
@@ -30,13 +28,13 @@
                 <form id="basket-order" class="form-group" action="{{{ action('OrdersController@store') }}}" method="post">
                     {{ Form::token() }}
 
-                    <label for="size">Size*</label>
+                    <label for="size">Basket Size</label>
                     <select id="size" name="size" class="form-control">
-                        <option value="0" selected>Select Size</option>
-
                         @foreach($products as $product)
-                            @if($product->visible)
+                            @if($product->visible && $product->name != "No Basket")
                                 <option id="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}" value="{{{ $product->id }}}" data-amount="{{{ $product->amount }}}" data-price="{{{ $product->price }}}">{{{ $product->name }}} - {{{ $product->amount }}} left - ${{{ $product->price }}}</option>
+                            @elseif($product->visible && $product->name == "No Basket")
+                                <option id="{{{ strtolower(str_replace(" ", "-", $product->name)) }}}" value="{{{ $product->id }}}" data-amount="{{{ $product->amount }}}" data-price="{{{ $product->price }}}">{{{ $product->name }}}</option>
                             @endif
                         @endforeach
                     </select>
@@ -44,17 +42,17 @@
                     @foreach($products as $product)
                         @if($product->name == "Eggs")
                             <!-- Hidden Attribute For Eggs -->
-                            <input id="Eggs" type="hidden" data-amount="{{{ $product->amount }}}" data-price="{{{ $product->price }}}"></input>
+                            <input id="eggs" type="hidden" data-amount="{{{ $product->amount }}}" data-price="{{{ $product->price }}}"></input>
                         @endif
                     @endforeach
 
-                    <label for="quantity">Quantity*</label>
+                    <label for="quantity">Quantity of Baskets</label>
                     <div class="input-group form-group-options quantity-wrapper">
                         <span id="basket-sub" class="input-group-addon input-group-addon-remove quantity-remove btn">
                             <span class="glyphicon glyphicon-minus"></span>
                         </span>
 
-                        <input id="quantity-baskets" type="text" name="quantity-baskets" class="form-control quantity-count" value="0">
+                        <input id="quantity-baskets" type="text" name="quantity-baskets" class="form-control quantity-count text-center" value="0">
 
                         <span id="basket-add" class="input-group-addon input-group-addon-remove quantity-add btn">
                             <span class="glyphicon glyphicon-plus"></span>
@@ -67,14 +65,14 @@
                             <span class="glyphicon glyphicon-minus"></span>
                         </span>
 
-                        <input id="quantity-eggs" type="text" name="quantity-eggs" class="form-control quantity-count" value="0">
+                        <input id="quantity-eggs" type="text" name="quantity-eggs" class="form-control quantity-count text-center" value="0">
 
                         <span id="egg-add" class="input-group-addon input-group-addon-remove quantity-add btn">
                             <span class="glyphicon glyphicon-plus"></span>
                         </span>
                     </div>
 
-                    <label for="delivery">Delivery Method*</label>
+                    <label for="delivery">Delivery Type*</label>
                     <select id="delivery" name="delivery" class="form-control">
                         <option value="0" selected>Select Method</option>
 
@@ -87,7 +85,7 @@
                 </form>
             </div>
             <!-- Order Summary -->
-            <div class="col-lg-4 col-lg-offset-2">
+            <div class="col-lg-4 col-md-offset-1">
                 <div class="well">
                     <ul class="order-summary">
                         <li class="summary-item">
@@ -104,9 +102,9 @@
                             <span class="item-disclaimer">*By the dozen</span>
                         </li>
                         <li class="summary-item">
-                            <span class="item-desc">Delivery Method:</span>
+                            <span class="item-desc">Delivery Type:</span>
                             <span id="delivery-method" class="item-amount">Not Selected</span><br>
-                            <span id="delivery-disclaimer" class="item-disclaimer text-hide">*This delivery method requires Paypal</span>
+                            <span id="delivery-disclaimer" class="item-disclaimer text-hide">*This delivery type requires advanced payment</span>
                         </li>
                         <li class="summary-item">
                             <span class="item-desc">Order Total:</span>
@@ -115,7 +113,6 @@
                         </li>
                     </ul>
                 </div>
-
                 <button type="submit" name="checkout" form="basket-order" class="btn btn-success col-lg-12">Proceed To Checkout</button>
             </div>
         </div>

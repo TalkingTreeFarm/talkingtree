@@ -25,10 +25,18 @@ body {
   display: inline-block;
 }
 
-h1.header {
+/*center logo*/
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+/*h1.header {
     font-family: cursive;
     color: white;
-}
+}*/
 
 .well {
   color: #000000;

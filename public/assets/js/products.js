@@ -1,11 +1,18 @@
 (function() {
     // Variables
+    var $noBasket = true;
+
     var $basketsAmount = Number($('#quantity-baskets').val());
     var $eggsAmount    = Number($('#quantity-eggs').val());
 
-    var $eggsInInventory = (Number($('#Eggs').data('amount')) % 12);
+    var $eggsInInventory = Number($('#eggs').data('amount'));
+    var $eggsPrice       = $('#eggs').data('price');
+
     // Set Quantities for Labels
-    $('#eggs-label').text("Eggs (By Dozen) -- " + $eggsInInventory + " dozen left");
+    $('#eggs-label').text("Eggs (By Dozen) - $" + $eggsPrice + " - " + $eggsInInventory + " dozen left");
+
+    // Default Basket Quantity to Disabled
+    $('#basket-sub, #basket-add, #quantity-baskets').addClass('disabled');
 
     // Reset Quantities on Size Change
     // Set Basket Size in Order Summary
@@ -16,11 +23,20 @@
         $basketsAmount = 0;
 
         if($(this).val() == 1) {
-            $('#basket-type').text("Small Basket");
+            $noBasket = true;
+
+            $('#basket-sub, #basket-add, #quantity-baskets').addClass('disabled');
+            $('#basket-type').text("No Basket");
         } else if($(this).val() == 2) {
+            $noBasket = false;
+
+            $('#basket-sub, #basket-add, #quantity-baskets').removeClass('disabled');
+            $('#basket-type').text("Small Basket");
+        } else if($(this).val() == 3) {
+            $noBasket = false;
+
+            $('#basket-sub, #basket-add, #quantity-baskets').removeClass('disabled');
             $('#basket-type').text("Large Basket");
-        } else {
-            $('#basket-type').text("Not Selected");
         }
 
         $('#order-sum').text("$" + calculatePrice());
@@ -59,13 +75,13 @@
     // Calculate Total Price
     function calculatePrice() {
         var $basketsPrice  = Number($('#size').find(':selected').data('price'));
-        var $eggsPrice     = Number($('#Eggs').data('price'));
+        var $eggsPrice     = Number($('#eggs').data('price'));
 
         var $basketTotal = 0;
-        var $eggTotal = 0;
-        var $totalPrice = 0;
+        var $eggTotal    = 0;
+        var $totalPrice  = 0;
 
-        if($('#size').val() > 0) {
+        if($('#size').val() > 1) {
             $basketTotal = $basketsPrice * $basketsAmount;
         } else {
             $basketTotal = 0;
@@ -117,7 +133,7 @@
     });
 
     $('#egg-add').on('click', function() {
-        var $selected = $('#Eggs').data('amount');
+        var $selected = $('#eggs').data('amount');
 
         if($eggsAmount < $eggsInInventory) {
             $eggsAmount += 1;

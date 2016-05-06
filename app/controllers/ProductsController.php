@@ -1,6 +1,13 @@
 <?php
 
-class ProductsController extends \BaseController {
+class ProductsController extends \BaseController
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->beforeFilter('auth', array('only' => ['index']));
+        $this->beforeFilter('admin', array('except' => ['index']));
+    }
 
 	/**
 	 * Display a listing of the resource.
@@ -11,9 +18,16 @@ class ProductsController extends \BaseController {
 	{
         $products = Product::all();
         $deliveryMethod = DeliveryMethod::all();
+
 		return View::make('product.main', compact('products', 'deliveryMethod'));
 	}
 
+    public function inventory()
+    {
+        $products = Product::all();
+
+		return View::make('product.inventory')->with('products', $products);
+    }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -25,7 +39,6 @@ class ProductsController extends \BaseController {
 		//
 	}
 
-
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -36,7 +49,6 @@ class ProductsController extends \BaseController {
 		//
 	}
 
-
 	/**
 	 * Display the specified resource.
 	 *
@@ -46,13 +58,18 @@ class ProductsController extends \BaseController {
 	public function show($id)
 	{
 		$product = Product::find($id);
-		if(!$product) {
+		if(!$product)
+        {
 			App::abort(404);
 		}
 
 		return View::make('product.show')->with('product', $product);
 	}
 
+    public function getProducts()
+    {
+        return Product::all();
+    }
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -65,7 +82,6 @@ class ProductsController extends \BaseController {
 		//
 	}
 
-
 	/**
 	 * Update the specified resource in storage.
 	 *
@@ -77,6 +93,22 @@ class ProductsController extends \BaseController {
 		//
 	}
 
+    public function updateAll()
+    {
+        $products = Product::all();
+
+        foreach($products as $product)
+        {
+            if (Input::get(strtolower(str_replace(" ", "-", $product->name)) . '-amount') != '') {
+                $product->amount = Input::get(strtolower(str_replace(" ", "-", $product->name)) . '-amount');
+            }
+            if (Input::get(strtolower(str_replace(" ", "-", $product->name)) . '-price') != '') {
+                $product->price = Input::get(strtolower(str_replace(" ", "-", $product->name)) . '-price');
+            }
+
+            $product->save();
+        }
+    }
 
 	/**
 	 * Remove the specified resource from storage.
@@ -88,6 +120,4 @@ class ProductsController extends \BaseController {
 	{
 		//
 	}
-
-
 }

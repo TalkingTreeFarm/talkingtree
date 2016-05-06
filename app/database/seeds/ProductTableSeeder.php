@@ -6,6 +6,15 @@ class ProductTableSeeder extends Seeder
         {
             $product = new Product();
             $product->visible = true;
+            $product->name = 'No Basket';
+            $product->description = 'No Basket';
+            $product->image = "";
+            $product->price = 0;
+            $product->amount= 0;
+            $product->save();
+
+            $product = new Product();
+            $product->visible = true;
             $product->name = 'Small Basket';
             $product->description = 'Small Basket';
             $product->image = "http://lorempixel.com/300/300/food/";
