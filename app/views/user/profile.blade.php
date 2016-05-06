@@ -9,6 +9,8 @@
 
 @section('content')
 
+<h1>{{{ $user->first_name }}}'s Profile</h1>
+
  <div class="container">
 	        <div class="row well">
 	            <div class="col-md-4">
@@ -51,7 +53,7 @@
 	            </div>
 	        </div>
 
-<h1>Account Information</h1>
+
 
 
 

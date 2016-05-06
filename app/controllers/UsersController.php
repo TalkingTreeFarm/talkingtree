@@ -102,13 +102,6 @@ class UsersController extends \BaseController
             return Redirect::back()->withInput()->withErrors($validator);
         } else {
 
-        $user = User::find($id); 
-
-
-            Session::flash('errorMessage', 'User could not be created!!');
-            return Redirect::back()->withInput()->withErrors($validator);
-        } else {
-
         $user = User::find($id);
 
         $user->first_name=Input::get('first_name');
@@ -122,7 +115,8 @@ class UsersController extends \BaseController
         $user->save();
 
         return Redirect::action('UsersController@userProfile')->with(['user' => $user, 'orders' => $orders]);   
-    }
+     }
+    } 
 
     public function  changePassword($id)
     {
