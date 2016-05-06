@@ -93,7 +93,7 @@ class UsersController extends \BaseController
 
     public function userUpdate($id)
     {
-        $validator = Validator::make(Input::all(), User::$rules);
+        $validator = Validator::make(Input::all(), User::$updaterules);
 
         if ($validator->fails()) {
 
@@ -113,6 +113,7 @@ class UsersController extends \BaseController
         $user->zip_code=Input::get('zip_code');
         $user->role_id=User::STANDARD;
         $user->save();
+        dd($user);
 
         return Redirect::action('UsersController@userProfile')->with(['user' => $user, 'orders' => $orders]);   
      }
