@@ -10,22 +10,80 @@
 
  <div class="container">
 	        <div class="row well">
-	            <div class="col-lg-4">
+	            <div class="col-md-4">
 	            	<img class="img-responsive" src="/images/logo-profile.svg" alt="Sarah and Sylvain" width="200" height="100">
 	            </div>
-	            <div class="col-lg-8">
-	            	<h4>First Name - {{{$user->first_name}}}</h4>
-	            	<h4>Last Name - {{{$user->last_name}}}</h4>
-	            	<h4>Phone Number - {{{$user->phone_number}}}</h4>
-	            	<h4>Email - {{{$user->email}}}
+	            <div class="col-md-4">
+                    {{ Form::model($user, array('action' => 'UsersController@userUpdate')) }}
+	            	{{ $errors->first('first_name', '<span class="help-block">:message</span>') }}
+                    {{ Form::label('first_name', 'First Name', ['style' => 'float: left']) }}
+                    {{ Form::text('first_name', null, ['class' => 'form-control', 'autofocus' => 'autofocus']) }}
+	            	{{ $errors->first('last_name', '<span class="help-block">:message</span>') }}    
+                    {{ Form::label('last_name', 'Last Name') }}
+                    {{ Form::text('last_name', null, ['class' => 'form-control']) }}
+	            	{{ $errors->first('phone_number', '<span class="help-block">:message</span>') }}    
+                    {{ Form::label('phone_number', 'Phone Number') }}
+                    {{ Form::text('phone_number', null, ['class' => 'form-control']) }}
+	            	{{ Form::label('email', 'Email') }}
+                    {{ Form::email('email', null, ['class' => 'form-control', 'autofocus' => 'autofocus']) }}
 	            	<br>
 	            	<br>
 	            	<br>
-	            	<h4>Address - <address>{{{$user->address}}}<br>{{{$user->zip_code}}}<br>{{{$user->city}}}</address></h4>
+	            	
 				</div>
+                <div class="col-md-4">
+                    {{ $errors->first('address', '<span class="help-block">:message</span>') }}    
+                    {{ Form::label('address', 'Address') }}
+                    {{ Form::text('address', null, ['class' => 'form-control']) }}
+                    {{ $errors->first('city', '<span class="help-block">:message</span>') }}    
+                    {{ Form::label('city', 'City') }}
+                    {{ Form::text('city', null, ['class' => 'form-control']) }}
+                    {{ $errors->first('zip_code', '<span class="help-block">:message</span>') }}
+                    {{ Form::label('zip_code', 'Zip Code') }}
+                    {{ Form::number('zip_code', null, ['class' => 'form-control', 'autofocus' => 'autofocus']) }}
+
+                    <a href="{{{ action('UsersController@userUpdate') }}}" role="button" color="purple" class="btn-lg btn btn-success .active">Update Profile</a>
+
+                    {{ Form::close() }}
+                    
+                </div>
 	            </div>
 	        </div>
+<h1>Account Information</h1>
 
+<div class="container">
+            <div class="row well">
+                <div class="col-md-3">
+                    {{ Form::open(array('action' => 'UsersController@changePassword')) }}  
+                    {{ $errors->first('current password', '<span class="help-block">:message</span>') }}    
+                    {{ Form::label('password', 'Current Password') }}
+                    {{ Form::password('password', ['class' => 'form-control']) }} 
+                    
+                </div>
+                <div class="col-md-3">
+                    
+                    {{ $errors->first('new password', '<span class="help-block">:message</span>') }}    
+                    {{ Form::label('password', 'New Password') }}
+                    {{ Form::password('password', ['class' => 'form-control']) }}
+
+                </div>
+
+                <div class="col-md-3">
+                    
+                    {{ $errors->first('password_confirmation', '<span class="help-block">:message</span>') }}    
+                    {{ Form::label('password', 'Confirm Password') }}
+                    {{ Form::password('password', ['class' => 'form-control']) }}
+
+                </div>
+
+                <div class="col-md-3">
+
+                <a href="{{{ action('UsersController@changePassword') }}}" role="button" color="purple" class="btn-lg btn btn-success .active">Update Password</a>
+
+                </div>    
+
+                </div>
+            </div>
 
 
 

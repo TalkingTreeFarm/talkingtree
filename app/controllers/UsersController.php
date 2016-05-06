@@ -63,7 +63,7 @@ class UsersController extends \BaseController
             $user = User::find($id);
             $user_id = Auth::id();
             $orders = Order::where('user_id',$user_id)->get();
-            return View::make('user.profile')->with('user', $user)->with('orders', $orders);
+            return View::make('user.profile')->with(['user' => $user, 'orders' => $orders]);
         }
     }
 
@@ -76,6 +76,50 @@ class UsersController extends \BaseController
     {
         return View::make('user.edit');
     }
+
+    public function userUpdate($id)
+    {
+        $validator = Validator::make(Input::all(), User::$rules);
+
+        if ($validator->fails()) {
+        
+            Session::flash('errorMessage', 'User could not be created!!');
+            return Redirect::back()->withInput()->withErrors($validator);
+        } else {
+
+        $user = User::find($id);   
+        $user->first_name=Input::get('first_name');
+        $user->last_name=Input::get('last_name');
+        $user->phone_number=Input::get('phone_number');
+        $user->email=Input::get('email');
+        $user->address=Input::get('address');
+        $user->city=Input::get('city');
+        $user->zip_code=Input::get('zip_code');
+        $user->role_id=User::STANDARD;
+        $user->save();
+
+        return View::make('user.profile')->with('user', $user)->with('orders', $orders);    
+        }
+     }
+
+    public function  changePassword($id)
+    {
+        $validator = Validator::make(Input::all(), User::$passwordchange);
+
+        if ($validator->fails()) {
+        
+            Session::flash('errorMessage', 'User could not be created!!');
+            return Redirect::back()->withInput()->withErrors($validator);
+        } else {
+
+         $user = User::find($id);
+         $user->password=Input::get('password');
+         $user->save();
+
+         return View::make('user.profile')->with('user', $user)->with('orders', $orders); 
+
+        } 
+      }   
 
     public function createUser()
     {
