@@ -134,7 +134,8 @@ class PostsController extends \BaseController {
 			Session::flash('errorMessage', 'This post was not edited successfully!!');
 	        return Redirect::back()->withInput()->withErrors($validator);
 		} else {
-
+		
+		$post = Post::find($id);	
 		if (Input::hasFile('image')) {
 		    	$image = Input::file('image');
 		    	$image->move(
@@ -144,7 +145,7 @@ class PostsController extends \BaseController {
 		    	$post->image = "/images/{$image->getClientOriginalName()}";	
 		    }	
 
-		$post = Post::find($id);
+		
 	    $post->title=Input::get('title');
 		$post->body=Input::get('body');
 		$post->category_id=Input::get('category_id');

@@ -45,6 +45,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface, Billa
         'address' => 'required|min:3|max:32'
     );
 
+    public static $passwordchange = array(
+
+
+        'current password' => 'required|min:3',
+        'new password' => 'required|min:3|confirmed',
+        'password_confirmation' => 'required|min:3'
+    
+        );
+
     
 
     public function isAdmin()
