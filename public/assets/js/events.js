@@ -8,15 +8,20 @@
 	function initMap() {
 		map = new google.maps.Map(document.getElementById('map-canvas'), {
 			zoom: 11,
-			center: {lat: 29.433200, lng: -98.399330}
+			center: {lat: 29.433200, lng: -98.399330},
+			mapTypeId: google.maps.MapTypeId.HYBRID
+
 		});
+
 		setTimeout(function() {
 
 			var TalkingTree = {lat: 29.453392, lng: -98.2987683};
 			var Villita = {lat: 29.421904, lng: -98.489198};
 			var Pius = {lat: 29.5059374, lng: -98.4377622};
 
-			var contentTalkingTree = '<h5>Talking Tree Farm</h5>';
+			var contentTalkingTree = '<h5><b>Talking Tree Farm</b></h5>' + 
+			'<p>Learn permaculture gardening from Sylvain here.</p>' 
+
 			var infoTalkingTree = new google.maps.InfoWindow({
 				content: contentTalkingTree
 			});
@@ -30,7 +35,9 @@
 				infoTalkingTree.open(map, markerTalkingTree);
 			});
 
-			var contentVillita = '<h5>La Villita</h5>';
+			var contentVillita = '<h5><b>La Villita</b></h5>' +
+			'<p>Make your basket with us at the People\'s Nite Market.</p>'
+			''
 			var infoVillita = new google.maps.InfoWindow({
 				content: contentVillita
 			});
@@ -44,7 +51,8 @@
 				infoVillita.open(map, markerVillita);
 			});
 
-			var contentPius = '<h5>St. Pius Catholic Church</h5>';
+			var contentPius = '<h5><b>St. Pius Catholic Church</b></h5>' +
+			'<p>Make your basket with us at St. Pius.</p>';
 			var infoPius = new google.maps.InfoWindow({
 				content: contentPius
 			});
