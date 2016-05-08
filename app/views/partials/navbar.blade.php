@@ -1,20 +1,21 @@
 <div class="container">
-      <div>
-            <a href="{{{action('HomeController@homePage')}}}"><img src="/images/logo-navbar.svg" class="img-responsive center-block" alt="Talking Tree Farm" height="auto" width="175"></a>
-      </div>
-
+{{--     <div class = "col-xs-12">
+        <div class = "col-xs-4"></div>
+        <div class = "col-xs-4">
+            
+        </div>
+        <div class = "col-xs-4"></div>
+    </div> --}}
             <!-- Collect the nav links, forms, and other content for toggling -->
 
     <nav class="navbar">
         <div class="navbar-inner">
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
                     <li><a href="{{{ action('HomeController@ourStory') }}}">Our Story</a></li>
                     <li><a href="{{{action('PostsController@index')}}}">Education</a></li>
                     <li><a href="/events">Events</a></li>
+                    <li>{{-- <a href="{{{action('HomeController@homePage')}}}"> --}}<img src="/images/logo-navbar.svg" id = "logo" class="img-responsive" alt="Talking Tree Farm" height="auto" width="200"></a></li>
                     <li><a href="{{{action('ProductsController@index')}}}">Order a Basket</a></li>
                     <li><a href="{{{action('HomeController@contact')}}}">Contact</a></li>
                     <li>

@@ -8,9 +8,7 @@
         <div class="col-xs-12 well">
             <h2 class="text-center">Our Story</h2>
             <div class="col-xs-4">
-                <a href="#">
                     <img class="img-responsive" src="/images/sarah_sylvain.jpg" alt="Sarah and Sylvain" width="300" height="200">
-                </a>
             </div>
             <div class="col-xs-6">
                 {{-- <h4>Subheading</h4> --}}

@@ -1,19 +1,14 @@
-/*@font-face {
-    font-family: tafelschrift;
-    src: url('tafelschrift.TTF') format('truetype');
-}*/
-
 body {
   background-image: url("/images/blackboard.jpg");
   background-size: cover;
   color: #FFFFFF;
 }
-/*"Creative Commons The Convergence of Digital Publishing and the Web" by Ivan Herman, W3C is licensed under CC BY 3.0
+/*Image attribute: "Creative Commons The Convergence of Digital Publishing and the Web" by Ivan Herman, W3C is licensed under CC BY 3.0
 */
-
+/*
 .navbar-inner {
     background:transparent;
-}
+}*/
 
 /*centering navbar*/
 .navbar-nav {
@@ -25,13 +20,29 @@ body {
   display: inline-block;
 }
 
+.navbar-nav > li > a {
+  padding-bottom: 0px;
+}
+
+.navbar-nav > li > #logo {
+  padding-bottom: 0px;
+  padding-top: 30px;
+  margin-bottom: -45px;
+}
+
+
+.navbar-nav > li > a > #logo:hover {
+  background-color: none;
+  text-decoration: none;
+}
+
 /*center logo*/
-.center-block {
+/*.center-block {
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
-}
+}*/
 
 /*h1.header {
     font-family: cursive;
