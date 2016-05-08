@@ -48,10 +48,21 @@ class User extends Eloquent implements UserInterface, RemindableInterface, Billa
     public static $passwordchange = array(
 
 
-        'current password' => 'required|min:3',
-        'new password' => 'required|min:3|confirmed',
-        'password_confirmation' => 'required|min:3'
+        'current_password' => 'required|min:3',
+        'new_password' => 'required|min:3|confirmed',
+        'new_password_confirmation' => 'required|min:3'
     
+        );
+
+    public static $updaterules = array(
+
+        'first_name' => 'required|regex:/^[(a-zA-Z\s)]+$/u|min:3|max:32',
+        'last_name' => 'required|regex:/^[(a-zA-Z\s)]+$/u|min:3|max:32',
+        'email' => 'required|email|unique:users',
+        // 'password' => 'required|min:3|confirmed',
+        // 'password_confirmation' => 'required|min:3',
+        'address' => 'required|min:3|max:32'
+
         );
 
     

@@ -1,11 +1,15 @@
 @extends('layouts.master')
 
 @section('title')
-    <h1>{{{$user->first_name}}}'s Profile Page</h1>
+
+
+
 @stop
 
 
 @section('content')
+
+<h1>{{{ $user->first_name }}}'s Profile</h1>
 
  <div class="container">
 	        <div class="row well">
@@ -13,7 +17,7 @@
 	            	<img class="img-responsive" src="/images/logo-profile.svg" alt="Sarah and Sylvain" width="200" height="100">
 	            </div>
 	            <div class="col-md-4">
-                    {{ Form::model($user, array('action' => 'UsersController@userUpdate')) }}
+                    {{ Form::model($user, array('action' => ['UsersController@userUpdate', $user->id])) }}
 	            	{{ $errors->first('first_name', '<span class="help-block">:message</span>') }}
                     {{ Form::label('first_name', 'First Name', ['style' => 'float: left']) }}
                     {{ Form::text('first_name', null, ['class' => 'form-control', 'autofocus' => 'autofocus']) }}
@@ -41,48 +45,15 @@
                     {{ Form::label('zip_code', 'Zip Code') }}
                     {{ Form::number('zip_code', null, ['class' => 'form-control', 'autofocus' => 'autofocus']) }}
 
-                    <a href="{{{ action('UsersController@userUpdate') }}}" role="button" color="purple" class="btn-lg btn btn-success .active">Update Profile</a>
+                    <button class="btn btn-default" type="submit">Update Profile</button><a href="{{{action('UsersController@account', $user->id)}}}" class="btn btn-default" role="button">Update Password</a>
 
                     {{ Form::close() }}
 
                 </div>
 	            </div>
 	        </div>
-<h1>Account Information</h1>
 
-<div class="container">
-            <div class="row well">
-                <div class="col-md-3">
-                    {{ Form::open(array('action' => 'UsersController@changePassword')) }}
-                    {{ $errors->first('current password', '<span class="help-block">:message</span>') }}
-                    {{ Form::label('password', 'Current Password') }}
-                    {{ Form::password('password', ['class' => 'form-control']) }}
 
-                </div>
-                <div class="col-md-3">
-
-                    {{ $errors->first('new password', '<span class="help-block">:message</span>') }}
-                    {{ Form::label('password', 'New Password') }}
-                    {{ Form::password('password', ['class' => 'form-control']) }}
-
-                </div>
-
-                <div class="col-md-3">
-
-                    {{ $errors->first('password_confirmation', '<span class="help-block">:message</span>') }}
-                    {{ Form::label('password', 'Confirm Password') }}
-                    {{ Form::password('password', ['class' => 'form-control']) }}
-
-                </div>
-
-                <div class="col-md-3">
-
-                <a href="{{{ action('UsersController@changePassword') }}}" role="button" color="purple" class="btn-lg btn btn-success .active">Update Password</a>
-
-                </div>
-
-                </div>
-            </div>
 
 
 
@@ -141,5 +112,7 @@
 
 
 @section('bottom-script')
+
+
 
 @stop

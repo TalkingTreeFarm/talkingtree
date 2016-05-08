@@ -6,7 +6,7 @@ class Post extends BaseModel
 
 	public static $rules = array(
     'title'      => 'required|max:100|',
-    'body'       => 'required|max:10000|',
+    'body'       => 'required|max:100000000|',
     'image'		 => 'max:300000|mimes:jpeg,png,gif',	
 	);
 
