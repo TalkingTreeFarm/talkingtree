@@ -7,7 +7,7 @@
       <br>
 		San Antonio TX, 78109 | Like us on <a href="https://www.facebook.com/Talkingtreefarmpermaculture/"><i class="fa fa-facebook-official" aria-hidden="true"></i></a> | 210-123-4567 
       <br>
-      Designed by <a class="" href="#">Stan Holzendorf </a> | <a class="" href="#">Gaston Lenotre </a> | <a class="" href="#">Richard Rapstine </a>
+      Designed by <a class="" href="https://github.com/stanholzendorf">Stan Holzendorf </a> | <a class="" href="http://gastonlenotre.org/">Gaston Lenotre </a> | <a class="" href="http://doublerdevelopment.com/">Richard Rapstine </a>
        </div>
     </div>
   </div>

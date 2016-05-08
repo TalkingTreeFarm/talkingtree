@@ -24,10 +24,14 @@ body {
   padding-bottom: 0px;
 }
 
-.navbar-nav > li > #logo {
+#logo {
   padding-bottom: 0px;
   padding-top: 30px;
   margin-bottom: -45px;
+}
+
+.logo:not(.nohover):hover {  
+    background-color: #f8f5f0; 
 }
 
 /*
