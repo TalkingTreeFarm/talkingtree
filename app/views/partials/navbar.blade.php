@@ -1,13 +1,4 @@
 <div class="container">
-{{--     <div class = "col-xs-12">
-        <div class = "col-xs-4"></div>
-        <div class = "col-xs-4">
-            
-        </div>
-        <div class = "col-xs-4"></div>
-    </div> --}}
-            <!-- Collect the nav links, forms, and other content for toggling -->
-
     <nav class="navbar">
         <div class="navbar-inner">
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
