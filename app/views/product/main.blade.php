@@ -8,10 +8,10 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-lg-5">
+            <div class="col-sm-5">
                 <h3>This Week's Basket &amp; Free Range Eggs</h3>
             </div>
-            <div class="col-lg-3 col-lg-offset-3">
+            <div class="col-sm-3 col-sm-offset-3">
                 <h3>Order Summary</h3>
             </div>
         </div>
@@ -24,8 +24,8 @@
                 <p>*Required</p>
             </div>
             <!-- Selection Dropdowns -->
-            <div class="col-lg-3">
-                <form id="basket-order" class="form-group" action="{{{ action('OrdersController@store') }}}" method="post">
+            <div class="col-sm-3">
+                <form id="basket-order" class="form-group product-form" action="{{{ action('OrdersController@store') }}}" method="post">
                     {{ Form::token() }}
 
                     <label for="size">Basket Size</label>
@@ -85,7 +85,7 @@
                 </form>
             </div>
             <!-- Order Summary -->
-            <div class="col-lg-4 col-md-offset-1">
+            <div class="col-sm-4 col-md-offset-1">
                 <div class="well">
                     <ul class="order-summary">
                         <li class="summary-item">
@@ -113,7 +113,7 @@
                         </li>
                     </ul>
                 </div>
-                <button type="submit" name="checkout" form="basket-order" class="btn btn-success col-lg-12">Proceed To Checkout</button>
+                <button type="submit" name="checkout" form="basket-order" class="btn btn-success col-sm-12">Proceed To Checkout</button>
             </div>
         </div>
 
