@@ -18,35 +18,47 @@
     <div>
         <div class="col-xs-12 well">
             <h2 class="text-center">Education</h2>
-            <div class="container">
                 <div class="row">
                     @foreach ($posts as $post)
-                    <div class="col-xs-4">
+                    <div class="col-sm-4">
                     <a href="{{{ action('PostsController@show', $post->id) }}}">
-                        <img src="{{{$post->image}}}" alt="" width="300" height="300">
+                        <img class="img-responsive" src="{{{$post->image}}}" alt="" width="auto" height="250">
                     </a>
                     <!-- <p>{{{ substr($post->body, 0, 60) }}}</p> -->
                     </div> 
                     @endforeach  
                 </div>
-            </div>
                 <hr> {{-- adds space between the pics and the button --}}
             <div class="text-center">
-                <a href="{{{ action('PostsController@index') }}}" role="button" color="purple" class="btn-lg btn btn-success .active">Tips & Tricks</a>
+                <a href="{{{ action('PostsController@index') }}}" role="button" class="btn-lg btn btn-success .active">Tips & Tricks</a>
             </div>
         </div>
     </div>
     <div class="col-xs-12 well">
         <h2 class="text-center">This Week’s Farm Fresh Basket</h2>
-        <div class="col-xs-5"><img class="img" src="/images/sarahNiteMarket.jpg" alt="Sarah Clavieres at People's Nite Market" width="auto" height="250">&nbsp&nbsp&nbsp<img class="img" src="/images/samplebasket2.jpg" alt="Basket 1 at People's Nite Market" width="auto" height="250"></div>
+        <div class="col-sm-5">
+            <div class="row">
+                <div class="col-xs-6">
+                    <img class="img-responsive" src="/images/sarahNiteMarket.jpg" alt="Sarah Clavieres at People's Nite Market" width="auto" height="250">
+                </div>
+                <div class="col-xs-6">
+                    <img class="img-responsive" src="/images/samplebasket2.jpg" alt="Basket 1 at People's Nite Market" width="auto" height="250">
+                </div>
+            </div>
+            &nbsp;&nbsp;&nbsp;
+        </div>
             {{-- <div class="text-right text-no-wrap"> --}}
                 {{-- @foreach ($products as $product) --}}
                 {{-- <p>{{{$product->name}}}</p> --}}
                 {{-- <p>{{{$product->description}}}</p> --}}
                 {{-- @endforeach --}}
             {{-- </div> --}}
-        <div class="col-xs-3"><a href="{{{ action('ProductsController@index') }}}" role="button" color="purple" class="btn-lg btn btn-success .active">Order your basket</a></div>
-        <div class="col-xs-4"><img class="img" src="/images/samplebasket1.jpg" alt="Basket 2 at People's Nite Market" width="auto" height="250"></div>
+        <div class="col-sm-3 text-center">
+            <a href="{{{ action('ProductsController@index') }}}" role="button" class="btn btn-success">Order your basket</a>
+        </div>
+        <div class="col-sm-4">
+            <img class="img-responsive" src="/images/samplebasket1.jpg" alt="Basket 2 at People's Nite Market" width="auto" height="250">
+        </div>
     </div> 
 @stop
 
