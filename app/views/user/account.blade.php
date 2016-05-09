@@ -39,7 +39,7 @@
 
                 </div>    
                 {{ Form::close() }}
-                <!-- <a href="{{{action('RemindersController@getRemind')}}}" class="btn btn-info" role="button">Forgot Password</a> -->
+                <a href="{{{action('RemindersController@getRemind')}}}" class="btn btn-info" role="button">Forgot Password</a>
                 </div>
             </div>
   

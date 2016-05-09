@@ -15,7 +15,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'log',
+	'driver' => 'mailgun',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => null, 'name' => null),
+	'from' => array('address' => 'gastonlenotre@gmail.com', 'name' => null),
 
 	/*
 	|--------------------------------------------------------------------------
