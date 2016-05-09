@@ -8,7 +8,7 @@
     <div class="container">
 
         <div class="row">
-            <div class="well col-lg-12">
+            <div class="well col-sm-12">
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -28,24 +28,26 @@
 
                     <tbody>
                         @foreach($orders as $order)
-                            <tr>
-                                <td>{{{ $order->id }}}</td>
-                                <td>{{{ $order->created_at }}}</td>
+                            @if(!$order->pending)
+                                <tr>
+                                    <td>{{{ $order->id }}}</td>
+                                    <td>{{{ $order->created_at }}}</td>
 
-                                @if(Auth::user()->isAdmin())
-                                    <td><a href="{{{ action('UsersController@userProfile', $order->user->id) }}}">{{{ $order->user->fullName() }}}
-                                @endif
+                                    @if(Auth::user()->isAdmin())
+                                        <td><a href="{{{ action('UsersController@userProfile', $order->user->id) }}}">{{{ $order->user->fullName() }}}
+                                        @endif
 
-                                <td>{{{ $order->makeDescription() }}}</td>
-                                <td>${{{ $order->total }}}</td>
-                                <td>{{{ $order->delivery_method->method }}}</td>
+                                        <td>{{{ $order->makeDescription() }}}</td>
+                                        <td>${{{ $order->total }}}</td>
+                                        <td>{{{ $order->delivery_method->method }}}</td>
 
-                                @if($order->prepaid)
-                                    <td>Yes</td>
-                                @else
-                                    <td>No</td>
-                                @endif
-                            </tr>
+                                        @if($order->prepaid)
+                                            <td>Yes</td>
+                                        @else
+                                            <td>No</td>
+                                        @endif
+                                    </tr>
+                            @endif
                         @endforeach
                     </tbody>
                 </table>

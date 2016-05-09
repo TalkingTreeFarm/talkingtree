@@ -55,3 +55,42 @@ body {
     color: rgba(0, 0, 0, 1);
     text-decoration: none
 }
+
+.product-form > label {
+    padding-top: 10px;
+    margin-bottom: 0;
+}
+
+.product-form > label:first-of-type {
+    padding-top: 0;
+}
+
+#inventory-overview .order-summary > li {
+    list-style: none;
+    margin-bottom: 0;
+}
+
+#inventory-overview .order-summary > li.item-price {
+    margin-bottom: 5%;
+}
+
+.order-summary {
+    padding-left: 0;
+}
+
+.order-summary > li {
+    list-style: none;
+    margin-bottom: 5%;
+}
+
+.order-summary > li:last-child {
+    margin-bottom: 0;
+}
+
+.order-summary > li > .item-desc {
+    font-weight: bold;
+}
+
+#stripeButton {
+    margin-top: 20px;
+}

@@ -8,7 +8,7 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-lg-5">
+            <div class="col-sm-5">
                 <div class="well">
                     <ul class="order-summary">
                         @foreach($order->queryProducts() as $order_product)
@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <div class="btn-group-vertical col-lg-4">
+            <div class="btn-group-vertical confirm-buttons col-sm-4">
                 <a id="reserve-button" name="reserve-button" href="{{{ action('OrdersController@confirm', $order->id) }}}" class="btn btn-success checkout-button">Reserve For Pickup</a>
                 <button id="stripeButton" type="button" name="purchase" class="btn btn-warning checkout-button">Pay With Card</button>
             </div>
