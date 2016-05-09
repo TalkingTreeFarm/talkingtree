@@ -18,12 +18,12 @@ class OrdersController extends \BaseController
 	{
 		if (Auth::user()->isAdmin())
 		{
-			$orders = Order::all();
+			$orders = Order::orderBy('created_at', 'DESC')->get()->all();
 		}
 		else
 		{
 			$user_id = Auth::id();
-			$orders = Order::where('user_id',$user_id)->get();
+			$orders = Order::where('user_id',$user_id)->orderBy('created_at', 'DESC')->get();
 		}
 		return View::make('orders.index', compact('first_name', 'orders', 'timestamp'));
 	}
@@ -46,7 +46,7 @@ class OrdersController extends \BaseController
 	public function store()
 	{
         $data = Input::all();
-        
+
         if(Input::get('total') == 0)
         {
             Session::flash('errorMessage', "Your cart is empty!");
