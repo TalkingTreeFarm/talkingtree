@@ -144,7 +144,7 @@ class PostsController extends \BaseController {
 		    		$image->getClientOriginalName()
 		    	);
 		    	$post->image = "/images/{$image->getClientOriginalName()}";
-		    }
+		    } 
 
 		
 	    $post->title=Input::get('title');

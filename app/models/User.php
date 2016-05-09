@@ -8,6 +8,7 @@ use Laravel\Cashier\BillableTrait;
 use Laravel\Cashier\BillableInterface;
 
 
+
 class User extends Eloquent implements UserInterface, RemindableInterface, BillableInterface {
 
 	use UserTrait, RemindableTrait, BillableTrait;

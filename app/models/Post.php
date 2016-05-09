@@ -20,4 +20,11 @@ class Post extends BaseModel
 	{
     	return $this->belongsTo('User');
 	}
+
+	public function htmlBody()
+	{
+		$parsedown = new Parsedown();
+
+		return $parsedown->text($this->attributes['body']); 
+	}
 } 

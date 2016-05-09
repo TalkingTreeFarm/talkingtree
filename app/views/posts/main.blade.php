@@ -42,7 +42,7 @@
    		</a>
 	
   </div>
-  <img src="{{{$post->image}}}" alt="" width="300" height="300">
+  <img src="{{{$post->image}}}" class="img-rounded" alt="" width="300" height="300">
   </div>
  </div>
 @endforeach
