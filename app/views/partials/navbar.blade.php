@@ -6,7 +6,7 @@
                     <li><a href="{{{ action('HomeController@ourStory') }}}">Our Story</a></li>
                     <li><a href="{{{action('PostsController@index')}}}">Education</a></li>
                     <li><a href="/events">Events</a></li>
-                    <li><a href="/"><img src="/images/logo-navbar.svg" id = "logo" class="img-responsive nohover" alt="Talking Tree Farm" height="auto" width="200"></a></li>
+                    <li><a href="/"><img src="/images/logo-navbar.svg" id = "logo" class="img-responsive" alt="Talking Tree Farm" height="auto" width="200"></a></li>
                     <li><a href="{{{action('ProductsController@index')}}}">Order a Basket</a></li>
                     <li><a href="{{{action('HomeController@contact')}}}">Contact</a></li>
                     <li>

@@ -19,7 +19,7 @@
 			var Villita = {lat: 29.421904, lng: -98.489198};
 			var Pius = {lat: 29.5059374, lng: -98.4377622};
 
-			var contentTalkingTree = '<h5><b>Talking Tree Farm</b></h5>' + 
+			var contentTalkingTree = '<h5><b>Talking Tree Farm</b>: 9611 Green Rd., Converse TX</h5>' + 
 			'<p>Learn permaculture gardening from Sylvain here.</p>' 
 
 			var infoTalkingTree = new google.maps.InfoWindow({
