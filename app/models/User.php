@@ -58,7 +58,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface, Billa
 
         'first_name' => 'required|regex:/^[(a-zA-Z\s)]+$/u|min:3|max:32',
         'last_name' => 'required|regex:/^[(a-zA-Z\s)]+$/u|min:3|max:32',
-        'email' => 'required|email|unique:users',
+        'email' => 'required|email|',
         // 'password' => 'required|min:3|confirmed',
         // 'password_confirmation' => 'required|min:3',
         'address' => 'required|min:3|max:32'
