@@ -38,8 +38,13 @@ Route::post('/user/create', 'UsersController@userStore');
 Route::post('/user/{id}', 'UsersController@userUpdate');
 // Route::post('/user/{id}', 'UsersController@changePassword');
 Route::get('user/{id}/account', 'UsersController@account');
-Route::post('users/{id}/account', 'UsersController@changePassword');
+Route::post('user/{id}/account', 'UsersController@changePassword');
 
 Route::get('/user/{id}', 'UsersController@userProfile');
 // Route::get('/user/{id}/edit', 'UsersController@edit');
 Route::get('/user/{id}/posts', 'PostsController@userPosts');
+
+Route::get('/password/remind', 'RemindersController@getRemind');
+Route::post('/password/remind', 'RemindersController@postRemind');
+
+
