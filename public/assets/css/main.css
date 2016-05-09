@@ -23,6 +23,22 @@ body {
   padding-bottom: 0px;
   padding-top: 30px;
   margin-bottom: -45px;
+  height: 300px;
+  min-height: 100px;
+}
+
+.hide {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  #logo {
+    display: none;
+  }
+  .hide {
+    display:block!important;
+      
+  } 
 }
 
 .nav>li>a:hover, .nav>li>a:focus {
@@ -33,10 +49,10 @@ body {
   color: #000000;
 }
 
-.mainimage {
+/*.mainimage {
   height: 250px;
   width: auto;
-}
+}*/
 
 .table-striped > tbody > tr:nth-of-type(even) {
     background-color: #D2D2D2;
