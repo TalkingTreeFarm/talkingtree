@@ -18,12 +18,12 @@ class OrdersController extends \BaseController
 	{
 		if (Auth::user()->isAdmin())
 		{
-			$orders = Order::all();
+			$orders = Order::orderBy('created_at', 'DESC')->get()->all();
 		}
 		else
 		{
 			$user_id = Auth::id();
-			$orders = Order::where('user_id',$user_id)->get();
+			$orders = Order::where('user_id',$user_id)->orderBy('created_at', 'DESC')->get();
 		}
 		return View::make('orders.index', compact('first_name', 'orders', 'timestamp'));
 	}
@@ -45,13 +45,20 @@ class OrdersController extends \BaseController
 	 */
 	public function store()
 	{
-        $validator = Validator::make(Input::all(), Order::$rules);
+        $data = Input::all();
 
-        if($validator->fails())
+        if(Input::get('total') == 0)
         {
-            Session::flash('errorMessage', "Failed to submit order: Please check all required fields");
+            Session::flash('errorMessage', "Your cart is empty!");
             Log::error('Created On: ' . date('m/d/Y h:i:s a'), ['order' => $data]);
-            return Redirect::back()->withErrors($validator)->withInput();
+            return Redirect::back();
+        }
+
+        if(Input::get('delivery') == 0)
+        {
+            Session::flash('errorMessage', "You must choose a delivery method!");
+            Log::error('Created On: ' . date('m/d/Y h:i:s a'), ['order' => $data]);
+            return Redirect::back();
         }
 
         $order = new Order;
