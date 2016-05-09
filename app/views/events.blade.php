@@ -1,9 +1,7 @@
 @extends('layouts.calendarm')
 
 @section('title')
-
   <link rel="stylesheet" type="text/css" href="/assets/css/pages/events.css">
-
 @stop
 
 @section('content')
@@ -19,14 +17,9 @@
 	</div>
 	<div class= "col-sm-2"></div>
 </div>
-
-
-	
 @stop
-
 
 @section('bottom-script')
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRbQFZw1KmV6RQmeMTDQi40tAjMKuP84E"></script>
     <script type="text/javascript" src="/assets/js/events.js"></script>
-    
 @stop
