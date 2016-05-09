@@ -22,7 +22,7 @@
                     @foreach ($posts as $post)
                     <div class="col-sm-4">
                     <a href="{{{ action('PostsController@show', $post->id) }}}">
-                        <img class="img-responsive" src="{{{$post->image}}}" alt="" width="auto" height="250">
+                        <img src="{{{$post->image}}}" alt="" width="300" height="300">
                     </a>
                     <!-- <p>{{{ substr($post->body, 0, 60) }}}</p> -->
                     </div> 

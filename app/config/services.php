@@ -15,7 +15,7 @@ return array(
 	*/
 
 	'mailgun' => array(
-		'domain' => 'talkingtree.dev',
+		'domain' => 'sandbox62880016c979450c896ac788fa71fea6.mailgun.org',
 		'secret' => 'key-93a4c92e915c2d9afb4f205f9c255a7c',
 	),
 
