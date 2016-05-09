@@ -94,6 +94,7 @@ class UsersController extends \BaseController
     public function userUpdate($id)
     {
         $validator = Validator::make(Input::all(), User::$updaterules);
+        
 
         if ($validator->fails()) {
 
@@ -102,20 +103,23 @@ class UsersController extends \BaseController
             return Redirect::back()->withInput()->withErrors($validator);
         } else {
 
-        $user = User::find($id);
+        // $user = User::find($id);
+        $user = User::find($id);   
+        if (Input::get('email') != $user->email)
+           {
+            $user->email=Input::get('email');
+           } 
 
         $user->first_name=Input::get('first_name');
         $user->last_name=Input::get('last_name');
         $user->phone_number=Input::get('phone_number');
-        $user->email=Input::get('email');
         $user->address=Input::get('address');
         $user->city=Input::get('city');
         $user->zip_code=Input::get('zip_code');
         $user->role_id=User::STANDARD;
         $user->save();
-        dd($user);
 
-        return Redirect::action('UsersController@userProfile')->with(['user' => $user, 'orders' => $orders]);   
+        return Redirect::action('UsersController@userProfile', $user->id);  
      }
     } 
 
@@ -129,17 +133,25 @@ class UsersController extends \BaseController
             Session::flash('errorMessage', 'Password could not be updated!!');
 
 
-            
-
             return Redirect::back()->withInput()->withErrors($validator);
-        } else {
-         $orders = Order::where('user_id',$id)->get();  
+        } else { 
+
+
          $user = User::find($id);
-         $user->password=Input::get('new_password');
-         $user->save();
+         
+         if(password_verify(Input::get('current_password'), $user->password))
+          {  
+            $user->password=Input::get('new_password');
+             $user->save();
 
+             return Redirect::action('UsersController@userProfile', $user->id);
+           } else {
+            
+            Session::flash('errorMessage', 'Password could not be updated for real!!');
 
-         return Redirect::action('UsersController@userProfile')->with(['user' => $user, 'orders' => $orders]);
+            return Redirect::action('UsersController@account', $user->id);
+
+            }
         } 
       }   
 
