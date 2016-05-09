@@ -5,12 +5,7 @@ body {
 }
 /*Image attribute: "Creative Commons The Convergence of Digital Publishing and the Web" by Ivan Herman, W3C is licensed under CC BY 3.0
 */
-/*
-.navbar-inner {
-    background:transparent;
-}*/
 
-/*centering navbar*/
 .navbar-nav {
   width: 100%;
   text-align: center;
@@ -28,20 +23,36 @@ body {
   padding-bottom: 0px;
   padding-top: 30px;
   margin-bottom: -45px;
+  height: 300px;
+  min-height: 100px;
+}
+
+.hide {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  #logo {
+    display: none;
+  }
+  .hide {
+    display:block!important;
+      
+  } 
 }
 
 .nav>li>a:hover, .nav>li>a:focus {
   background-color: transparent;
 }
 
-/*h1.header {
-    font-family: cursive;
-    color: white;
-}*/
-
 .well {
   color: #000000;
 }
+
+/*.mainimage {
+  height: 250px;
+  width: auto;
+}*/
 
 .table-striped > tbody > tr:nth-of-type(even) {
     background-color: #D2D2D2;
