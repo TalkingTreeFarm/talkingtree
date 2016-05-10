@@ -28,10 +28,10 @@ class PostsController extends \BaseController {
 		if(Input::has('category_id'))
 		{
 			// $posts=Post::where('category_id', '=', Input::get('category_id'))->get();
-			$posts = Post::orderBy('id', 'DESC')->where('category_id', '=', Input::get('category_id'))->get();
+			$posts = Post::orderBy('id', 'DESC')->where('category_id', '=', Input::get('category_id'))->paginate(9);
 		} else {
 
-			$posts = Post::orderBy('id', 'DESC')->get();
+			$posts = Post::orderBy('id', 'DESC')->paginate(9);
 		}
 		return View::make('posts.main')->with('posts', $posts);
 	}
@@ -73,7 +73,7 @@ class PostsController extends \BaseController {
 		    	);
 		    	$post->image = "/images/{$image->getClientOriginalName()}";
 		    	} else {
-		    		$post->image = "/images/sample basket.jpg";
+		    		$post->image = "/images/samplebasket1.jpg";
 				 }
 
 		$post->title=Input::get('title');

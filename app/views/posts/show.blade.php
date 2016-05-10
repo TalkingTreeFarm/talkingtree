@@ -8,10 +8,8 @@
 @stop
 
 @section('content')
-<div>
-	
-</div class="container">
-<div class="text-center">
+
+<div class="container">
 	<h1>{{{$post->title}}}</h1>
 	<img src="{{{$post->image}}}" alt="" width="300" height="300">
 	<hr>

@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="/assets/css/postslabels.css">
 
 
+
 @stop
 
 @section('content')
@@ -33,8 +34,8 @@
 <hr>
 <div align="center">
 @foreach ($posts as $post)
-<div class="grid-block-container">
- <div class="grid-block slide">
+<div align="center" class="grid-block-container">
+ <div align="center" class="grid-block slide">
   <div class="caption">
    
    		<a class="caption-link" href="{{{ action('PostsController@show', $post->id) }}}">
@@ -46,6 +47,13 @@
   </div>
  </div>
 @endforeach
+<div align="center">
+<nav id="Page">
+<ul class="paginate">
+{{$posts->links()}}
+</ul>
+</nav>
+</div>
 </div>
 </div>
 
