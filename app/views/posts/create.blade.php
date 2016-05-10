@@ -7,6 +7,7 @@
 @section('top-script')
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
 	<link rel="stylesheet" href="/assets/css/pages/post-create.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/posts.css">
 
 @stop
 
@@ -39,7 +40,7 @@
 	@endif
 
 	{{-- <input type="submit"> --}}
-	{{ Form::submit('Submit', ['class' => 'class="btn-lg btn btn-success .active"']) }}
+	{{ Form::submit('Submit', ['class' => 'class="btn btn-primary btn-xs outline"']) }}
 	{{ Form::close() }}
 
 
