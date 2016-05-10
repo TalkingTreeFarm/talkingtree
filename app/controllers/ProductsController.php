@@ -108,6 +108,8 @@ class ProductsController extends \BaseController
 
             $product->save();
         }
+
+        return Redirect::action('ProductsController@inventory');
     }
 
 	/**
