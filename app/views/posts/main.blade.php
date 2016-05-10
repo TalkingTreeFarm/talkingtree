@@ -5,6 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Education and Training!</title>
 <link rel="stylesheet" type="text/css" href="/assets/css/postslabels.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/posts.css">
 
 
 
@@ -15,7 +16,7 @@
 <div class="row">
 <div class="col-md-6">
 <div class="dropdown">
-  <button class="btn-lg btn btn-success .active dropdown-toggle" color="purple" type="button" data-toggle="dropdown">Categories
+  <button class="btn btn-primary btn-xs outline dropdown-toggle" color="purple" type="button" data-toggle="dropdown">Categories
   <span class="caret"></span></button>
   <ul class="dropdown-menu">
     <li><a href="{{{ action('PostsController@index') }}}?category_id=1">Composting</a></li>
@@ -27,7 +28,7 @@
 </div>
 <div class="col-md-6">
 @if (Auth::check()&& Auth::user()->isAdmin())
-<a href="{{{action('PostsController@create')}}}" class="btn-lg btn btn-success .active" style="float:right;"role="button">Create New Posts</a>
+<a href="{{{action('PostsController@create')}}}" class="btn btn-primary btn-xs outline" style="float:right;"role="button">Create New Posts</a>
 @endif
 </div>
 </div>

@@ -11,26 +11,24 @@
 </head>
 
 <body>
-	@include('partials.navbar')
-	<div class="container">
-		@yield('title')
-
-		@if (Session::has('successMessage'))
-			<div class="col-md-4"></div>
-			<div class="col-md-4"></div>
-	    	<div class="alert alert-success alert-dismissible col-md-3" role="alert">
+	@if (Session::has('successMessage'))
+	    	<div class="alert alert-success alert-dismissible col-md-12" role="alert">
 	    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	    	{{{ Session::get('successMessage') }}}</div>
 		@endif
 
 		@if (Session::has('errorMessage'))
-			<div class="col-md-4"></div>
-			<div class="col-md-4"></div>
-		    <div class="alert alert-danger alert-dismissible col-md-3" role="alert">
+		    <div class="alert alert-danger alert-dismissible col-md-12" role="alert">
 		    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		    {{{ Session::get('errorMessage') }}}</div>
 		    <div class="col-md-1"></div>
 		@endif
+
+	@include('partials.navbar')
+	
+
+	<div class="container">
+		@yield('title')
 
 	    @yield('content')
 
