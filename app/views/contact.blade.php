@@ -1,7 +1,8 @@
 @extends ('layouts.master')
 
 @section('top-script')
-
+  <link rel="stylesheet" type="text/css" href="/assets/css/pages/contact.css">
+  
 @stop
 
 @section ('content')
@@ -29,7 +30,7 @@
                    {{Form::textarea('body', null, array('class' => 'name', 'rows' => '4', 'placeholder' => 'Message', 'class'=>'form-control'))}}
                 </div>                
                 <div id="success align-right">
-                    {{Form::submit('Send email', array('class'=> 'btn'))}}
+                    {{Form::submit('Send email', array('class'=> 'btn btn-email'))}}
                     
                 </div>
             {{Form::close()}}
