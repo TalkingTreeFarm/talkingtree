@@ -3,6 +3,7 @@
 @section('title')
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="/assets/css/posts.css">
 <title>Details</title>
 
 @stop
@@ -24,15 +25,15 @@
 	<span class="meta">{{{$post->updated_at->diffForHumans()}}}</span>
 </div>
 </div>
-<hr>
 <div class="container">
+<hr>
 <div class="row">
 <div class="col-md-6">
 @if (Auth::check()&& Auth::user()->isAdmin())
-{{ Form::model($post, array('action' => array('PostsController@destroy', $post->id), 'method' => 'DELETE')) }}  <button class="btn-lg btn btn-success" type="submit">Delete this Post!</button>
+{{ Form::model($post, array('action' => array('PostsController@destroy', $post->id), 'method' => 'DELETE')) }}  <button class="btn btn-primary btn-xs outline" type="submit">Delete this Post!</button>
 </div>
 <div class="col-med-6">
-<a href="{{{action('PostsController@edit', $post->id)}}}" class="btn-lg btn btn-success" role="button" style="float:right;">Edit Post</a>
+<a href="{{{action('PostsController@edit', $post->id)}}}" class="btn btn-primary btn-xs outline" role="button" style="float:right;">Edit Post</a>
 </div>
 </div>
 </div>
