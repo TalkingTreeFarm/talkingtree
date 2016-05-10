@@ -16,28 +16,26 @@
             </div>
         </div>
     <div>
-        <div class="col-xs-12 well">
+        <div class="col-sm-12 well">
             <h2 class="text-center">Education</h2>
                 <div class="row">
                     @foreach ($posts as $post)
-                    <div class="col-sm-4">
+                    {{-- <div class="col-sm-4"> --}}
                     <a href="{{{ action('PostsController@show', $post->id) }}}">
-
-                        <img class="img-circle" src="{{{$post->image}}}" width="300" height="300">
+                        <img class=" img-circle img-responsive" id = "education" src="{{{$post->image}}}" width="300" height="300">
                     </a>
-                    <!-- <p>{{{ substr($post->body, 0, 60) }}}</p> -->
-                    </div> 
+                    {{-- </div>  --}}
                     @endforeach  
                 </div>
-                <hr> {{-- adds space between the pics and the button --}}
+                <hr> {{-- space between pics and button --}}
             <div class="text-center">
-                <a href="{{{ action('PostsController@index') }}}" role="button" class="btn-lg btn btn-success .active">Tips & Tricks</a>
+                <a href="{{{ action('PostsController@index') }}}" role="button" class="btn btn-lg btn-success .active">Tips & Tricks</a>
             </div>
         </div>
     </div>
     <div class="col-xs-12 well">
         <h2 class="text-center">This Week’s Farm Fresh Basket</h2>
-        <div class="col-sm-5">
+        <div class="col-sm-4">
             <div class="row">
                 <div class="col-xs-6">
                     <img class="img-responsive" src="/images/sarahNiteMarket.jpg" alt="Sarah Clavieres at People's Nite Market" width="auto" height="250">
@@ -46,15 +44,9 @@
                     <img class="img-responsive" src="/images/samplebasket2.jpg" alt="Basket 1 at People's Nite Market" width="auto" height="250">
                 </div>
             </div>
-            &nbsp;&nbsp;&nbsp;
+            &nbsp;
         </div>
-            {{-- <div class="text-right text-no-wrap"> --}}
-                {{-- @foreach ($products as $product) --}}
-                {{-- <p>{{{$product->name}}}</p> --}}
-                {{-- <p>{{{$product->description}}}</p> --}}
-                {{-- @endforeach --}}
-            {{-- </div> --}}
-        <div class="col-sm-3 text-center">
+        <div class="col-sm-4 text-center">
             <a href="{{{ action('ProductsController@index') }}}" role="button" class="btn btn-success">Order your basket</a>
         </div>
         <div class="col-sm-4">
@@ -62,4 +54,3 @@
         </div>
     </div> 
 @stop
-

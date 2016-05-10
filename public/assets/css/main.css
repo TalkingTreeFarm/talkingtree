@@ -37,8 +37,12 @@ body {
   }
   .hide {
     display:block!important;
-      
   } 
+}
+
+#education {
+    display:block;
+    margin:auto;
 }
 
 .nav>li>a:hover, .nav>li>a:focus {
