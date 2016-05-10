@@ -10,16 +10,18 @@
 @section('content')
 
 <div class="container">
-	<h1>{{{$post->title}}}</h1>
-	<img src="{{{$post->image}}}" alt="" width="300" height="300">
 	<hr>
 	<div class="col-xs-12 well">
-	<p>{{$post->htmlBody()}}</p>
-	<div>
-		
+	<div class="col-xs-4">
+	<img src="{{{$post->image}}}" alt="" width="300" height="300">
 	</div>
-	
-	<span class="meta">Updated {{{$post->updated_at->diffForHumans()}}}</span>
+	<hr>
+	<h1>{{{$post->title}}}</h1>
+	<div class="col-xs-12 well">
+	<p>{{$post->htmlBody()}}</p>
+	</div>
+	<span class="meta">Posted by {{{$post->user->first_name . " " . $post->user->last_name}}}</span>
+	<span class="meta">{{{$post->updated_at->diffForHumans()}}}</span>
 </div>
 </div>
 <hr>
