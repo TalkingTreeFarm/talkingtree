@@ -35,10 +35,8 @@
 </div>
 </div>
 @endif
-<hr>
 @stop
-
-
+	
 @section('bottom-script')
 
 @stop
