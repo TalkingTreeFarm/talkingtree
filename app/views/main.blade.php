@@ -20,11 +20,11 @@
             <h2 class="text-center">Education</h2>
                 <div class="row">
                     @foreach ($posts as $post)
-                    {{-- <div class="col-sm-4"> --}}
+                    <div class="col-md-4">
                     <a href="{{{ action('PostsController@show', $post->id) }}}">
-                        <img class=" img-circle img-responsive" id = "education" src="{{{$post->image}}}" width="300" height="300">
+                        <img class=" img-circle img-responsive center-block" src="{{{$post->image}}}" width="300" height="300">
                     </a>
-                    {{-- </div>  --}}
+                    </div> 
                     @endforeach  
                 </div>
                 <hr> {{-- space between pics and button --}}
