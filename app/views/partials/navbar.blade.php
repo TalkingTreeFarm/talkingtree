@@ -5,7 +5,7 @@
                 <li><a href="{{{ action('HomeController@ourStory') }}}">Our Story</a></li>
                 <li><a href="{{{action('PostsController@index')}}}">Education</a></li>
                 <li><a href="/events">Events</a></li>
-                <li><a href="/"><img src="/images/logo-navbar.svg" id = "logo" class="img-responsive logo" alt="Talking Tree Farm" ><span class="hide"><u>Home</u></span></a><li>
+                <li><a href="/"><img src="/images/logo-navbar.svg" id = "logo" class="img-responsive logo" alt="Talking Tree Farm" ><span class="hide"><img src="/images/logo-navbar-small.png"</img></span></a><li>
                 <li><a href="{{{action('ProductsController@index')}}}">Order a Basket</a></li>
                 <li><a href="{{{action('HomeController@contact')}}}">Contact</a></li>
                 <li>
