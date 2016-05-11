@@ -16,7 +16,7 @@
 			<img src="{{{$post->image}}}" alt="" width="300" height="300">
 		</div>
 	<hr>
-	<h1>{{{$post->title}}}</h1>
+	<h1 id="show">{{{$post->title}}}</h1>
 		<div class="col-xs-12 well">
 			<p>{{$post->htmlBody()}}</p>
 		</div>
