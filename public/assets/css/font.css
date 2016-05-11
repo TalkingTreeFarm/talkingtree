@@ -3,6 +3,6 @@
 	src: {{asset('font/marguerite.tff')}};
 }
 
-h3 {
+h2, h3 {
 	font-family: Marguerite;
 }
