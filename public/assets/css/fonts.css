@@ -4,7 +4,7 @@
         src: {{asset('font/marguerite.tff')}};
     }
 
-    h3, .caption-link, h2 {
+    h3, .caption-link, h2, #show {
 
     	font-family: Marguerite;
     }
