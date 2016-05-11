@@ -1,0 +1,10 @@
+
+    @font-face {
+        font-family: Marguerite;
+        src: {{asset('font/marguerite.tff')}};
+    }
+
+    h3, .caption-link, h2 {
+
+    	font-family: Marguerite;
+    }
