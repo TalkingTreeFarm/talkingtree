@@ -24,4 +24,13 @@ $(document).ready(function() {
 			$(this).find('.caption').slideUp(250);
 		}
 	);
+
+	$('.slide').hover(
+		function(){
+			$(this).find('.caption2').slideDown(250);
+		},
+		function(){
+			$(this).find('.caption2').slideUp(250);
+		}
+	);
 });
