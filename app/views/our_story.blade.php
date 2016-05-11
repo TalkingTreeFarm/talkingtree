@@ -8,8 +8,8 @@
 
 @section('content')
 	    <div class="container">
+	        <h2 class="text-center">Our Story</h2>
 	        <div class="row well">
-	        	<h2 class="text-center">Our Story</h2>
 	            <div class="col-lg-4">
 	            	<img class="img-responsive" src="/images/sarah_sylvain.jpg" alt="Sarah and Sylvain" width="300" height="200">
 	            </div>
