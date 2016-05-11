@@ -24,6 +24,7 @@
                     <a href="{{{ action('PostsController@show', $post->id) }}}">
                         <img class=" img-circle img-responsive center-block" src="{{{$post->image}}}" width="300" height="300">
                     </a>
+                    <h3 class="text-center">{{{$post->title}}}</h3>
                     </div> 
                     @endforeach  
                 </div>
