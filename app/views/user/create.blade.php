@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-<h1>Sign Up</h1>
+<h2>Sign Up</h2>
 @stop
 
 @section('content')

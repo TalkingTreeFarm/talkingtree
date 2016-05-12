@@ -1,8 +1,0 @@
-@font-face {
-	font-family: Marguerite;
-	src: {{asset('font/marguerite.tff')}};
-}
-
-h2, h3 {
-	font-family: Marguerite;
-}
