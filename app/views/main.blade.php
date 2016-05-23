@@ -22,35 +22,34 @@
                     @foreach ($posts as $post)
                     <div class="col-md-4">
                     <a href="{{{ action('PostsController@show', $post->id) }}}">
-                        <img class=" img-circle img-responsive center-block" src="{{{$post->image}}}" width="300" height="300">
+                        <img class=" img-circle center-block" src="{{{$post->image}}}" width="300" height="300">
                     </a>
+                    <h3 class="text-center">{{{$post->title}}}</h3>
                     </div> 
                     @endforeach  
                 </div>
                 <hr> {{-- space between pics and button --}}
             <div class="text-center">
-                <a href="{{{ action('PostsController@index') }}}" role="button" class="btn btn-lg btn-success .active">Tips & Tricks</a>
+                <a href="{{{ action('PostsController@index') }}}" role="button" class="btn btn-lg btn-success">Tips & Tricks</a>
             </div>
         </div>
     </div>
     <div class="col-xs-12 well">
         <h2 class="text-center">This Week’s Farm Fresh Basket</h2>
-        <div class="col-sm-4">
             <div class="row">
-                <div class="col-xs-6">
-                    <img class="img-responsive" src="/images/sarahNiteMarket.jpg" alt="Sarah Clavieres at People's Nite Market" width="auto" height="250">
+                <div class="col-xs-4">
+                    <img class="img-responsive images" src="/images/samplebasket1.jpg" alt="Basket 2 at People's Nite Market">
                 </div>
-                <div class="col-xs-6">
-                    <img class="img-responsive" src="/images/samplebasket2.jpg" alt="Basket 1 at People's Nite Market" width="auto" height="250">
+                <div class="col-xs-4">
+                    <img class="img-responsive images" src="/images/sampleproduce1_reduced.jpg" alt="Vegetables">
+                </div>
+                <div class="col-xs-4">
+                    <img class="img-responsive images" src="/images/samplebasket3_reduced.jpg" alt="Basket of Vegetables">
                 </div>
             </div>
-            &nbsp;
+        <hr> {{-- space between pics and button --}}    
+        <div class="text-center">
+            <a href="{{{ action('ProductsController@index') }}}" role="button" class="btn btn-lg btn-success">Order your basket</a>
         </div>
-        <div class="col-sm-4 text-center">
-            <a href="{{{ action('ProductsController@index') }}}" role="button" class="btn btn-success">Order your basket</a>
-        </div>
-        <div class="col-sm-4">
-            <img class="img-responsive" src="/images/samplebasket1.jpg" alt="Basket 2 at People's Nite Market" width="auto" height="250">
-        </div>
-    </div> 
+    </div>
 @stop

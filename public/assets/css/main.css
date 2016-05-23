@@ -31,6 +31,13 @@ body {
   display: none;
 }
 
+.images {
+   width: auto; 
+   height: 250px;
+}
+
+
+
 @media (max-width: 1000px) {
   #logo {
     display: none;
