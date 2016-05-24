@@ -96,13 +96,20 @@ class OrdersController extends \BaseController
 	public function show($id)
 	{
         $order = Order::find($id);
+        $requireAddress = false;
 
         if(!$order)
         {
             App::abort(404);
         }
 
-        return View::make('orders.confirm')->with('order', $order);
+        // Pass variable to prompt for address on Home Delivery if not exists
+        if($order->delivery_method_id == 1)
+        {
+            $requireAddress = true;
+        }
+
+        return View::make('orders.confirm')->with(['order' => $order, 'address' => $requireAddress]);
 	}
 
 	/**

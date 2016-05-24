@@ -88,27 +88,26 @@ class UsersController extends \BaseController
             $user = User::find($id);
             $user_id = Auth::id();
             return View::make('user.account')->with('user', $user);
-         }   
+         }
     }
 
     public function userUpdate($id)
     {
         $validator = Validator::make(Input::all(), User::$updaterules);
-        
+
 
         if ($validator->fails()) {
 
-        
+
             Session::flash('errorMessage', 'User could not be updated!!');
             return Redirect::back()->withInput()->withErrors($validator);
         } else {
 
-        // $user = User::find($id);
-        $user = User::find($id);   
+        $user = User::find($id);
         if (Input::get('email') != $user->email)
            {
             $user->email=Input::get('email');
-           } 
+           }
 
         $user->first_name=Input::get('first_name');
         $user->last_name=Input::get('last_name');
@@ -119,9 +118,9 @@ class UsersController extends \BaseController
         $user->role_id=User::STANDARD;
         $user->save();
 
-        return Redirect::action('UsersController@userProfile', $user->id);  
+        return Redirect::action('UsersController@userProfile', $user->id);
      }
-    } 
+    }
 
     public function  changePassword($id)
     {
@@ -129,33 +128,44 @@ class UsersController extends \BaseController
 
         if ($validator->fails()) {
 
-        
+
             Session::flash('errorMessage', 'Password could not be updated!!');
 
 
             return Redirect::back()->withInput()->withErrors($validator);
-        } else { 
+        } else {
 
 
          $user = User::find($id);
-         
+
          if(password_verify(Input::get('current_password'), $user->password))
-          {  
+          {
             $user->password=Input::get('new_password');
              $user->save();
 
              return Redirect::action('UsersController@userProfile', $user->id);
            } else {
-            
+
             Session::flash('errorMessage', 'Password could not be updated for real!!');
 
             return Redirect::action('UsersController@account', $user->id);
 
             }
-        } 
-      }   
+        }
+    }
 
-        
+    public function updateAddress($id)
+    {
+        $user = User::find($id);
+        $validator = Validator::make(Input::all(), User::$addressRules);
+
+        $user->address = Input::get('address');
+        $user->city = Input::get('city');
+        $user->zip_code = Input::get('zip');
+        $user->save();
+
+        return Redirect::back();
+    }
 
     public function createUser()
     {
@@ -177,11 +187,17 @@ class UsersController extends \BaseController
         $user->last_name=Input::get('last_name');
         $user->phone_number=Input::get('phone_number');
         $user->email=Input::get('email');
-        $user->address=Input::get('address');
-        $user->city=Input::get('city');
-        $user->zip_code=Input::get('zip_code');
         $user->password=Input::get('password');
         $user->role_id=User::STANDARD;
+
+        // Get address if exists
+        if(Input::has('address') && Input::has('city') && Input::has('zip_code'))
+        {
+            $user->address=Input::get('address');
+            $user->city=Input::get('city');
+            $user->zip_code=Input::get('zip_code');
+        }
+
         $user->save();
 
         return Redirect::action('UsersController@loginpage');

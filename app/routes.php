@@ -29,6 +29,7 @@ Route::get('/ajax/product-list', 'ProductsController@getProducts');
 Route::resource('orders', 'OrdersController');
 Route::get('/confirm/{id}', 'OrdersController@confirm');
 Route::post('/confirm/{id}', 'OrdersController@confirm');
+Route::post('/confirm/address/{id}', 'UsersController@updateAddress');
 
 Route::get('/login', 'UsersController@loginpage');
 Route::post('/login', 'UsersController@doLogin');
@@ -46,5 +47,3 @@ Route::get('/user/{id}/posts', 'PostsController@userPosts');
 
 Route::get('/password/remind', 'RemindersController@getRemind');
 Route::post('/password/remind', 'RemindersController@postRemind');
-
-
