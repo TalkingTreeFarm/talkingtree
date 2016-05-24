@@ -42,8 +42,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface, Billa
         'last_name' => 'required|regex:/^[(a-zA-Z\s)]+$/u|min:3|max:32',
         'email' => 'required|email|unique:users',
         'password' => 'required|min:3|confirmed',
-        'password_confirmation' => 'required|min:3',
-        'address' => 'required|min:3|max:32'
+        'password_confirmation' => 'required|min:3'
     );
 
     public static $passwordchange = array(
@@ -52,21 +51,23 @@ class User extends Eloquent implements UserInterface, RemindableInterface, Billa
         'current_password' => 'required|min:3',
         'new_password' => 'required|min:3|confirmed',
         'new_password_confirmation' => 'required|min:3'
-    
+
         );
 
     public static $updaterules = array(
 
         'first_name' => 'required|regex:/^[(a-zA-Z\s)]+$/u|min:3|max:32',
         'last_name' => 'required|regex:/^[(a-zA-Z\s)]+$/u|min:3|max:32',
-        'email' => 'required|email|',
+        'email' => 'required|email|'
         // 'password' => 'required|min:3|confirmed',
         // 'password_confirmation' => 'required|min:3',
-        'address' => 'required|min:3|max:32'
+    );
 
-        );
-
-    
+    public static $addressRules = array(
+        'address' => 'required|min:3|max:32',
+        'city'    => 'required|min:3|max:32',
+        'zip'     => 'required|numeric|min:5|max:5' 
+    );
 
     public function isAdmin()
     {

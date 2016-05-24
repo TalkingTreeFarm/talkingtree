@@ -32,7 +32,7 @@ body {
 }
 
 .images {
-   width: auto; 
+   width: auto;
    height: 250px;
 }
 
@@ -44,7 +44,7 @@ body {
   }
   .hide {
     display:block!important;
-  } 
+  }
 }
 
 .nav>li>a:hover, .nav>li>a:focus {
@@ -110,4 +110,9 @@ body {
 
 #stripeButton {
     margin-top: 20px;
+}
+
+/*Class Hidden*/
+.hidden {
+    visibility: hidden;
 }
