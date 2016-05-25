@@ -24,6 +24,7 @@
 
                 <button class="btn btn-default" type="submit">Log In</button>
                 <a href="{{{action('UsersController@createUser')}}}" class="btn btn-default" role="button">Sign Up</a>
+                <a href="{{{action('RemindersController@getRemind')}}}" class="btn btn-default" role="button">Forgot Password</a>
 
             {{ Form::close() }}
 
