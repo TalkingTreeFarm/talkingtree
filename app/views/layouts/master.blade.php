@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/fonts.css">
 	<link rel="shortcut icon" type="favicon" href="/Talking_Tree.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Talking Tree Farm</title>
 	@yield('top-script')
 
