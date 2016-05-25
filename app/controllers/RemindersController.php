@@ -75,7 +75,7 @@ class RemindersController extends Controller {
 			 	return Redirect::back()->with('error', Lang::get($response));
 			case Password::INVALID_TOKEN:
 			case Password::INVALID_USER:
-			Session::flash('errorMessage', 'This email is not associated to a registered User!');
+			Session::flash('errorMessage', 'This email is not associated to the registered User!');
 				return Redirect::back()->with('error', Lang::get($response));
 
 			case Password::PASSWORD_RESET:
