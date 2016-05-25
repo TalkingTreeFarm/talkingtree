@@ -19,7 +19,12 @@ class RemindersController extends Controller {
 	 */
 	public function postRemind()
 	{
-		switch ($response = Password::remind(Input::only('email')))
+		switch ($response = Password::remind(Input::only('email'), function($message)
+		{
+			$message->subject('Talking Tree Farm Password Reminder');
+		}))
+
+		
 		{
 			case Password::INVALID_USER:
 				Session::flash('errorMessage', 'This email is not associated to a registered User!');
@@ -29,6 +34,7 @@ class RemindersController extends Controller {
 			Session::flash('successMessage', 'A link was send to your email with instructions to change your password');
 				return Redirect::back()->with('status', Lang::get($response));
 		}
+
 	}
 
 	/**
@@ -65,8 +71,11 @@ class RemindersController extends Controller {
 		switch ($response)
 		{
 			case Password::INVALID_PASSWORD:
+			Session::flash('errorMessage', 'Password Combination is invalid!');
+			 	return Redirect::back()->with('error', Lang::get($response));
 			case Password::INVALID_TOKEN:
 			case Password::INVALID_USER:
+			Session::flash('errorMessage', 'This email is not associated to the registered User!');
 				return Redirect::back()->with('error', Lang::get($response));
 
 			case Password::PASSWORD_RESET:

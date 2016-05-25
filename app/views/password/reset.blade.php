@@ -12,9 +12,10 @@
    
    {{ Form::hidden('token', $token)}}
 
+   {{ $errors->first('email', '<span class="help-block">:message</span>') }}
    {{ Form::label('email', 'Email') }}
    {{ Form::text('email', null, ['class' => 'form-control', 'autofocus' => 'autofocus']) }}
-   {{ $errors->first('email', '<span class="help-block">:message</span>') }}
+   
 
    {{ $errors->first('password', '<span class="help-block">:message</span>') }}    
    {{ Form::label('password', 'Password') }}
