@@ -45,7 +45,6 @@
             <button class="btn btn-default" type="submit">Update Profile</button><a href="{{{action('UsersController@account', $user->id)}}}" class="btn btn-default" role="button">Update Password</a>
 
             {{ Form::close() }}
-
         </div>
     </div>
 </div>
