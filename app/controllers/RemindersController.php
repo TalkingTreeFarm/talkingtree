@@ -22,7 +22,7 @@ class RemindersController extends Controller {
 		switch ($response = Password::remind(Input::only('email')))
 		{
 			case Password::INVALID_USER:
-				Session::flash('errorMessage', 'Issue!!!!!!');
+				Session::flash('errorMessage', 'This email is not associated to a registered User!');
 				return Redirect::back()->with('error', Lang::get($response));
 
 			case Password::REMINDER_SENT:
