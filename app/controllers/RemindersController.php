@@ -26,7 +26,7 @@ class RemindersController extends Controller {
 				return Redirect::back()->with('error', Lang::get($response));
 
 			case Password::REMINDER_SENT:
-			Session::flash('errorMessage', 'Issue 2!!');
+			Session::flash('successMessage', 'A link was send to your email with instructions to change your password');
 				return Redirect::back()->with('status', Lang::get($response));
 		}
 	}
