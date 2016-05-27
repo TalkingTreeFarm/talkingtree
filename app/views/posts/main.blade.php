@@ -7,9 +7,8 @@
 @stop
 
 @section('content')
-<div class"container">
+
   <div class="container">
-    <div align="center"class="row">
       <div class="col-xs-6 col-sm-4">
         <div class="dropdown">
           <button class="btn btn-primary btn-xs outline dropdown-toggle" color="purple" type="button" data-toggle="dropdown">Categories
@@ -30,35 +29,36 @@
         <a href="{{{action('PostsController@create')}}}" class="btn btn-primary btn-xs outline" role="button">Add Posts</a>
         @endif
       </div>
-    </div>
   </div>
   <hr>
-  <div class"container text-center">  
-    <div class="row text-center">
+  {{-- <div class="row text-center"> --}}
     <div class="col-sm-12 well"> 
-      @foreach ($posts as $post)
-        <div class="col-xs-6 col-sm-4">
+      <div class="row">  
+        @foreach ($posts as $post)
+          {{-- <div class="col-xs-6 col-sm-4"> --}}
+        <div class="col-md-4">  
           <div class="grid-block-container">
             <div class="grid-block slide">
-              <div align="center" class="caption">
-                <a class="caption-link" href="{{{ action('PostsController@show', $post->id) }}}">
-                {{{$post->title}}}</a>
-              </div>
-              <img src="{{{$post->image}}}" class="img-responsive images"> 
+                <div align="center" class="caption">
+                  <a class="caption-link" href="{{{ action('PostsController@show', $post->id) }}}">
+                  {{{$post->title}}}</a>
+                </div>
+                <img src="{{{$post->image}}}" class="img-rounded center-block images"> 
             </div>
           </div>
-         </div> 
-        @endforeach
+        </div>
+           {{-- </div>  --}}
+          @endforeach
+        </div> 
     </div>        
-    </div>
-  </div>
+  {{-- </div> --}}
   <hr>
   <div align="center" class"container">
     <nav id="Page">
       <ul class="paginate">{{$posts->links()}}</ul>
     </nav>
   </div>
-</div>
+
 
 @stop
 
