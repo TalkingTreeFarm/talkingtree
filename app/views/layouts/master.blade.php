@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script>document.cookie='resolution='+Math.max(screen.width,screen.height)+'; path=/';</script>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/sandstone/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/fonts.css">
 	<link rel="shortcut icon" type="favicon" href="/Talking_Tree.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Talking Tree Farm</title>
 	@yield('top-script')
 

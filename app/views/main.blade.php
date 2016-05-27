@@ -22,7 +22,7 @@
                     @foreach ($posts as $post)
                     <div class="col-md-4">
                     <a href="{{{ action('PostsController@show', $post->id) }}}">
-                        <img class=" img-circle center-block" src="{{{$post->image}}}" width="300" height="300">
+                        <img class="img-circle center-block images" src="{{{$post->image}}}" >
                     </a>
                     <h3 class="text-center">{{{$post->title}}}</h3>
                     </div> 

@@ -13,7 +13,7 @@
 <hr>
 	<div class="col-xs-12 well">
 		<div class="col-xs-4">
-			<img src="{{{$post->image}}}" alt="" width="300" height="300">
+			<img src="{{{$post->image}}}" class="responsive images" alt="">
 		</div>
 	<hr>
 	<h1 id="show">{{{$post->title}}}</h1>
