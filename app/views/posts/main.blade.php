@@ -44,7 +44,7 @@
                 <a class="caption-link" href="{{{ action('PostsController@show', $post->id) }}}">
                 {{{$post->title}}}</a>
               </div>
-              <img src="{{{$post->image}}}" class="img-rounded" alt="" width="300" height="300"> 
+              <img src="{{{$post->image}}}" class="img-responsive images"> 
             </div>
           </div>
          </div> 
