@@ -1,17 +1,17 @@
 
-/* google calendar iframe */
-.view-cap, .view-container-border {
-    background-color: #000000;
-}
-
-/* google maps */
-
 #map-canvas {
         width: 500px;
         height: 500px;
         color: #000000;
-        border-left: 10px;
+        margin: 0 auto;
+  		display: block;
     }
 
+/*.facebook-canvas
+ {
+ 	margin: 0 auto;
+  	display: block; 
+  }
+*/
 
 
