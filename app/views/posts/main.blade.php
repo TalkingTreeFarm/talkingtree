@@ -31,27 +31,19 @@
       </div>
   </div>
   <hr>
-  {{-- <div class="row text-center"> --}}
-    <div class="col-sm-12 well"> 
-      <div class="row">  
+      <div class="row well">  
         @foreach ($posts as $post)
-          {{-- <div class="col-xs-6 col-sm-4"> --}}
-        <div class="col-md-4">  
-          <div class="grid-block-container">
-            <div class="grid-block slide">
-                <div align="center" class="caption">
-                  <a class="caption-link" href="{{{ action('PostsController@show', $post->id) }}}">
-                  {{{$post->title}}}</a>
-                </div>
-                <img src="{{{$post->image}}}" class="img-rounded center-block images"> 
+        <div class="col-md-4 grid-block-container">
+          <div class="grid-block slide">
+            <div class="caption" align="center">
+              <a class="caption-link" href="{{{ action('PostsController@show', $post->id) }}}">
+              {{{$post->title}}}</a>
             </div>
+              <img src="{{{$post->image}}}" class="img-rounded center-block images">
           </div>
         </div>
-           {{-- </div>  --}}
-          @endforeach
-        </div> 
-    </div>        
-  {{-- </div> --}}
+        @endforeach
+      </div> 
   <hr>
   <div align="center" class"container">
     <nav id="Page">
