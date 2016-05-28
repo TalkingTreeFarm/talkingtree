@@ -10,29 +10,39 @@ body {
     font-variant: small-caps;
 }
 
-.navbar-nav {
+.brand {
+  color: white;
+}
+
+.navbar-nav ul {
   width: 100%;
   text-align: center;
 }
-.navbar-nav > li {
+/*.navbar-nav > li {
   float: none;
   display: inline-block;
+  vertical-align: top;
+
+}*/
+
+@media (min-width: 768px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
 }
 
+/*.navbar .navbar-collapse {
+  text-align: center;
+}
+*/
 .navbar-nav > li > a {
   padding-bottom: 0px;
-}
-
-#logo {
-  padding-bottom: 0px;
-  padding-top: 30px;
-  margin-bottom: -45px;
-  height: 300px;
-  min-height: 100px;
-}
-
-.hide {
-  display: none;
 }
 
 .nav>li>a:hover, .nav>li>a:focus {
@@ -42,11 +52,6 @@ body {
 .well {
   color: #000000;
 }
-
-/*.mainimage {
-  height: 250px;
-  width: auto;
-}*/
 
 .table-striped > tbody > tr:nth-of-type(even) {
     background-color: #D2D2D2;
@@ -100,57 +105,37 @@ body {
     margin-top: 20px;
 }
 
-/*Hides logo from nav*/
-.hidden {
-    visibility: hidden;
-}
 
   .images {
    width: 300px;
    height: 300px;
   }
 
-@media (max-width: 991px) {
+@media (min-width: 992px) {
 
   #logo {
-    display: none;
-  }
-
-  .hide {
-    display:block!important;
-  }
-
-}
-/*
-@media (min-width: 992px) and (max-width: 1199px) {
-
-  .images {
-   width: auto;
-   height: 250px;
-  }
-
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-
-  .images {
-   width: auto;
-   height: 200px;
+    padding-bottom: 0px;
+    padding-top: 30px;
+    margin-bottom: -45px;
+    height: 300px;
+    width: auto;
   }
 }
 
-@media (max-width: 767px) {
+/*@media (min-width: 800px) and (max-width: 991px) {
 
-  .images {
-   width: auto;
-   height: 150px;
-  }
+  #logo {
+    padding-bottom: 0px;
+    padding-top: 30px;
+    margin-bottom: -20px;
+    height: 100px;
+    width: auto;
+  }*/
+
 }
 
-@media (max-width: 415px) {
-
-  .images {
-   width: auto;
-   height: 50px;
-  }
-}*/
+@media (max-width: 799px) {
+#logo {
+  display: none;
+}
+}
