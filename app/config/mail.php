@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'gastonlenotre@gmail.com', 'name' => null),
+	'from' => array('address' => 'talkingtreefarm@yahoo.com', 'name' => null),
 
 	/*
 	|--------------------------------------------------------------------------
