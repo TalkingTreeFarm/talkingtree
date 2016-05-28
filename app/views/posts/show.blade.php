@@ -11,17 +11,21 @@
 
 <div class="container">
 <hr>
-	<div class="col-xs-12 well">
-		<div class="col-xs-4">
-			<img src="{{{$post->image}}}" class="responsive images" alt="">
+	<div class="row well">
+		<div class="col-sm-4">
+			<img src="{{{$post->image}}}" class="images" alt="">
 		</div>
 	<hr>
-	<h1 id="show">{{{$post->title}}}</h1>
-		<div class="col-xs-12 well">
+		<div class="col-sm-4 hidden-xs"></div>
+		<div class="col-sm-4">
+			<h3 id="show">{{{$post->title}}}</h3><br>
+			<span class="meta">Posted by {{{$post->user->first_name . " " . $post->user->last_name}}}</span>
+			<span class="meta">{{{$post->updated_at->diffForHumans()}}}</span>
+		</div>	
+		<div class="col-sm-12 well">
 			<p>{{$post->htmlBody()}}</p>
 		</div>
-		<span class="meta">Posted by {{{$post->user->first_name . " " . $post->user->last_name}}}</span>
-		<span class="meta">{{{$post->updated_at->diffForHumans()}}}</span>
+		
 	</div>
 </div>
 

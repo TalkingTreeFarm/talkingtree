@@ -3,7 +3,7 @@
   <div class="footer-copyright">
     <div class="container">
     	<div id="footer">
-      © 2016 Talking Tree Farm
+      © 2016 <strong>Talking Tree Farm</strong>
       <br>
 		San Antonio TX, 78109 | Like us on <a href="https://www.facebook.com/Talkingtreefarmpermaculture/"><i class="fa fa-facebook-official" aria-hidden="true"></i></a> | 210-355-7447 
       <br>

@@ -1,4 +1,4 @@
-@extends('layouts.calendarm')
+@extends('layouts.master')
 
 @section('title')
   <link rel="stylesheet" type="text/css" href="/assets/css/pages/events.css">
