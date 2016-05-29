@@ -2,7 +2,7 @@
 
   #logo {
     padding-bottom: 0px;
-    padding-top: 0px;
+    padding-top: 20px;
     margin-bottom: -45px;
     height: 300px;
   }
@@ -25,14 +25,26 @@
     }
 }
 
+  /*.navbar-inner {
+    height: 20px;
+}*/
+
+/*#bs-navbar-collapse {
+    position: relative;
+}
+
+#bs-navbar-collapse .nav {
+    position: absolute; 
+    bottom: 0; 
+    right: 0;
+    margin-bottom: -10px;
+}*/
+
 .navbar-default {
   background-color: transparent;
   border-color: transparent;
 }
 
-.navbar-nav {
-  display: inline-block;
-}
 .navbar-nav > li > a {
   padding-bottom: 0px;
 }

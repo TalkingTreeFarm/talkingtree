@@ -70,20 +70,3 @@ body {
    width: 300px;
    height: 300px;
   }
-
-@media (min-width: 992px) {
-
-  #logo {
-    padding-bottom: 0px;
-    padding-top: 20px;
-    margin-bottom: -45px;
-    height: 300px;
-    width: auto;
-  }
-}
-
-@media (max-width: 799px) {
-#logo {
-  display: none;
-}
-}
