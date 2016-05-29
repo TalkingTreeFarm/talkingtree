@@ -1,14 +1,22 @@
 <div class="container">
-    <nav class="navbar">
+    <nav class="navbar navbar-default" role="navigation">
         <div class="navbar-inner">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse">
             <ul class="nav navbar-nav">
+                <li><a href="/" class="visible-xs visible-sm">Home</a></li>
                 <li><a href="{{{ action('HomeController@ourStory') }}}">Our Story</a></li>
                 <li><a href="{{{action('PostsController@index')}}}">Education</a></li>
                 <li><a href="/events">Events</a></li>
-                <li><a href="/"><img src="/images/logo-navbar.svg" id = "logo" class="img-responsive logo" alt="Talking Tree Farm" ><span class="hide"><img src="/images/logo-navbar-small.png"</img></span></a><li>
+                <li class="hidden-xs hidden-sm"><a href="/"><img src="/images/logo-navbar.svg" id = "logo" class="img-responsive" alt="Talking Tree Farm" ></a><li>
                 <li><a href="{{{action('ProductsController@index')}}}">Order a Basket</a></li>
                 <li><a href="{{{action('HomeController@contact')}}}">Contact</a></li>
-                <li>
                 @if (Auth::check()&& Auth::user()->isAdmin())
                     <a id="drop" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{{ Auth::user()->first_name . '\'s Profile' }}}<span class="caret"></span></a>
                     <ul id="menu" class="dropdown-menu" aria-labelledby="drop">
@@ -30,6 +38,6 @@
                 @endif
                 </li>
             </ul>
-        </div><!-- /.navbar inner -->
+        </div>
     </nav>
 </div>
