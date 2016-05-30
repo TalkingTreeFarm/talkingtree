@@ -49,7 +49,7 @@ class UsersController extends \BaseController
         Mail::send('emails.contact', $data, function($message) use ($data)
         {
             $message->from($data['email'], $data['from']);
-            $message->to('gastonlenotre@gmail.com', 'Talking Tree')->subject($data['subject']);
+            $message->to('talkingtree@yahoo.com', 'Talking Tree')->subject($data['subject']);
         });
         Session::flash('successMessage', 'Your email is sent');
         return Redirect::action('HomeController@homePage');

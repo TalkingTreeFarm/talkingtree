@@ -30,7 +30,7 @@
                         <li class="summary-item">
                             <span class="item-desc">Delivery Method:</span>
                             <span id="delivery-method" class="item-amount">{{{ $order->delivery_method->method }}}</span><br>
-                            <span id="delivery-disclaimer" class="item-disclaimer text-hide">*This delivery method requires Paypal</span>
+                            <span id="delivery-disclaimer" class="item-disclaimer text-hide">*This delivery method requires Stripe payment</span>
                             @if($address == 1 && $order->user->address == null)
                                 <br><span id="address-disclaimer" class="item-disclaimer" data-required="true">*This delivery method requires an address on file</span>
                             @endif

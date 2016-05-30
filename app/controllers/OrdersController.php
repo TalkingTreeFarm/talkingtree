@@ -201,7 +201,14 @@ class OrdersController extends \BaseController
             $order->save();
 
             Session::flash('successMessage', "Order placed successfully!");
+
+            Mail::send('emails.contact', $data, function($message) use ($data)
+            // {
+            //     $message->from($data['email'], $data['from']);
+            //     $message->to('talkingtree@yahoo.com', 'Talking Tree')->subject($data['subject']);
+            // });
             return Redirect::action('OrdersController@index');
+
         }
         else if(!$order->isVerified())
         {
@@ -210,7 +217,7 @@ class OrdersController extends \BaseController
         }
         else if(!$passed)
         {
-            Session::flash('errorMessage', "Not enough inventory to fill your order");
+            Session::flash('errorMessage', "Your order cannot be processed. Please contact us directly");
             return Redirect::action('ProductsController@index');
         }
     }

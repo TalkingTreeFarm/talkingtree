@@ -25,20 +25,9 @@
     }
 }
 
-  /*.navbar-inner {
+  .navbar-inner {
     height: 20px;
-}*/
-
-/*#bs-navbar-collapse {
-    position: relative;
 }
-
-#bs-navbar-collapse .nav {
-    position: absolute; 
-    bottom: 0; 
-    right: 0;
-    margin-bottom: -10px;
-}*/
 
 .navbar-default {
   background-color: transparent;
@@ -47,6 +36,7 @@
 
 .navbar-nav > li > a {
   padding-bottom: 0px;
+  padding-top: 0px;
 }
 
 .nav>li>a:hover, .nav>li>a:focus {
@@ -56,7 +46,7 @@
 .navbar-default {
   background-color: transparent;
   border-color: transparent;
-  /*padding-bottom: 0px;*/
+  padding-bottom: 0px;
 }
 .navbar-default .navbar-brand {
   color: #93c54b;
@@ -123,3 +113,4 @@
     background-color: transparent;
   }
 }
+
