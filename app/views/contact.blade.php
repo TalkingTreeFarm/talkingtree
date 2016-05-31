@@ -10,7 +10,7 @@
     <div class="container">  
         <div class="row">
             <div class="col-md-6 col-md-offset-4">                         
-                <h3>Have a question? Let us know</h2>
+                <h2>Have a question? Let us know</h2>
                   {{ Form::open(array('action' => 'UsersController@getContact')) }}
                 <div class="form-group">
                    {{Form::label('from', 'Your name')}}

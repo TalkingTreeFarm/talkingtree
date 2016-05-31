@@ -145,6 +145,12 @@ class OrdersController extends \BaseController
 		//
 	}
 
+
+    public function findOrderId()
+      {var_dump(Session::get('order_id'));
+        $order = Order::find(Session::get('order_id'));dd($order);
+        return $order;
+      }
     /**
 	 * Confirms the order against inventory
 	 * Confirms the payment method against delivery method
@@ -201,6 +207,22 @@ class OrdersController extends \BaseController
             $order->save();
 
             Session::flash('successMessage', "Order placed successfully!");
+            
+            //$order = $this->findOrderId();
+            $data = [
+                'email' => Auth::user()->email,
+                'first' => Auth::user()->first_name,
+                'last' => Auth::user()->last_name,
+                'order' => $order,
+            ];
+            
+            //$email = Auth::user()->email;
+
+            Mail::send('emails.confirmation', $data, function($message) use ($data)
+            {
+                $message->from($data['email'], $data['first'], $data['last']);
+                $message->to('gastonlenotre@gmail.com', 'Talking Tree Farm');
+            });
             return Redirect::action('OrdersController@index');
         }
         else if(!$order->isVerified())
@@ -210,8 +232,10 @@ class OrdersController extends \BaseController
         }
         else if(!$passed)
         {
-            Session::flash('errorMessage', "Not enough inventory to fill your order");
+            Session::flash('errorMessage', "Your order cannot be processed. Please contact us directly");
             return Redirect::action('ProductsController@index');
         }
+
     }
+
 }

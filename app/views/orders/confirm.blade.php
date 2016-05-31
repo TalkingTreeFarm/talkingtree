@@ -30,7 +30,7 @@
                         <li class="summary-item">
                             <span class="item-desc">Delivery Method:</span>
                             <span id="delivery-method" class="item-amount">{{{ $order->delivery_method->method }}}</span><br>
-                            <span id="delivery-disclaimer" class="item-disclaimer text-hide">*This delivery method requires Paypal</span>
+                            <span id="delivery-disclaimer" class="item-disclaimer text-hide">*This delivery method requires Stripe payment</span>
                             @if($address == 1 && $order->user->address == null)
                                 <br><span id="address-disclaimer" class="item-disclaimer" data-required="true">*This delivery method requires an address on file</span>
                             @endif
@@ -117,7 +117,7 @@
     <script type="text/javascript" src="https://checkout.stripe.com/checkout.js"></script>
     <script>
         var handler = StripeCheckout.configure({
-            key: "pk_test_LXzhKUj7LLAuNzcCttabDVxt",
+            key: "pk_test_P50fXXaq33lvGwYL3cYHlACr",
             image: '/images/logo-profile.svg',
             locale: 'auto',
             token: function(token) {

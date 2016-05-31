@@ -1,10 +1,17 @@
 @media (min-width: 992px) {
 
+.lower {
+  position: relative;
+  top: 230px;
+}
+
   #logo {
     padding-bottom: 0px;
-    padding-top: 0px;
+    padding-top: 20px;
     margin-bottom: -45px;
     height: 300px;
+    position: relative;
+    top: -220px;
   }
 }
 
@@ -12,6 +19,10 @@
 #logo {
   display: none;
 }
+}
+
+style {
+
 }
 
 @media (min-width: 768px) {
@@ -25,16 +36,18 @@
     }
 }
 
+  .navbar-inner {
+    height: 20px;
+}
+
 .navbar-default {
   background-color: transparent;
   border-color: transparent;
 }
 
-.navbar-nav {
-  display: inline-block;
-}
 .navbar-nav > li > a {
   padding-bottom: 0px;
+  padding-top: 0px;
 }
 
 .nav>li>a:hover, .nav>li>a:focus {
@@ -44,7 +57,7 @@
 .navbar-default {
   background-color: transparent;
   border-color: transparent;
-  /*padding-bottom: 0px;*/
+  padding-bottom: 0px;
 }
 .navbar-default .navbar-brand {
   color: #93c54b;
@@ -111,3 +124,4 @@
     background-color: transparent;
   }
 }
+

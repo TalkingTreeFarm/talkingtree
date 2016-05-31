@@ -2,4 +2,4 @@
 
 Subject: {{{$subject}}}
 
-{{-- Body: {{{$body}}} --}}
+Body: {{{$body}}}
