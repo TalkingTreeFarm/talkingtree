@@ -201,12 +201,6 @@ class OrdersController extends \BaseController
             $order->save();
 
             Session::flash('successMessage', "Order placed successfully!");
-
-            Mail::send('emails.contact', $data, function($message) use ($data)
-            // {
-            //     $message->from($data['email'], $data['from']);
-            //     $message->to('talkingtree@yahoo.com', 'Talking Tree')->subject($data['subject']);
-            // });
             return Redirect::action('OrdersController@index');
 
         }
@@ -220,5 +214,21 @@ class OrdersController extends \BaseController
             Session::flash('errorMessage', "Your order cannot be processed. Please contact us directly");
             return Redirect::action('ProductsController@index');
         }
+    }
+
+    public function confirmToOwner() {
+
+        $data = [
+            'from'=>$from,
+            'email'=>$email,
+            'subject'=>$subject,
+            'body'=>$body
+        ];
+
+            Mail::send('emails.confirmation', $data, function($message) use ($data)
+            {
+                $message->from($data['email'], $data['from']);
+                $message->to('talkingtree@yahoo.com', 'Talking Tree Farm');
+            });
     }
 }

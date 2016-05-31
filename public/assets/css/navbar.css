@@ -1,10 +1,17 @@
 @media (min-width: 992px) {
 
+.lower {
+  position: relative;
+  top: 230px;
+}
+
   #logo {
     padding-bottom: 0px;
     padding-top: 20px;
     margin-bottom: -45px;
     height: 300px;
+    position: relative;
+    top: -220px;
   }
 }
 
@@ -12,6 +19,10 @@
 #logo {
   display: none;
 }
+}
+
+style {
+
 }
 
 @media (min-width: 768px) {
