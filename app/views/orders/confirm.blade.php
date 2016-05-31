@@ -117,7 +117,7 @@
     <script type="text/javascript" src="https://checkout.stripe.com/checkout.js"></script>
     <script>
         var handler = StripeCheckout.configure({
-            key: "pk_test_LXzhKUj7LLAuNzcCttabDVxt",
+            key: "pk_test_P50fXXaq33lvGwYL3cYHlACr",
             image: '/images/logo-profile.svg',
             locale: 'auto',
             token: function(token) {
