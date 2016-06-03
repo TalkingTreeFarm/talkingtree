@@ -15,8 +15,8 @@ return array(
 	*/
 
 	'mailgun' => array(
-		'domain' => 'sandbox62880016c979450c896ac788fa71fea6.mailgun.org',
-		'secret' => 'key-93a4c92e915c2d9afb4f205f9c255a7c',
+		'domain' => 'talkingtreefarm.com',
+		'secret' => $_ENV['MAILGUN_SECRET'],
 	),
 
 	'mandrill' => array(
