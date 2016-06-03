@@ -142,7 +142,7 @@ class OrdersController extends \BaseController
 	 */
 	public function destroy($id)
 	{
-		//
+		
 	}
 
 
@@ -221,7 +221,7 @@ class OrdersController extends \BaseController
             Mail::send('emails.confirmation', $data, function($message) use ($data)
             {
                 $message->from($data['email'], $data['first'], $data['last']);
-                $message->to('gastonlenotre@gmail.com', 'Talking Tree Farm');
+                $message->to('talkingtreefarm@yahoo.com', 'Talking Tree Farm');
             });
             return Redirect::action('OrdersController@index');
         }
