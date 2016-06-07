@@ -34,25 +34,34 @@ class UsersController extends \BaseController
 
     public function getContact()
     {
-        $from = Input::get('from');
-        $email = Input::get('email');
-        $subject = Input::get('subject');
-        $body = Input::get('body');
+        $validator = Validator::make(Input::all(), User::$contactrules);
 
-        $data = [
-            'from'=>$from,
-            'email'=>$email,
-            'subject'=>$subject,
-            'body'=>$body
-        ];
+        if ($validator->fails()) {
 
-        Mail::send('emails.contact', $data, function($message) use ($data)
-        {
-            $message->from($data['email'], $data['from']);
-            $message->to('talkingtreefarm@yahoo.com', 'Talking Tree')->subject($data['subject']);
-        });
-        Session::flash('successMessage', 'Your email is sent');
-        return Redirect::action('HomeController@homePage');
+            Session::flash('errorMessage', 'Your contact information was not sent!!');
+            return Redirect::back()->withInput()->withErrors($validator);
+        } else {
+
+            $from = Input::get('from');
+            $email = Input::get('email');
+            $subject = Input::get('subject');
+            $body = Input::get('body');
+
+            $data = [
+                'from'=>$from,
+                'email'=>$email,
+                'subject'=>$subject,
+                'body'=>$body
+            ];
+
+            Mail::send('emails.contact', $data, function($message) use ($data)
+            {
+                $message->from($data['email'], $data['from']);
+                $message->to('talkingtreefarm@yahoo.com', 'Talking Tree')->subject($data['subject']);
+            });
+            Session::flash('successMessage', 'Your email is sent');
+            return Redirect::action('HomeController@homePage');
+            }
     }
 
 
