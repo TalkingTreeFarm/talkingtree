@@ -45,6 +45,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface, Billa
         'password_confirmation' => 'required|min:6'
     );
 
+    public static $contactrules = array(
+
+        'from' => 'required|regex:/^[(a-zA-Z\s)]+$/u|min:3|max:32',
+        'email' => 'required|email|unique:users',
+        'subject' => 'required|min:3',
+        'body' => 'required|min:9'
+
+
+    );
+
     public static $passwordchange = array(
 
 
