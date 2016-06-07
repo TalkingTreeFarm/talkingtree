@@ -38,7 +38,7 @@ class UsersController extends \BaseController
 
         if ($validator->fails()) {
 
-            Session::flash('errorMessage', 'Your contact information was not sent!!');
+            Session::flash('errorMessage', 'Your contact information was not sent!');
             return Redirect::back()->withInput()->withErrors($validator);
         } else {
 
@@ -138,7 +138,7 @@ class UsersController extends \BaseController
         if ($validator->fails()) {
 
 
-            Session::flash('errorMessage', 'Password could not be updated!!');
+            Session::flash('errorMessage', 'Password could not be updated!');
 
 
             return Redirect::back()->withInput()->withErrors($validator);
@@ -155,7 +155,7 @@ class UsersController extends \BaseController
              return Redirect::action('UsersController@userProfile', $user->id);
            } else {
 
-            Session::flash('errorMessage', 'Password could not be updated for real!!');
+            Session::flash('errorMessage', 'Password could not be updated!');
 
             return Redirect::action('UsersController@account', $user->id);
 
@@ -187,7 +187,7 @@ class UsersController extends \BaseController
 
         if ($validator->fails()) {
 
-            Session::flash('errorMessage', 'User could not be created!!');
+            Session::flash('errorMessage', 'User could not be created!');
             return Redirect::back()->withInput()->withErrors($validator);
         } else {
 
