@@ -60,7 +60,7 @@ class PostsController extends \BaseController {
 
 
 	    if ($validator->fails()) {
-	        Session::flash('errorMessage', 'This post was not created successfully!!');
+	        Session::flash('errorMessage', 'This post was not created successfully!');
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
 
@@ -82,7 +82,7 @@ class PostsController extends \BaseController {
 		$post->user_id = Auth::id();
 		$post->save();
 		Log::info($post);
-		Session::flash('successMessage', 'This post was created successfully!!');
+		Session::flash('successMessage', 'This post was created successfully!');
 		return Redirect::action('PostsController@index');
 	    }
 	}
@@ -132,7 +132,7 @@ class PostsController extends \BaseController {
 		$validator = Validator::make(Input::all(), Post::$rules);
 		if ($validator->fails()) {
 
-			Session::flash('errorMessage', 'This post was not edited successfully!!');
+			Session::flash('errorMessage', 'This post was not edited successfully!');
 	        return Redirect::back()->withInput()->withErrors($validator);
 		} else {
 		
@@ -151,7 +151,7 @@ class PostsController extends \BaseController {
 		$post->body=Input::get('body');
 		$post->category_id=Input::get('category_id');
 		$post->save();
-		Session::flash('successMessage', 'This post was updated successfully!!');
+		Session::flash('successMessage', 'This post was updated successfully!');
 		return Redirect::action('PostsController@index');
 		}
 	}
@@ -173,7 +173,7 @@ class PostsController extends \BaseController {
 		}
 
 		$post->delete();
-		Session::flash('successMessage', 'This post was deleted successfully!!');
+		Session::flash('successMessage', 'This post was deleted successfully!');
 		return Redirect::action('PostsController@index');
 	}
 
