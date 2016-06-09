@@ -29,12 +29,14 @@
                     </ul>
                 </li>
                 @elseif (Auth::check())
+                <li class="dropdown collapse">
                     <a id="drop" href="#" class="dropdown-toggle" data-toggle="dropdown" role="menu" aria-haspopup="true" aria-expanded="false">{{{ Auth::user()->first_name . '\'s Profile' }}}<span class="caret"></span></a>
                     <ul id="menu" class="dropdown-menu dropdown-menu-right" aria-labelledby="drop">
                         <li><a href="{{{ action('OrdersController@index', Auth::user()->id) }}}"><i class="fa fa-shopping-cart"></i>&nbsp;My Orders</a></li>
                         <li><a href="{{{ action('UsersController@userProfile', Auth::user()->id) }}}"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;My Profile</a></li>
                         <li><a href="{{{ action('UsersController@getLogout', Auth::user()->id) }}}"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout</a></li>
                     </ul>
+                </li>
                 @else
                     <li><a href="{{{ action('UsersController@doLogin') }}}"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</span></a></li>
                 @endif
