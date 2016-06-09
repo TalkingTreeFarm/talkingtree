@@ -1,4 +1,4 @@
-@extends('layouts.master')
+{{-- @extends('layouts.master')
 
 @section('title')
     <h1>{{{$user->first_name}}}'s Profile Page</h1>
@@ -103,3 +103,4 @@
 @section('bottom-script')
 
 @stop
+ --}}

@@ -74,7 +74,7 @@ class UsersController extends \BaseController
         if(Auth::user()->isAdmin())
         {
             $orders = Order::where('user_id', $user->id)->get();
-            return View::make('user.info')->with(['user' => $user, 'orders' => $orders]);
+            return View::make('user.profile')->with(['user' => $user, 'orders' => $orders]);
         }
 
         return View::make('user.profile')->with(['user' => $user, 'orders' => $orders]);
