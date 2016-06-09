@@ -7,16 +7,24 @@ class CategoriesTableSeeder extends Seeder
         {
             
             
-            $product = new Category();
-            $product->name = 'composting';
-            $product->save();
+            $category = new Category();
+            $category->name = 'Earthworks';
+            $category->save();
 
-            $product = new Category();
-            $product->name = 'general farming';
-            $product->save();
+            $category = new Category();
+            $category->name = 'Animals';
+            $category->save();
 
-            $product = new Category();
-            $product->name = 'experiments';
-            $product->save();
+            $category = new Category();
+            $category->name = 'Composting';
+            $category->save();
+
+            $category = new Category();
+            $category->name = 'Appropriate Technology';
+            $category->save();
+
+            $category = new Category();
+            $category->name = 'Other';
+            $category->save();
         }
 }

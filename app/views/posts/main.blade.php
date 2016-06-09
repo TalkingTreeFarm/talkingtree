@@ -14,9 +14,11 @@
           <button class="btn btn-primary btn-xs outline dropdown-toggle" color="purple" type="button" data-toggle="dropdown">Categories
           <span class="caret"></span></button>
             <ul class="dropdown-menu dropdown-menu-left">
-              <li><a href="{{{ action('PostsController@index') }}}?category_id=1">Composting</a></li>
-              <li><a href="{{{ action('PostsController@index') }}}?category_id=2">General Farming</a></li>
-              <li><a href="{{{ action('PostsController@index') }}}?category_id=3">Experiments</a></li>
+              <li><a href="{{{ action('PostsController@index') }}}?category_id=1">Earthworks</a></li>
+              <li><a href="{{{ action('PostsController@index') }}}?category_id=2">Animals</a></li>
+              <li><a href="{{{ action('PostsController@index') }}}?category_id=3">Composting</a></li>
+              <li><a href="{{{ action('PostsController@index') }}}?category_id=4">Appropriate Technology</a></li>
+              <li><a href="{{{ action('PostsController@index') }}}?category_id=5">Other</a></li>
               <li><a href="{{{ action('PostsController@index') }}}">All</a></li>
             </ul>
         </div>
