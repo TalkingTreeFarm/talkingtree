@@ -68,8 +68,8 @@ class PostTableSeeder extends Seeder
         $post->user_id = User::all()->random()->id;
         $post->category_id = Category::all()->random()->id;
         $post->save();
+        
         $post = new Post();
-
         $post->title = "Chicks are hatching! YEAH!!";
         $post->body = "**Lorem ipsum dolor sit amet, consectetur adipiscing elit**. 
 
