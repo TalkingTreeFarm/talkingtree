@@ -10,10 +10,10 @@
 	<div id="map-canvas"></div>
 </div>
 
-<div class= "col-xs-12">
+{{-- <div class= "col-xs-12">
 	<div id="map-canvas"><iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTalkingtreefarmpermaculture%2F&tabs=timeline%2C%20timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&hide_cta=true&show_facepile=false&appId" width="500" height="700" style="border:none" scrolling="no" frameborder="0" allowTransparency="true"></iframe></div>
 </div>
-
+ --}}
 @stop
 
 @section('bottom-script')

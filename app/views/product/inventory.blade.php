@@ -7,45 +7,43 @@
 @section('content')
     <div class="container">
 
-        <div class="row">
-            <div class="col-sm-4">
-                <h3>Inventory Overview</h3>
-            </div>
-            <div class="col-sm-4">
-                <h3>Change Current Inventory</h3>
-            </div>
-            <div class="col-sm-4">
-                <h3>Set Prices</h3>
-            </div>
+        {{-- <div class="row">
+            
         </div>
-
+ --}}
         <div class="row">
             <!-- Inventory Overview -->
-            <div id="inventory-overview" class="col-md-3">
-                <div class="well">
-                    <ul class="order-summary">
-                        @foreach($products as $product)
-                            @if($product->name != "No Basket")
-                                <li class="summary-item">
-                                    <span class="item-desc">{{{ $product->name }}}:</span>
+            <div class="col-sm-4">
+                <h3>Inventory Overview</h3>
+                <div id="inventory-overview" class="col-md-3">
+                    <div class="well">
+                        <ul class="order-summary">
+                            @foreach($products as $product)
+                                @if($product->name != "No Basket")
+                                    <li class="summary-item">
+                                        <span class="item-desc">{{{ $product->name }}}:</span>
 
-                                    @if($product->name == "Eggs")
-                                        <span class="item-amount">{{{ $product->amount }}} dozen</span>
-                                    @else
-                                        <span class="item-amount">{{{ $product->amount }}}</span>
-                                    @endif
+                                        @if($product->name == "Eggs")
+                                            <span class="item-amount">{{{ $product->amount }}} dozen</span>
+                                        @else
+                                            <span class="item-amount">{{{ $product->amount }}}</span>
+                                        @endif
 
-                                </li>
-                                <li class="item-price"> ${{{ $product->price }}} ea.</li>
-                            @endif
-                        @endforeach
-                    </ul>
+                                    </li>
+                                    <li class="item-price"> ${{{ $product->price }}} ea.</li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+
+                    <button type="submit" name="update" form="update-inventory" class="col-md-12 btn btn-success">Update Inventory</button>
                 </div>
-
-                <button type="submit" name="update" form="update-inventory" class="col-md-12 btn btn-success">Update Inventory</button>
             </div>
 
             <!-- Change Current Inventory -->
+            <div class="col-sm-4">
+                <h3>Change Current Inventory</h3>
+            
             <form id="update-inventory" class="form-group" action="{{{ action('ProductsController@updateAll') }}}" method="post">
                 {{ Form::token() }}
 
@@ -73,8 +71,10 @@
                         @endif
                     @endforeach
                 </div>
-
+            </div>
             <!-- Set Prices -->
+            <div class="col-sm-4">
+                <h3>Set Prices</h3>
                 <div class="col-sm-3 col-sm-offset-1 product-form">
                     @foreach ($products as $product)
                         @if($product->name != "No Basket")
@@ -92,6 +92,7 @@
                         @endif
                     @endforeach
                 </div>
+            </div>
             </form>
         </div>
 
