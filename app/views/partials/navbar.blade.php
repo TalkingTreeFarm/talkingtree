@@ -41,6 +41,7 @@
                     <li><a href="{{{ action('UsersController@doLogin') }}}"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</span></a></li>
                 @endif
                 </li>
+                <a href="https://www.facebook.com/Talkingtreefarmpermaculture/"><i class="big-icon fa fa-facebook-official" aria-hidden="true"></i></a>
             </ul>
         </div>
     </nav>
