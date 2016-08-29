@@ -13,7 +13,7 @@
                 <li><a href="/" class="visible-xs visible-sm">Home</a></li>
                 <li><a href="{{{ action('HomeController@ourStory') }}}">Our Story</a></li>
                 <li><a href="{{{action('PostsController@index')}}}">Education</a></li>
-                <li><a href="/events">Events</a></li>
+                <li><a href="/events">Map/Events</a></li>
                 <li class="hidden-xs hidden-sm"><a href="/"><img src="/images/logo-navbar.svg" id = "logo" class="navbar-brand brand" alt="Talking Tree Farm" ></a><li>
                 <li><a href="{{{action('ProductsController@index')}}}">Order a Basket</a></li>
                 <li><a href="{{{action('HomeController@contact')}}}">Contact</a></li>
