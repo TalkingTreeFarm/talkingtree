@@ -16,8 +16,9 @@
 		setTimeout(function() {
 
 			var TalkingTree = {lat: 29.453410, lng: -98.296599};
-			var Villita = {lat: 29.421904, lng: -98.489198};
-			var Pius = {lat: 29.5059374, lng: -98.4377622};
+			var Pearl = {lat:29.442521, lng: -98.480480};
+			// var Villita = {lat: 29.421904, lng: -98.489198};
+			// var Pius = {lat: 29.5059374, lng: -98.4377622};
 
 			var contentTalkingTree = '<h5><b>Talking Tree Farm</b>: <a href="https://www.google.com/maps/dir//29.453410,++-98.296599/@29.4533033,-98.2988222,515m/data=!3m1!1e3!4m6!4m5!1m0!1m3!2m2!1d-98.296599!2d29.45341"  target="_blank">9611 Green Rd., Converse TX</a></h5>' + 
 			'<p>Learn permaculture gardening from Sylvain here.</p>' 
@@ -35,36 +36,52 @@
 				infoTalkingTree.open(map, markerTalkingTree);
 			});
 
-			var contentVillita = '<h5><b>La Villita</b>: <a href="https://www.google.com/maps/dir//418+Villita+Street,+San+Antonio,+TX/@29.4217536,-98.4935028,1031m/data=!3m2!1e3!4b1!4m8!4m7!1m0!1m5!1m1!1s0x865c58ab8652894f:0xfa19577e929192bf!2m2!1d-98.4891147!2d29.4217537" target="_blank">418 Villita St, San Antonio, TX 78205</a></h5>' +
-			'<p>Make your basket with us at the People\'s Nite Market.</p>'
+			var contentPearl = '<h5><b>Pearl</b>: <a href="https://www.google.com/maps/dir//109+Pearl+Parkway,+San+Antonio,+TX+78215/@29.4424687,-98.4842146,16z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x865cf5f6bca2bc97:0x641da8f46dc4d804!2m2!1d-98.4798265!2d29.4424688" target="_blank">109 Pearl Parkway, San Antonio, TX 78205</a></h5>' +
+			'<p>Meet us at the Pearl\'s Farmers Market on Sundays from 10am-2pm.</p>'
 			''
-			var infoVillita = new google.maps.InfoWindow({
-				content: contentVillita
+			var infoPearl = new google.maps.InfoWindow({
+				content: contentPearl
 			});
-			var markerVillita = new google.maps.Marker({
-				position: Villita,
+			var markerPearl = new google.maps.Marker({
+				position: Pearl,
 				map: map,
-				title: 'La Villita Nite Market',
+				title: 'Pearl Market',
 				animation: google.maps.Animation.DROP
 			});
-			markerVillita.addListener('click', function() {
-				infoVillita.open(map, markerVillita);
+			markerPearl.addListener('click', function() {
+				infoPearl.open(map, markerPearl);
 			});
 
-			var contentPius = '<h5><b>St. Pius X Catholic Church</b>: <a href="https://www.google.com/maps/dir//St+Pius+X+Catholic+Church,+San+Antonio,+TX/@29.505919,-98.5057815,16479m/data=!3m2!1e3!4b1!4m8!4m7!1m0!1m5!1m1!1s0x865cf4dbd936d911:0xa8eb753f7b563e14!2m2!1d-98.4355681!2d29.5059374" target="_blank">3907 Harry Wurzbach, San Antonio, TX 78209</a></h5>' +
-			'<p>Make your basket with us at St. Pius.</p>';
-			var infoPius = new google.maps.InfoWindow({
-				content: contentPius
-			});
-			var markerPius = new google.maps.Marker({
-				position: Pius,
-				map: map,
-				title: 'St. Pius X Catholic Church',
-				animation: google.maps.Animation.DROP
-			});
-			markerPius.addListener('click', function() {
-				infoPius.open(map, markerPius);
-			});
+			// var contentVillita = '<h5><b>La Villita</b>: <a href="https://www.google.com/maps/dir//418+Villita+Street,+San+Antonio,+TX/@29.4217536,-98.4935028,1031m/data=!3m2!1e3!4b1!4m8!4m7!1m0!1m5!1m1!1s0x865c58ab8652894f:0xfa19577e929192bf!2m2!1d-98.4891147!2d29.4217537" target="_blank">418 Villita St, San Antonio, TX 78205</a></h5>' +
+			// '<p>Make your basket with us at the People\'s Nite Market.</p>'
+			// ''
+			// var infoVillita = new google.maps.InfoWindow({
+			// 	content: contentVillita
+			// });
+			// var markerVillita = new google.maps.Marker({
+			// 	position: Villita,
+			// 	map: map,
+			// 	title: 'La Villita Nite Market',
+			// 	animation: google.maps.Animation.DROP
+			// });
+			// markerVillita.addListener('click', function() {
+			// 	infoVillita.open(map, markerVillita);
+			// });
+
+			// var contentPius = '<h5><b>St. Pius X Catholic Church</b>: <a href="https://www.google.com/maps/dir//St+Pius+X+Catholic+Church,+San+Antonio,+TX/@29.505919,-98.5057815,16479m/data=!3m2!1e3!4b1!4m8!4m7!1m0!1m5!1m1!1s0x865cf4dbd936d911:0xa8eb753f7b563e14!2m2!1d-98.4355681!2d29.5059374" target="_blank">3907 Harry Wurzbach, San Antonio, TX 78209</a></h5>' +
+			// '<p>Make your basket with us at St. Pius.</p>';
+			// var infoPius = new google.maps.InfoWindow({
+			// 	content: contentPius
+			// });
+			// var markerPius = new google.maps.Marker({
+			// 	position: Pius,
+			// 	map: map,
+			// 	title: 'St. Pius X Catholic Church',
+			// 	animation: google.maps.Animation.DROP
+			// });
+			// markerPius.addListener('click', function() {
+			// 	infoPius.open(map, markerPius);
+			// });
 		});
 	}
 
