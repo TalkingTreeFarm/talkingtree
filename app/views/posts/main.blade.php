@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="col-xs-6 col-sm-4 text-center">
-        <h3>Farm Life</h3>
+        <h3>Farm  Life</h3>
       </div>
       <div class="col-xs-6 col-sm-4">
         @if (Auth::check()&& Auth::user()->isAdmin())
